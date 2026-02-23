@@ -1,0 +1,20 @@
+# Build outputs
+build/
+out/
+bin/
+.gradle/
+!gradle/wrapper/
+
+# IDE (optional: remove .idea/ if you want to share IDE settings)
+.idea/workspace.xml
+.idea/shelf/
+
+# Node
+node_modules/
+
+# Reports
+**/reports/
+**/problems-report.html
+
+# Kotlin
+*.class
