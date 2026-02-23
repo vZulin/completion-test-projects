@@ -12,7 +12,7 @@
 
 ### Функциональность: Ручной вызов (Manual trigger)
 
-#### TC-1: Вызвать basic completion через Ctrl+Space
+#### [ ] TC-1: Вызвать basic completion через Ctrl+Space
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -55,7 +55,7 @@ fun main() {
 
 ---
 
-#### TC-2: Вызвать smart completion через Ctrl+Shift+Space
+#### [ ] TC-2: Вызвать smart completion через Ctrl+Shift+Space
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -94,7 +94,7 @@ fun main() {
 
 ---
 
-#### TC-3: Повторное нажатие Ctrl+Space при открытом popup
+#### [ ] TC-3: Повторное нажатие Ctrl+Space при открытом popup
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -127,7 +127,7 @@ fun main() {
 
 ---
 
-#### TC-4: Закрытие popup по Esc
+#### [ ] TC-4: Закрытие popup по Esc
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -159,7 +159,7 @@ fun main() {
 
 ---
 
-#### TC-5: Закрытие popup кликом мыши вне popup
+#### [ ] TC-5: Закрытие popup кликом мыши вне popup
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -190,7 +190,7 @@ fun main() {
 
 ---
 
-#### TC-6: Фильтрация списка при продолжении ввода текста
+#### [ ] TC-6: Фильтрация списка при продолжении ввода текста
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -223,7 +223,7 @@ fun main() {
 
 ### Функциональность: Автоматическое появление (Auto-popup)
 
-#### TC-7: Auto-popup после точки (member completion)
+#### [ ] TC-7: Auto-popup после точки (member completion)
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -257,7 +257,7 @@ fun main() {
 
 ---
 
-#### TC-8: Auto-popup после открывающей скобки (аргументы)
+#### [ ] TC-8: Auto-popup после открывающей скобки (аргументы)
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -294,7 +294,7 @@ fun main() {
 
 ---
 
-#### TC-9: Auto-popup после запятой в списке аргументов
+#### [ ] TC-9: Auto-popup после запятой в списке аргументов
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -330,7 +330,7 @@ fun main() {
 
 ---
 
-#### TC-10: Auto-popup при вводе @ (аннотация/декоратор)
+#### [ ] TC-10: Auto-popup при вводе @ (аннотация/декоратор)
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -359,7 +359,7 @@ class A
 
 ---
 
-#### TC-11: Auto-popup при вводе пути в import
+#### [ ] TC-11: Auto-popup при вводе пути в import
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/typescript/src/importPath.ts`
@@ -382,7 +382,7 @@ import x from "./<caret>"
 
 ---
 
-#### TC-12: Auto-popup при вводе пути в строке File/Path
+#### [ ] TC-12: Auto-popup при вводе пути в строке File/Path
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -415,7 +415,7 @@ fun main() {
 
 ### Функциональность: Обновление/отмена запросов (race/cancel)
 
-#### TC-13: Быстрый ввод символов — актуальность списка
+#### [ ] TC-13: Быстрый ввод символов — актуальность списка
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -451,7 +451,7 @@ fun main() {
 
 ---
 
-#### TC-14: Удаление префикса Backspace — возврат к полному списку
+#### [ ] TC-14: Удаление префикса Backspace — возврат к полному списку
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -483,7 +483,7 @@ fun main() {
 
 ---
 
-#### TC-15: Перемещение каретки стрелками при открытом popup
+#### [ ] TC-15: Перемещение каретки стрелками при открытом popup
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
@@ -519,7 +519,7 @@ fun main() {
 
 ### Функциональность: Локальные символы / scope
 
-#### TC-16: Completion для локальной переменной по префиксу
+#### [ ] TC-16: Completion для локальной переменной по префиксу
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
@@ -552,7 +552,7 @@ fun main() {
 
 ---
 
-#### TC-17: Completion для параметра функции
+#### [ ] TC-17: Completion для параметра функции
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -582,7 +582,7 @@ fun greet(userName: String, userAge: Int) {
 
 ---
 
-#### TC-18: Completion показывает символы из внешнего scope
+#### [ ] TC-18: Completion показывает символы из внешнего scope
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
@@ -610,7 +610,7 @@ fun main() {
 
 ---
 
-#### TC-19: Символы вне области видимости не предлагаются
+#### [ ] TC-19: Символы вне области видимости не предлагаются
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/Visibility.java`
@@ -644,7 +644,7 @@ public class B {
 
 ### Функциональность: Ключевые слова
 
-#### TC-20: Completion для ключевого слова return
+#### [ ] TC-20: Completion для ключевого слова return
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -675,7 +675,7 @@ fun main() {
 
 ---
 
-#### TC-21: Completion для ключевого слова class на top-level
+#### [ ] TC-21: Completion для ключевого слова class на top-level
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -704,7 +704,7 @@ cla<caret>
 
 ### Функциональность: Ранжирование (relevance)
 
-#### TC-22: Локальная переменная ранжируется выше глобальной
+#### [ ] TC-22: Локальная переменная ранжируется выше глобальной
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
@@ -736,7 +736,7 @@ fun main() {
 
 ---
 
-#### TC-23: Точный префикс ранжируется выше fuzzy-совпадений
+#### [ ] TC-23: Точный префикс ранжируется выше fuzzy-совпадений
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
@@ -763,7 +763,7 @@ fun main() {
 
 ---
 
-#### TC-24: MRU — ранее выбранный элемент поднимается, но не ломает релевантность
+#### [ ] TC-24: MRU — ранее выбранный элемент поднимается, но не ломает релевантность
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
@@ -803,7 +803,7 @@ fun main() {
 
 ### Функциональность: Негативные контексты (устойчивость)
 
-#### TC-25: Completion в «сломанном» месте — устойчивость
+#### [ ] TC-25: Completion в «сломанном» месте — устойчивость
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
@@ -833,7 +833,7 @@ fun main() {
 
 ### Функциональность: Completion после точки
 
-#### TC-26: Member completion — свойства и методы типа
+#### [ ] TC-26: Member completion — свойства и методы типа
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -867,7 +867,7 @@ fun main() {
 
 ---
 
-#### TC-27: Фильтрация member completion по префиксу
+#### [ ] TC-27: Фильтрация member completion по префиксу
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -899,7 +899,7 @@ fun main() {
 
 ---
 
-#### TC-28: Выбор метода — вставка скобок ()
+#### [ ] TC-28: Выбор метода — вставка скобок ()
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -938,7 +938,7 @@ public class Main {
 
 ---
 
-#### TC-29: Выбор поля/свойства — вставка без скобок
+#### [ ] TC-29: Выбор поля/свойства — вставка без скобок
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -973,7 +973,7 @@ fun main() {
 
 ### Функциональность: Статические/companion члены
 
-#### TC-30: Completion для статических/companion членов
+#### [ ] TC-30: Completion для статических/companion членов
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1006,7 +1006,7 @@ fun main() {
 
 ---
 
-#### TC-31: Нестатические члены не отображаются в контексте ClassName.
+#### [ ] TC-31: Нестатические члены не отображаются в контексте ClassName.
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/StaticMembers.java`
@@ -1041,7 +1041,7 @@ public class StaticTest {
 
 ### Функциональность: Nullable / safe access (Kotlin)
 
-#### TC-32: Safe-call completion для nullable типа
+#### [ ] TC-32: Safe-call completion для nullable типа
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
@@ -1071,7 +1071,7 @@ fun main() {
 
 ### Функциональность: Extension methods (Kotlin)
 
-#### TC-33: Extension function отображается в completion
+#### [ ] TC-33: Extension function отображается в completion
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
@@ -1103,7 +1103,7 @@ fun main() {
 
 ### Функциональность: Присваивание
 
-#### TC-34: Smart completion при присваивании переменной с указанным типом
+#### [ ] TC-34: Smart completion при присваивании переменной с указанным типом
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1142,7 +1142,7 @@ fun main() {
 
 ---
 
-#### TC-35: Выбор функции из smart completion — вставка с кареткой в скобках
+#### [ ] TC-35: Выбор функции из smart completion — вставка с кареткой в скобках
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/smart/SmartCompletion.kt`
@@ -1177,7 +1177,7 @@ fun main() {
 
 ### Функциональность: Return
 
-#### TC-36: Smart completion для return с указанным возвращаемым типом
+#### [ ] TC-36: Smart completion для return с указанным возвращаемым типом
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1211,7 +1211,7 @@ fun f(): User {
 
 ### Функциональность: Аргументы функции (по ожидаемому типу)
 
-#### TC-37: Smart completion по ожидаемому типу аргумента
+#### [ ] TC-37: Smart completion по ожидаемому типу аргумента
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1245,7 +1245,7 @@ fun main() {
 
 ### Функциональность: Fallback при неизвестном типе
 
-#### TC-38: Smart completion при динамическом/неразрешимом типе
+#### [ ] TC-38: Smart completion при динамическом/неразрешимом типе
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -1276,7 +1276,7 @@ dyn.<caret>
 
 ### Функциональность: Подстановка аргументов
 
-#### TC-39: Completion аргументов по типу параметра
+#### [ ] TC-39: Completion аргументов по типу параметра
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
@@ -1309,7 +1309,7 @@ fun main() {
 
 ---
 
-#### TC-40: Completion для второго аргумента после запятой
+#### [ ] TC-40: Completion для второго аргумента после запятой
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1345,7 +1345,7 @@ fun main() {
 
 ---
 
-#### TC-41: Completion сразу после открывающей скобки без ввода
+#### [ ] TC-41: Completion сразу после открывающей скобки без ввода
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
@@ -1381,7 +1381,7 @@ fun main() {
 
 ### Функциональность: Интеграция с Parameter Info
 
-#### TC-42: Parameter info при выборе функции из completion
+#### [ ] TC-42: Parameter info при выборе функции из completion
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -1421,7 +1421,7 @@ fun main() {
 
 ### Функциональность: Именованные аргументы (Named arguments)
 
-#### TC-43: Kotlin — completion именованных аргументов
+#### [ ] TC-43: Kotlin — completion именованных аргументов
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
@@ -1449,7 +1449,7 @@ fun main() {
 
 ---
 
-#### TC-44: Kotlin — уже использованный named argument не предлагается повторно
+#### [ ] TC-44: Kotlin — уже использованный named argument не предлагается повторно
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
@@ -1478,7 +1478,7 @@ fun main() {
 
 ---
 
-#### TC-45: Python — completion именованных параметров
+#### [ ] TC-45: Python — completion именованных параметров
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/python/dynamic_named.py`
@@ -1508,7 +1508,7 @@ f(<caret>)
 
 ### Функциональность: Enter / Tab
 
-#### TC-46: Принятие элемента из completion клавишей Enter
+#### [ ] TC-46: Принятие элемента из completion клавишей Enter
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
@@ -1540,7 +1540,7 @@ fun main() {
 
 ---
 
-#### TC-47: Принятие элемента из completion клавишей Tab
+#### [ ] TC-47: Принятие элемента из completion клавишей Tab
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
@@ -1572,7 +1572,7 @@ fun main() {
 
 ---
 
-#### TC-48: Принятие completion при выделенном тексте — замена
+#### [ ] TC-48: Принятие completion при выделенном тексте — замена
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
@@ -1602,7 +1602,7 @@ fun main() {
 
 ### Функциональность: Commit characters
 
-#### TC-49: Принятие completion нажатием точки (commit by `.`)
+#### [ ] TC-49: Принятие completion нажатием точки (commit by `.`)
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
@@ -1631,7 +1631,7 @@ fun main() {
 
 ---
 
-#### TC-50: Принятие completion нажатием открывающей скобки (commit by `(`)
+#### [ ] TC-50: Принятие completion нажатием открывающей скобки (commit by `(`)
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1665,7 +1665,7 @@ public class Commit {
 
 ---
 
-#### TC-51: Принятие completion нажатием запятой в аргументах
+#### [ ] TC-51: Принятие completion нажатием запятой в аргументах
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
@@ -1702,7 +1702,7 @@ fun main() {
 
 ### Функциональность: Позиция каретки (Caret placement)
 
-#### TC-52: Каретка внутри скобок после выбора функции
+#### [ ] TC-52: Каретка внутри скобок после выбора функции
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1738,7 +1738,7 @@ fun main() {
 
 ---
 
-#### TC-53: Каретка в ожидаемом месте после выбора конструктора
+#### [ ] TC-53: Каретка в ожидаемом месте после выбора конструктора
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1780,7 +1780,7 @@ public class Main {
 
 ### Функциональность: Импорт при выборе из completion
 
-#### TC-54: Java — auto-import ArrayList при принятии completion
+#### [ ] TC-54: Java — auto-import ArrayList при принятии completion
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
@@ -1812,7 +1812,7 @@ public class Imports {
 
 ---
 
-#### TC-55: Kotlin — auto-import File при принятии completion
+#### [ ] TC-55: Kotlin — auto-import File при принятии completion
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/imports/AutoImportScenarios.kt`
@@ -1839,7 +1839,7 @@ fun main() {
 
 ---
 
-#### TC-56: TypeScript — auto-import при принятии completion
+#### [ ] TC-56: TypeScript — auto-import при принятии completion
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/typescript/src/autoImport.ts`
@@ -1873,7 +1873,7 @@ utilF<caret>
 
 ### Функциональность: Конфликт имён
 
-#### TC-57: Completion при конфликте имён — два класса из разных пакетов
+#### [ ] TC-57: Completion при конфликте имён — два класса из разных пакетов
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -1906,7 +1906,7 @@ public class Conflict {
 
 ---
 
-#### TC-58: После выбора одного варианта второй не подмешивается
+#### [ ] TC-58: После выбора одного варианта второй не подмешивается
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
@@ -1937,7 +1937,7 @@ public class Conflict {
 
 ### Функциональность: Поведение в зависимости от настроек
 
-#### TC-59: Отключённый auto-import — поведение при completion
+#### [ ] TC-59: Отключённый auto-import — поведение при completion
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
@@ -1973,7 +1973,7 @@ public class Imports {
 
 ### Функциональность: File system paths
 
-#### TC-60: Path completion внутри File("...")
+#### [ ] TC-60: Path completion внутри File("...")
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
@@ -2002,7 +2002,7 @@ fun main() {
 
 ---
 
-#### TC-61: Выбор файла из path completion — корректность строки
+#### [ ] TC-61: Выбор файла из path completion — корректность строки
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
@@ -2034,7 +2034,7 @@ fun main() {
 
 ---
 
-#### TC-62: Completion относительных путей `./` и `../`
+#### [ ] TC-62: Completion относительных путей `./` и `../`
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/typescript/src/importPath.ts`
@@ -2061,7 +2061,7 @@ import x from "./<caret>"
 
 ### Функциональность: Негатив — обычная строка
 
-#### TC-63: Completion в обычной строке — без навязывания path completion
+#### [ ] TC-63: Completion в обычной строке — без навязывания path completion
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
@@ -2091,7 +2091,7 @@ fun main() {
 
 ### Функциональность: QuickDoc и детали элемента
 
-#### TC-64: QuickDoc для элемента из completion (Ctrl+Q)
+#### [ ] TC-64: QuickDoc для элемента из completion (Ctrl+Q)
 
 **Приоритет:** P0
 **Тестовые файлы:**
@@ -2125,7 +2125,7 @@ fun main() {
 
 ---
 
-#### TC-65: Отображение типа/сигнатуры в списке completion
+#### [ ] TC-65: Отображение типа/сигнатуры в списке completion
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/doc/DocInfo.kt`
@@ -2158,7 +2158,7 @@ fun main() {
 
 ---
 
-#### TC-66: Deprecated элементы помечены визуально
+#### [ ] TC-66: Deprecated элементы помечены визуально
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -2193,7 +2193,7 @@ fun main() {
 
 ### Функциональность: Generics / type parameters
 
-#### TC-67: Completion типов внутри generic-параметров
+#### [ ] TC-67: Completion типов внутри generic-параметров
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -2225,7 +2225,7 @@ fun main() {
 
 ---
 
-#### TC-68: Completion второго type parameter в Map
+#### [ ] TC-68: Completion второго type parameter в Map
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/GenericsAnnot.java`
@@ -2256,7 +2256,7 @@ public class G {
 
 ---
 
-#### TC-69: Auto-import при выборе типа в generic-параметре
+#### [ ] TC-69: Auto-import при выборе типа в generic-параметре
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -2293,7 +2293,7 @@ fun main() {
 
 ### Функциональность: Аннотации / атрибуты / декораторы
 
-#### TC-70: Java — completion аннотации @Deprecated
+#### [ ] TC-70: Java — completion аннотации @Deprecated
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
@@ -2321,7 +2321,7 @@ class A {}
 
 ---
 
-#### TC-71: Kotlin — completion аннотации @Deprecated
+#### [ ] TC-71: Kotlin — completion аннотации @Deprecated
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
@@ -2349,7 +2349,7 @@ class A
 
 ---
 
-#### TC-72: Python — completion декоратора @dataclass
+#### [ ] TC-72: Python — completion декоратора @dataclass
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/python/decorator_keyword.py`
@@ -2378,7 +2378,7 @@ class A:
 
 ---
 
-#### TC-73: Completion параметров аннотации
+#### [ ] TC-73: Completion параметров аннотации
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -2410,7 +2410,7 @@ class A
 
 ### Функциональность: Doc/Comments completion
 
-#### TC-74: Javadoc — completion тегов @param, @return, @throws
+#### [ ] TC-74: Javadoc — completion тегов @param, @return, @throws
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
@@ -2441,7 +2441,7 @@ public class Doc {
 
 ---
 
-#### TC-75: Javadoc — @param вставляется с именем параметра
+#### [ ] TC-75: Javadoc — @param вставляется с именем параметра
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
@@ -2471,7 +2471,7 @@ public class Doc {
 
 ---
 
-#### TC-76: KDoc — completion тегов @param/@return
+#### [ ] TC-76: KDoc — completion тегов @param/@return
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/doc/DocInfo.kt`
@@ -2498,7 +2498,7 @@ fun f(a: Int): Int = a
 
 ---
 
-#### TC-77: Python — completion секций в docstring
+#### [ ] TC-77: Python — completion секций в docstring
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/python/docstring.py`
@@ -2529,7 +2529,7 @@ def f(a: int) -> int:
 
 ### Функциональность: Build/config completion
 
-#### TC-78: package.json — completion по ключам
+#### [ ] TC-78: package.json — completion по ключам
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/typescript/package.json`
@@ -2554,7 +2554,7 @@ def f(a: int) -> int:
 
 ---
 
-#### TC-79: tsconfig.json — completion по ключам/значениям
+#### [ ] TC-79: tsconfig.json — completion по ключам/значениям
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/typescript/tsconfig.json`
@@ -2581,7 +2581,7 @@ def f(a: int) -> int:
 
 ---
 
-#### TC-80: build.gradle.kts — completion по DSL
+#### [ ] TC-80: build.gradle.kts — completion по DSL
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/build.gradle.kts`
@@ -2617,7 +2617,7 @@ dependencies {
 
 ### Функциональность: Postfix и Live templates
 
-#### TC-81: Postfix completion `.if` → if (...) { }
+#### [ ] TC-81: Postfix completion `.if` → if (...) { }
 
 **Приоритет:** P2
 **Тестовые файлы:**
@@ -2646,7 +2646,7 @@ fun main() {
 
 ---
 
-#### TC-82: Конфликт basic completion и postfix — оба типа в списке
+#### [ ] TC-82: Конфликт basic completion и postfix — оба типа в списке
 
 **Приоритет:** P2
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
@@ -2673,7 +2673,7 @@ fun main() {
 
 ---
 
-#### TC-83: Live template — sout + Tab → expand с плейсхолдерами
+#### [ ] TC-83: Live template — sout + Tab → expand с плейсхолдерами
 
 **Приоритет:** P2
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/TemplatesRefactor.java`
@@ -2707,7 +2707,7 @@ public class T {
 
 ### Функциональность: Injected languages
 
-#### TC-84: SQL completion в строке с инъекцией
+#### [ ] TC-84: SQL completion в строке с инъекцией
 
 **Приоритет:** P2
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
@@ -2733,7 +2733,7 @@ fun main() {
 
 ---
 
-#### TC-85: Regex completion в строке
+#### [ ] TC-85: Regex completion в строке
 
 **Приоритет:** P2
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
@@ -2759,7 +2759,7 @@ fun main() {
 
 ---
 
-#### TC-86: Переход из injected в host — корректное закрытие popup
+#### [ ] TC-86: Переход из injected в host — корректное закрытие popup
 
 **Приоритет:** P2
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
@@ -2791,7 +2791,7 @@ fun main() {
 
 ### Функциональность: Refactoring-aware проверки
 
-#### TC-87: Completion после Rename — предлагается новое имя
+#### [ ] TC-87: Completion после Rename — предлагается новое имя
 
 **Приоритет:** P2
 **Тестовые файлы:**
@@ -2823,7 +2823,7 @@ fun main() {
 
 ---
 
-#### TC-88: Completion после Change Signature — корректные аргументы
+#### [ ] TC-88: Completion после Change Signature — корректные аргументы
 
 **Приоритет:** P2
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/refactoring/RefactoringAware.kt`
@@ -2856,7 +2856,7 @@ fun main() {
 
 ### Функциональность: Dumb mode / индексация
 
-#### TC-89: Completion в Dumb mode — устойчивость
+#### [ ] TC-89: Completion в Dumb mode — устойчивость
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
@@ -2889,7 +2889,7 @@ fun main() {
 
 ---
 
-#### TC-90: Множественный вызов completion в Dumb mode — нет зависаний
+#### [ ] TC-90: Множественный вызов completion в Dumb mode — нет зависаний
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
@@ -2921,7 +2921,7 @@ fun main() {
 
 ---
 
-#### TC-91: Completion после завершения индексации — полные результаты
+#### [ ] TC-91: Completion после завершения индексации — полные результаты
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
@@ -2957,7 +2957,7 @@ fun main() {
 
 ### Функциональность: Производительность
 
-#### TC-92: Completion в «горячей» точке — быстрое появление popup
+#### [ ] TC-92: Completion в «горячей» точке — быстрое появление popup
 
 **Приоритет:** P0
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/PerfMany.java`
@@ -3040,7 +3040,7 @@ public class Many {
 
 ---
 
-#### TC-93: 30-кратное открытие/закрытие completion — нет прогрессирующего замедления
+#### [ ] TC-93: 30-кратное открытие/закрытие completion — нет прогрессирующего замедления
 
 **Приоритет:** P1
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
@@ -3075,7 +3075,7 @@ fun main() {
 
 ### Функциональность: Completion конструкций if-else
 
-#### TC-94: Completion для if-else statement — предложение else / else if
+#### [ ] TC-94: Completion для if-else statement — предложение else / else if
 
 **Приоритет:** P1
 **Тестовые файлы:**
@@ -3115,7 +3115,7 @@ fun checkAge(user: User) {
 
 ### Функциональность: Completion конструкций switch/case/default и when
 
-#### TC-95: Completion для switch/case/default (Java) и when (Kotlin) — предложение ветвей
+#### [ ] TC-95: Completion для switch/case/default (Java) и when (Kotlin) — предложение ветвей
 
 **Приоритет:** P1
 **Тестовые файлы:**
