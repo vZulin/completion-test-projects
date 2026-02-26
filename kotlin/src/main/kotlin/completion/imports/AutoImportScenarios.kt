@@ -37,10 +37,10 @@ fun importConflictDate() {
 
 /**
  * TC-68: Import conflict resolution — user selects specific variant.
- * After selecting java.sql.Date, verify the correct import is added.
+ * After selecting java.util.Date, verify only the chosen import is added.
  */
 fun importConflictResolution() {
-    // <caret> TC-68: Type 'Date', select java.sql.Date from completion;
-    //   verify import java.sql.Date added
+    // <caret> TC-68: Type 'Date', select java.util.Date from completion;
+    //   verify only import java.util.Date is added (java.sql.Date is not auto-added).
     // val d2 = Date()
 }

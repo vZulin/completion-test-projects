@@ -7,7 +7,7 @@ package completion.templates
 
 /**
  * TC-114: Postfix completion `.if` — wraps boolean expression in if-block.
- * TC-115: Postfix completion result verification.
+ * TC-115: Conflict between basic completion and postfix suggestions.
  *
  * To test: delete the if-block below, type `ok.if` and accept the postfix template.
  * Expected result: `if (ok) { }` generated automatically.
@@ -16,7 +16,8 @@ fun postfixIf() {
     val ok = true
     // <caret> TC-114: Delete the if-block below, type 'ok.if', accept postfix;
     //   expect: if (ok) { }
-    // <caret> TC-115: Verify the generated code is syntactically correct
+    // <caret> TC-115: On 'ok.if' invoke completion and verify list shows postfix `.if`
+    //   together with regular completion items (if available for current context).
     if (ok) {
         println("postfix expansion result")
     }

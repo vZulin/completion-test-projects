@@ -65,10 +65,10 @@ fun caretAfterFunctionSelect() {
     buildUser("Ann", 21)
 }
 
-/** TC-42: Caret placement after selecting a no-arg function. */
+/** TC-42: Caret placement after selecting constructor/initializer completion. */
 fun caretAfterNoArgFunction() {
-    val user = User("Ann", 21)
-    // <caret> TC-42: Delete 'toString()' below, type 'toStr', select 'toString()';
-    //   expect caret after closing paren since no args needed
-    val tc53 = user.toString()
+    // <caret> TC-42: Delete constructor call below after '=';
+    //   invoke completion, select User(...), verify caret lands in expected constructor position.
+    val tc53: User = User("Ann", 21)
+    println(tc53)
 }

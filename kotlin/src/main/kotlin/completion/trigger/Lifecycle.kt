@@ -29,16 +29,20 @@ fun triggerScenarios() {
     //   then invoke smart completion; expect user/User(...)/buildUser(...)
     val u1: User = user
 
-    // <caret> TC-3: Place caret after "user.", type 'na' then Backspace to 'n'; list should re-expand
+    // <caret> TC-3: Invoke completion after "user.", then press Ctrl+Space again while popup is open;
+    //   verify popup refreshes/expands and remains visually stable.
     val tc3 = user.name
 
-    // <caret> TC-4: Place caret after "user.", type 'xyz'; expect empty list / "No suggestions"
+    // <caret> TC-4: Invoke completion after "user.", press Esc;
+    //   verify popup closes and code remains unchanged.
     val tc4 = user.name
 
-    // <caret> TC-5: Invoke completion after "user.", press Escape to dismiss popup; verify it closes
+    // <caret> TC-5: Invoke completion after "user.", click in editor outside popup;
+    //   verify popup closes by mouse interaction.
     val tc5 = user.name
 
-    // <caret> TC-6: Press Escape then re-invoke Ctrl+Space; popup reappears
+    // <caret> TC-6: Invoke completion after "user.", type 'na';
+    //   verify popup list is filtered according to typed prefix.
     val tc6 = user.name
 
     // --- Auto-popup triggers ---
@@ -63,8 +67,8 @@ fun triggerScenarios() {
     //        Verify: popup appears with filtered results containing "name".
     val tc13 = user.name
 
-    // <caret> TC-13: Backspace cancel — invoke completion on "user.n", then press Backspace.
-    //        Verify: popup either updates or closes without errors.
+    // <caret> TC-13: Backspace behavior — invoke completion on "user.n", then press Backspace.
+    //        Verify: list returns to broader/full suggestions without errors.
     val tc14 = user.name
 
     // <caret> TC-14: Caret movement — invoke completion, then press Left/Right arrow.

@@ -21,24 +21,25 @@ fun dumbModeBasic() {
 }
 
 /**
- * TC-51: Dumb mode — smart completion during indexing.
- * Same setup as TC-50, but invoke smart completion (Ctrl+Shift+Space).
+ * TC-51: Dumb mode — repeated completion invocation during indexing.
+ * Same setup as TC-50, but invoke completion multiple times in a row.
  */
 fun dumbModeSmart() {
-    // <caret> TC-51: Delete expression below after '=', invoke smart completion
-    //   during indexing; expect no crash
-    val u: User = User("Ann", 21)
-    println(u)
+    val user = User("Ann", 21)
+    // <caret> TC-51: Place caret after "user." during indexing and press Ctrl+Space repeatedly
+    //   (e.g., 5 times); expect no UI freeze and no stacked stale popups.
+    val tc90 = user.name
+    println(tc90)
 }
 
 /**
- * TC-52: Dumb mode — auto-popup during indexing.
- * Same setup as TC-50, but type a dot to trigger auto-popup.
+ * TC-52: Completion after indexing finishes — full result set is available.
+ * Use the same location as TC-50, but only after indexing has completed.
  */
 fun dumbModeAutoPopup() {
     val user = User("Ann", 21)
-    // <caret> TC-52: Place caret after "user" (no dot), type '.' during indexing;
-    //   expect no crash
+    // <caret> TC-52: After indexing completes, place caret after "user." and invoke completion;
+    //   verify full/correct members are shown.
     val tc91 = user.name
 }
 

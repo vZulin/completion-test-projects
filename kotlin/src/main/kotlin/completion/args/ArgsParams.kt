@@ -1,7 +1,7 @@
 /**
  * Argument / parameter completion scenarios: type matching, parameter info, named args.
  *
- * Covers: TC-33, TC-34, TC-35, TC-63, TC-64, TC-65, TC-66.
+ * Covers: TC-33, TC-34, TC-35, TC-63, TC-64, TC-65.
  *
  * To test: delete the argument(s) inside the function call, place caret,
  * and invoke completion.
@@ -65,9 +65,9 @@ fun namedArgNotDuplicated() {
     buildUser(name = "Ann", age = 21)
 }
 
-/** TC-66: Named arguments — partial prefix filtering. */
+/** Named arguments — partial prefix filtering (auxiliary Kotlin scenario). */
 fun namedArgFiltering() {
-    // <caret> TC-66: Delete 'name' below, type 'na' inside buildUser();
-    //   expect 'name =' filtered from named args
+    // <caret>: Delete 'name' below, type 'na' inside buildUser();
+    //   expect 'name =' filtered from named args.
     buildUser(name = "Ann", age = 21)
 }

@@ -15,17 +15,25 @@ const user: User = buildUser(userName, userAge);
 //   - with popup open, trigger QuickDoc for selected member
 const tc26 = user.name;
 
+// <caret> TC-24: Delete 'toString()' below after "user.", invoke completion and choose method;
+//   verify method call inserted with parentheses.
+const tc24 = user.toString();
+
+// <caret> TC-25: Delete 'name' below after "user.", type 'na', invoke completion;
+//   verify property insertion without adding "()".
+const tc25 = user.name;
+
 // <caret> TC-2/TC-28: Delete 'user' below after '=', invoke smart completion;
 //   should suggest buildUser(...) and variables of type User
 const u1: User = user;
 
-// <caret> TC-8/TC-9/TC-16/TC-24/TC-34/TC-63:
+// <caret> TC-8/TC-9/TC-16/TC-34/TC-63:
 //   - test popup after '(' and after ','
 //   - verify second argument suggestions and parameter info
 const u2: User = buildUser(userName, userAge);
 
-// <caret> TC-25/TC-41: Delete 'u2' below inside consumeUser(...), invoke completion;
-//   function completion should keep caret in call context
+// <caret> TC-41: Delete 'u2' below inside consumeUser(...), invoke completion;
+//   selecting consumeUser(...) should place caret inside function-call parentheses.
 consumeUser(u2);
 
 function keywordReturnCompletion(value: number): number {
@@ -34,4 +42,6 @@ function keywordReturnCompletion(value: number): number {
 }
 
 void tc26;
+void tc24;
+void tc25;
 void keywordReturnCompletion;
