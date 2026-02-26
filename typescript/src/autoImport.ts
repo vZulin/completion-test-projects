@@ -1,6 +1,12 @@
-// Test cases covered: TC-56
+// Test cases covered: TC-45
 // Source: EX-TS-8
 //
-// IMPORTANT: Do NOT add an import for utilFn — that is the auto-import test!
+// This file is intentionally compilable.
+// For TC-45, remove the import below before testing auto-import behavior.
 
-utilF // <caret> TC-56: auto-import — accept should add: import { utilFn } from "./utilModule"
+import { utilFn } from "./utilModule";
+
+// <caret> TC-45: Delete import above, then delete 'n()' below so only 'utilF' remains;
+//   accept completion and verify import { utilFn } from "./utilModule" is added automatically.
+const tc56 = utilFn();
+void tc56;

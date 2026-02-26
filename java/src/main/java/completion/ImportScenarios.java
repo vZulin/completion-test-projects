@@ -4,21 +4,23 @@ package completion;
 
 /**
  * Auto-import and import-conflict completion scenarios.
- * Covers: TC-54 (auto-import ArrayList), TC-57 (import conflict Date), TC-59 (settings).
+ * Covers: TC-43 (auto-import ArrayList), TC-46 (import conflict Date), TC-69 (settings).
  * Based on EX-JV-9, EX-JV-10.
  */
 public class ImportScenarios {
 
     public static void main(String[] args) {
-        // TC-54: type "ArrayLis" and accept — should auto-import java.util.ArrayList
-        ArrayLis // <caret> TC-54: auto-import ArrayList
-        ;
+        // <caret> TC-43: Delete both 'java.util.' qualifiers below and leave 'ArrayList';
+        //   then type 'ArrayLis' and accept completion — should add import java.util.ArrayList
+        java.util.ArrayList<String> tc54 = new java.util.ArrayList<>();
 
-        // TC-57: type "Date" — should show java.util.Date and java.sql.Date with qualifiers
-        Date // <caret> TC-57: import conflict — java.util.Date vs java.sql.Date
-        ;
+        // <caret> TC-46: Delete package qualifiers below and type 'Date';
+        //   completion should show java.util.Date and java.sql.Date with qualifiers
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
 
-        // TC-59: verify IDE settings for auto-import behavior
-        // <caret> TC-59: check "Add unambiguous imports on the fly" setting
+        // TC-69: verify IDE settings for auto-import behavior
+        // <caret> TC-69: check "Add unambiguous imports on the fly" setting
+        System.out.println(tc54.size() + utilDate.getTime() + sqlDate.getTime());
     }
 }

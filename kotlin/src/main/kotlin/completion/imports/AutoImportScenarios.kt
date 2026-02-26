@@ -1,7 +1,7 @@
 /**
  * Auto-import completion scenarios.
  *
- * Covers: TC-55, TC-57, TC-58.
+ * Covers: TC-44, TC-46, TC-68.
  *
  * IMPORTANT: This file intentionally uses unresolved references (File, Date)
  * to test auto-import behavior. It will NOT compile as-is — this is by design.
@@ -17,30 +17,30 @@ package completion.imports
 
 // NO imports for File or Date — auto-import is the subject under test
 
-/** TC-55: Auto-import java.io.File on completion accept. */
+/** TC-44: Auto-import java.io.File on completion accept. */
 fun autoImportFile() {
-    // <caret> TC-55: Type 'File' (no import present), accept from completion;
+    // <caret> TC-44: Type 'File' (no import present), accept from completion;
     //   verify import java.io.File is added automatically
     // val f = File("")
 }
 
 /**
- * TC-57: Import conflict — multiple Date classes available.
+ * TC-46: Import conflict — multiple Date classes available.
  * Both java.util.Date and java.sql.Date exist in classpath.
  * Completion should display both with qualified package names.
  */
 fun importConflictDate() {
-    // <caret> TC-57: Type 'Date' (no import present);
+    // <caret> TC-46: Type 'Date' (no import present);
     //   expect both java.util.Date and java.sql.Date in completion with qualifiers
     // val d = Date()
 }
 
 /**
- * TC-58: Import conflict resolution — user selects specific variant.
+ * TC-68: Import conflict resolution — user selects specific variant.
  * After selecting java.sql.Date, verify the correct import is added.
  */
 fun importConflictResolution() {
-    // <caret> TC-58: Type 'Date', select java.sql.Date from completion;
+    // <caret> TC-68: Type 'Date', select java.sql.Date from completion;
     //   verify import java.sql.Date added
     // val d2 = Date()
 }

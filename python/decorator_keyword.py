@@ -1,19 +1,22 @@
 """
 Decorator and keyword completion.
 
-Covers: TC-72, TC-21 (Python variants).
+Covers: TC-79, TC-20 (Python variants).
 Source: EX-PY-2, EX-PY-3.
 """
 from dataclasses import dataclass
 
 
-# --- TC-72: decorator completion ---
-# Place caret after '@datac' and invoke completion; expect @dataclass.
-@datac  # <caret> TC-72: decorator completion
+# --- TC-79: decorator completion ---
+# <caret> TC-79: In decorator below, delete 'lass' so token becomes '@datac',
+#   then invoke completion; expect @dataclass.
+@dataclass
 class SampleDataclass:
     value: int
 
 
-# --- TC-21: keyword completion ---
-# Place caret after 'cla' and invoke completion; expect 'class' keyword.
-cla  # <caret> TC-21: keyword completion — expect 'class'
+# --- TC-20: keyword completion ---
+# <caret> TC-20: On a new top-level line, type 'cla' and invoke completion;
+#   expect 'class' keyword.
+class KeywordPlaceholder:
+    pass

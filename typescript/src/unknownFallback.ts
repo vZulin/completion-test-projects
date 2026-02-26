@@ -1,6 +1,11 @@
-// Test cases covered: TC-38 (TS variant)
+// Test cases covered: TC-32 (TS variant)
 // Source: EX-TS-6
 
-declare const dyn: any;
+const dyn: any = {};
 
-dyn. // <caret> TC-38: unknown type fallback — smart completion should not crash; results may be limited
+// <caret> TC-32: Delete 'toString()' below so only 'dyn.' remains,
+//   invoke completion — should not crash; results may be limited
+const tc38 = dyn.toString();
+void tc38;
+
+export {};

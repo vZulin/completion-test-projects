@@ -1,93 +1,89 @@
 # Completion Test Projects
 
-Test fixture projects for manual IDE Completion testing. Each project provides
-code files with marked caret positions (`<caret>`) for systematically testing
-completion scenarios.
+Fixture projects for manual IDE completion testing.
 
-## Project Structure
+Primary specification: [`testcases.md`](./testcases.md).
+
+## Test Plans
+
+The test list is grouped by execution plans and ordered by priority:
+
+| Plan | Priority | TC range | Purpose |
+|------|----------|----------|---------|
+| Acceptance | P0 | TC-1..TC-56 | First-pass checks before deeper runs |
+| Regression | P1 | TC-57..TC-113 | Main stability and feature regression |
+| Full | P2 | TC-114..TC-121 | Extended/non-critical scenarios |
+
+Run tests in ascending TC order inside each plan.
+
+## Repository Structure
 
 ### Kotlin (`kotlin/`)
 
-Gradle-based Kotlin project covering TC-1 through TC-93.
-
-| File | Description |
-|------|-------------|
-| `model/Domain.kt` | Shared data classes and helper functions |
-| `trigger/Lifecycle.kt` | Trigger and lifecycle scenarios (TC-1..TC-15) |
-| `basic/BasicScope.kt` | Local scope, keywords, ranking (TC-16..TC-25) |
-| `member/MemberAccess.kt` | Member, companion, nullable, extension (TC-26..TC-33) |
-| `smart/SmartCompletion.kt` | Smart completion (TC-34..TC-38) |
-| `args/ArgsParams.kt` | Arguments and named params (TC-39..TC-45) |
-| `accept/AcceptCommit.kt` | Accept, commit characters, caret (TC-46..TC-53) |
-| `imports/AutoImportScenarios.kt` | Auto-import and conflicts (TC-55..TC-58) |
-| `strings/StringPaths.kt` | Path and string completion (TC-60..TC-63) |
-| `doc/DocInfo.kt` | QuickDoc, deprecated, KDoc (TC-64..TC-66, TC-76) |
-| `generics/GenericsAnnotations.kt` | Generics and annotations (TC-67..TC-73) |
-| `templates/TemplatesInject.kt` | Postfix, SQL, regex (TC-81..TC-86) |
-| `refactoring/RefactoringAware.kt` | Rename, change signature (TC-87..TC-88) |
-| `stability/StabilityPerf.kt` | Dumb mode, performance (TC-89..TC-93) |
+`kotlin/src/main/kotlin/completion`:
+- `trigger/Lifecycle.kt` - popup lifecycle and trigger scenarios.
+- `basic/BasicScope.kt` - scope, keywords, ranking.
+- `member/MemberAccess.kt` - member/static/nullable/extension completion.
+- `smart/SmartCompletion.kt` - smart completion by expected type.
+- `args/ArgsParams.kt` - arguments, parameter info, named args.
+- `accept/AcceptCommit.kt`, `accept/CommitVariants.kt` - accept/commit behavior.
+- `imports/AutoImportScenarios.kt` - auto-import and conflicts.
+- `strings/StringPaths.kt` - path and string completion.
+- `doc/DocInfo.kt` - QuickDoc/deprecated/doc tags.
+- `generics/GenericsAnnotations.kt` - generics/annotations.
+- `templates/TemplatesInject.kt` - postfix/live templates/injections.
+- `refactoring/RefactoringAware.kt` - rename and signature changes.
+- `stability/StabilityPerf.kt`, `stability/LargeFileScope.kt` - dumb mode/performance/large file.
+- `statements/StatementCompletion.kt` - statement completion.
+- `complex/ComplexDslCompletion.kt` - chained/DSL scenarios.
+- `brackets/BracketIndexAccess.kt` - completion in `[]` contexts.
+- `advanced/AdvancedCompletionScenarios.kt`, `advanced/ExtensionAutoImportScenario.kt`, `advanced/external/ExternalExtensions.kt` - advanced completion contracts.
+- `model/Domain.kt` - shared model/helpers.
 
 ### Java (`java/`)
 
-Gradle-based Java project.
-
-| File | Description |
-|------|-------------|
-| `model/User.java` | Shared model |
-| `BasicCombo.java` | Basic member/smart/args completion |
-| `Visibility.java` | Private access negative test |
-| `StaticMembers.java` | Static vs instance members |
-| `SmartCompletion.java` | Smart return and expected type |
-| `AcceptCommit.java` | Commit by parenthesis |
-| `ImportScenarios.java` | Auto-import and conflicts |
-| `DocDeprecated.java` | Javadoc, deprecated, annotations |
-| `GenericsAnnot.java` | Generics and annotation params |
-| `TemplatesRefactor.java` | Postfix, live templates, rename |
-| `PerfMany.java` | Performance (50+ methods) |
+`java/src/main/java/completion`:
+- `BasicCombo.java`, `Visibility.java`, `StaticMembers.java`, `SmartCompletion.java`.
+- `AcceptCommit.java`, `ImportScenarios.java`.
+- `DocDeprecated.java`, `GenericsAnnot.java`, `TopLevelKeyword.java`.
+- `StatementCompletion.java`, `PerfMany.java`.
+- `BracketIndexCompletion.java`, `AdvancedCompletionContracts.java`.
+- `TemplatesRefactor.java`.
+- `model/User.java`.
 
 ### TypeScript (`typescript/`)
 
-| File | Description |
-|------|-------------|
-| `package.json` | Also serves as TC-78 fixture |
-| `tsconfig.json` | Also serves as TC-79 fixture |
-| `src/model.ts` | Shared types |
-| `src/basicCombo.ts` | Member/smart/args completion |
-| `src/importPath.ts` | Import path completion |
-| `src/autoImport.ts` + `src/utilModule.ts` | Auto-import scenarios |
-| `src/generics.ts` | Generic type params |
+- `typescript/src/basicCombo.ts`, `expectedType.ts`, `smartReturn.ts`, `unknownFallback.ts`.
+- `typescript/src/importPath.ts`, `autoImport.ts`, `utilModule.ts`.
+- `typescript/src/bracketIndex.ts`, `commitByParen.ts`, `generics.ts`, `keyword.ts`, `model.ts`.
+- `typescript/package.json`, `typescript/tsconfig.json` are also fixtures for config completion scenarios.
 
 ### Python (`python/`)
 
-| File | Description |
-|------|-------------|
-| `basic_combo.py` | Member, smart, path completion (TC-7, TC-26, TC-34, TC-37, TC-60) |
-| `decorator_keyword.py` | Decorators, keywords (TC-72, TC-21) |
-| `dynamic_named.py` | Dynamic fallback, named args (TC-38, TC-45) |
-| `docstring.py` | Docstring completion (TC-77) |
+- `python/basic_combo.py`
+- `python/dynamic_named.py`
+- `python/decorator_keyword.py`
+- `python/docstring.py`
+- `python/bracket_index.py`
 
-## How to Use
+## How to Execute a Test Case
 
-1. Open the desired project in IntelliJ IDEA (Kotlin/Java), WebStorm (TypeScript),
-   or PyCharm (Python).
-2. Navigate to the file for the test case you want to verify.
-3. Find the `<caret>` marker comment with the TC number.
-4. Place your cursor at the indicated position.
-5. Follow the test case steps from `generated-testcases.md`.
+1. Open the target project in the relevant IDE.
+2. Find the TC in [`testcases.md`](./testcases.md).
+3. Open the fixture file referenced in that TC.
+4. Locate the marker/comment with the matching `TC-<N>`.
+5. Place caret at `<caret>` and apply only the edit described in that marker (if required).
+6. Execute steps from the TC and verify expected result.
 
-## Caret Position Convention
+## Marker Convention
 
-All caret positions are marked with comments in the format:
+Caret markers in fixtures:
 
+```text
+// <caret> TC-N: ...
+#  <caret> TC-N: ...
 ```
-// <caret> TC-N: brief description          (Kotlin / Java / TypeScript)
-#  <caret> TC-N: brief description          (Python)
-```
 
-In some cases the caret position is embedded in the code line itself.
-Look for the comment to identify where to place your cursor.
-
-## Test Case Reference
-
-See `generated-testcases.md` in the parent directory for the full list of 93 test
-cases with detailed steps and expected results.
+Many scenarios intentionally keep a compilable/default line and describe the minimal change in comments
+(for example, remove or uncomment a specific token) before invoking completion.
+Follow the inline instruction next to the corresponding `TC-N`.

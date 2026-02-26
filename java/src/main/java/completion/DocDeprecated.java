@@ -2,12 +2,12 @@ package completion;
 
 /**
  * Deprecated markers, annotation completion, and Javadoc tag completion.
- * Covers: TC-66 (deprecated), TC-70 (annotation), TC-74/TC-75 (Javadoc tags).
+ * Covers: TC-73 (deprecated), TC-77 (annotation), TC-81/TC-82 (Javadoc tags).
  * Based on EX-JV-11, EX-JV-2, EX-JV-13.
  */
 public class DocDeprecated {
 
-    // --- TC-66: deprecated marker in completion list ---
+    // --- TC-73: deprecated marker in completion list ---
 
     /** @deprecated Use newMethod instead. */
     @Deprecated
@@ -17,24 +17,31 @@ public class DocDeprecated {
     static void newMethod() {
     }
 
-    // --- TC-70: annotation completion ---
-    // Place caret after @Depr and invoke completion — expect @Deprecated
-    @Depr // <caret> TC-70: annotation completion — expect @Deprecated
+    // --- TC-77: annotation completion ---
+    // <caret> TC-77: In annotation below, delete 'ecated' so token becomes '@Depr',
+    //   then invoke completion — expect @Deprecated
+    @Deprecated
     static void annotatedMethod() {
     }
 
-    // --- TC-74, TC-75: Javadoc tag completion ---
+    // --- TC-81, TC-82: Javadoc tag completion ---
 
     /**
-     * @ // <caret> TC-74: Javadoc tag completion — expect @param, @return, @throws, etc.
-     * TC-75: verify @param a appears for the parameter below
+     * <caret> TC-81/TC-82: In tags below, delete 'param a' so only '@' remains,
+     * then invoke completion — expect @param, @return, @throws, etc.
+     * Verify @param a appears for the method parameter below.
+     *
+     * @param a input value
+     * @return input value
      */
     int compute(int a) {
         return a;
     }
 
+    @SuppressWarnings("deprecation")
     public static void main(String[] args) {
-        old // <caret> TC-66: deprecated style — oldMethod should appear with strikethrough
-        ;
+        // <caret> TC-73: Delete 'Method()' below so only 'old' remains,
+        //   then invoke completion — oldMethod should appear with deprecated styling
+        oldMethod();
     }
 }

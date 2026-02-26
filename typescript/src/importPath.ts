@@ -1,7 +1,12 @@
-// Test cases covered: TC-11, TC-62
+// Test cases covered: TC-10, TC-49
 // Source: EX-TS-2
 //
-// TC-11: import path completion — typing "./" should suggest sibling modules
-// TC-62: relative path variants — test "./" and "../" paths
+// TC-10: import path completion — typing "./" should suggest sibling modules
+// TC-49: relative path variants — test "./" and "../" paths
 
-import x from "./" // <caret> TC-11: import path completion — should list model, basicCombo, etc.
+// <caret> TC-10/TC-49: In import below, delete 'model' and place caret after "./";
+//   completion should list sibling modules and relative variants.
+import { buildUser } from "./model";
+
+const tc62 = buildUser("Ann", 21);
+void tc62;

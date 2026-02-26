@@ -1,7 +1,7 @@
 /**
  * Completion trigger, auto-popup, and race/cancel scenarios.
  *
- * Covers: TC-1, TC-2, TC-3, TC-4, TC-5, TC-6, TC-7, TC-8, TC-9, TC-12, TC-13, TC-14, TC-15.
+ * Covers: TC-1, TC-2, TC-3, TC-4, TC-5, TC-6, TC-7, TC-8, TC-9, TC-11, TC-12, TC-13, TC-14.
  *
  * How to use:
  * - Place the caret at positions described in `// <caret>` comments.
@@ -53,20 +53,20 @@ fun triggerScenarios() {
 
     // --- Path completion ---
 
-    // <caret> TC-12: Place caret inside quotes in File(""); invoke completion for file paths
+    // <caret> TC-11: Place caret inside quotes in File(""); invoke completion for file paths
     val tc12 = File("")
 
     // --- Race / cancel / fast-typing scenarios (manual steps) ---
 
-    // <caret> TC-13: Fast typing — type "user." quickly followed by "na" before popup renders.
+    // <caret> TC-12: Fast typing — type "user." quickly followed by "na" before popup renders.
     //        Verify: popup appears with filtered results containing "name".
     val tc13 = user.name
 
-    // <caret> TC-14: Backspace cancel — invoke completion on "user.n", then press Backspace.
+    // <caret> TC-13: Backspace cancel — invoke completion on "user.n", then press Backspace.
     //        Verify: popup either updates or closes without errors.
     val tc14 = user.name
 
-    // <caret> TC-15: Caret movement — invoke completion, then press Left/Right arrow.
+    // <caret> TC-14: Caret movement — invoke completion, then press Left/Right arrow.
     //        Verify: popup dismisses; no residual UI artifacts.
     val tc15 = user.name
 }

@@ -2,7 +2,7 @@ package completion;
 
 /**
  * Commit completion by pressing '(' character.
- * Covers: TC-50.
+ * Covers: TC-40.
  * Based on EX-JV-8.
  */
 public class AcceptCommit {
@@ -11,7 +11,8 @@ public class AcceptCommit {
     }
 
     public static void main(String[] args) {
-        doW // <caret> TC-50: accept by pressing '(' — expect doWork()
-        ;
+        // <caret> TC-40: Delete 'ork()' below so only 'doW' remains,
+        //   then press '(' to accept completion; expect doWork()
+        doWork();
     }
 }

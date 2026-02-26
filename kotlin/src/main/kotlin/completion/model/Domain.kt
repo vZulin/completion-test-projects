@@ -2,7 +2,7 @@
  * Shared domain model used across all completion test scenarios.
  *
  * Provides [User] data class, builder, and consumer functions
- * referenced by TC-1 through TC-93.
+ * referenced by TC-1 through TC-91.
  */
 package completion.model
 

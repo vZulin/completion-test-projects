@@ -2,7 +2,7 @@ package completion;
 
 /**
  * Performance test — completion with a large number of methods.
- * Covers: TC-92.
+ * Covers: TC-90.
  * Based on EX-JV-17.
  */
 public class PerfMany {
@@ -60,7 +60,8 @@ public class PerfMany {
 
     public static void main(String[] args) {
         PerfMany m = new PerfMany();
-        m.met // <caret> TC-92: performance — completion should appear quickly with 50+ methods
-        ;
+        // <caret> TC-90: Delete 'hod000()' below so only 'm.met' remains,
+        //   then invoke completion — popup should appear quickly with 50+ methods
+        m.method000();
     }
 }

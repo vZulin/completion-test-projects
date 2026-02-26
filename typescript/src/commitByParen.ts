@@ -1,6 +1,10 @@
-// Test cases covered: TC-50 (TS variant)
+// Test cases covered: TC-40 (TS variant)
 // Source: EX-TS-7
 
 function doWork(): void {}
 
-doW // <caret> TC-50: commit by '(' — accept completion with '(' should produce doWork()
+// <caret> TC-40: Delete 'ork()' below so only 'doW' remains,
+//   then press '(' to accept completion; should produce doWork()
+doWork();
+
+export {};

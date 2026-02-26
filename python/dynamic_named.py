@@ -1,22 +1,28 @@
 """
 Dynamic/unknown fallback and named-argument completion.
 
-Covers: TC-38, TC-45 (Python variants).
+Covers: TC-32, TC-66 (Python variants).
 Source: EX-PY-4, EX-PY-5.
 """
 
 
-# --- TC-38: dynamic/unknown fallback ---
+# --- TC-32: dynamic/unknown fallback ---
 # Place caret after 'dyn.' and invoke completion; should not crash,
 # may show limited members from object.
 dyn = object()
-dyn.  # <caret> TC-38: dynamic fallback — should not crash, may show limited members
+# <caret> TC-32: Delete '__class__.__name__' below so caret is after 'dyn.',
+#   then invoke completion; should not crash, may show limited members.
+tc38 = dyn.__class__.__name__
 
 
-# --- TC-45: named argument completion ---
+# --- TC-66: named argument completion ---
 # Place caret inside f() parens and invoke completion; expect name=, age=.
 def greet(name: str, age: int) -> None:
     pass
 
 
-greet()  # <caret> TC-45: named args — place caret inside parens, expect name=, age=
+# <caret> TC-66: Delete named args below, place caret inside greet(...),
+#   invoke completion; expect name=, age=.
+greet(name="Ann", age=21)
+
+_ = tc38

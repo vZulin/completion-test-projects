@@ -2,13 +2,15 @@ package completion;
 
 /**
  * Static members completion — only static members should appear.
- * Covers: TC-31.
+ * Covers: TC-27.
  * Based on EX-JV-5.
  */
 public class StaticMembers {
 
     public static void main(String[] args) {
-        Math. // <caret> TC-31: static members only — expect abs, max, PI; no instance methods
-        ;
+        // <caret> TC-27: Delete 'abs(-42)' below so only 'Math.' remains,
+        //   then invoke completion — expect static members only
+        double tc31 = Math.abs(-42);
+        System.out.println(tc31);
     }
 }

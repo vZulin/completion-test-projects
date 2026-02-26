@@ -1,39 +1,46 @@
 /**
  * Postfix templates, language injection, and injected-to-host transition scenarios.
  *
- * Covers: TC-81, TC-82, TC-84, TC-85, TC-86.
+ * Covers: TC-114, TC-115, TC-116, TC-117, TC-118, TC-119.
  */
 package completion.templates
 
 /**
- * TC-81: Postfix completion `.if` — wraps boolean expression in if-block.
- * TC-82: Postfix completion result verification.
+ * TC-114: Postfix completion `.if` — wraps boolean expression in if-block.
+ * TC-115: Postfix completion result verification.
  *
  * To test: delete the if-block below, type `ok.if` and accept the postfix template.
  * Expected result: `if (ok) { }` generated automatically.
  */
 fun postfixIf() {
     val ok = true
-    // <caret> TC-81: Delete the if-block below, type 'ok.if', accept postfix;
+    // <caret> TC-114: Delete the if-block below, type 'ok.if', accept postfix;
     //   expect: if (ok) { }
-    // <caret> TC-82: Verify the generated code is syntactically correct
+    // <caret> TC-115: Verify the generated code is syntactically correct
     if (ok) {
         println("postfix expansion result")
     }
 }
 
-/** TC-84: SQL language injection — completion inside SQL string. */
+/** TC-116: Live template `sout` expansion in Kotlin editor context. */
+fun liveTemplateSout() {
+    // <caret> TC-116-KT: Delete println below, type 'sout', press Tab;
+    //   expect println(...) template expansion with caret inside parentheses
+    println("template expansion result")
+}
+
+/** TC-117: SQL language injection — completion inside SQL string. */
 fun sqlInjection() {
-    // <caret> TC-84: Place caret after 'SELECT ' inside the string;
+    // <caret> TC-117: Place caret after 'SELECT ' inside the string;
     //   invoke completion — expect SQL column/keyword suggestions if injection is active
     @Suppress("unused")
     // language=SQL
     val query = "SELECT id FROM users WHERE id = 1"
 }
 
-/** TC-85: Regex language injection — completion inside regex string. */
+/** TC-118: Regex language injection — completion inside regex string. */
 fun regexInjection() {
-    // <caret> TC-85: Place caret inside regex string;
+    // <caret> TC-118: Place caret inside regex string;
     //   invoke completion — expect regex tokens if injection is active
     @Suppress("unused")
     // language=RegExp
@@ -41,7 +48,7 @@ fun regexInjection() {
 }
 
 /**
- * TC-86: Transition from injected language back to host (Kotlin).
+ * TC-119: Transition from injected language back to host (Kotlin).
  * After editing inside an injected SQL/regex fragment, move caret outside the string
  * and verify that Kotlin completion resumes normally.
  */
@@ -50,7 +57,7 @@ fun injectedToHostTransition() {
     @Suppress("unused")
     val q = "SELECT 1"
     val x = 42
-    // <caret> TC-86: After editing inside SQL string above, place caret after "x."
+    // <caret> TC-119: After editing inside SQL string above, place caret after "x."
     //   below; expect normal Kotlin Int members
     val tc86 = x.toLong()
 }

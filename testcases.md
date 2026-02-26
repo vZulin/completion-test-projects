@@ -8,13 +8,18 @@
 
 ---
 
-## Раздел 1: Триггеры и жизненный цикл completion popup
+## План 1: Acceptance (P0)
 
-### Функциональность: Ручной вызов (Manual trigger)
+Тесты этого плана выполняются в порядке `TC-1` → `TC-56`.
+
+### Источник: Раздел 1: Триггеры и жизненный цикл completion popup
+
+#### Функциональность: Ручной вызов (Manual trigger)
 
 #### [ ] TC-1: Вызвать basic completion через Ctrl+Space
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -58,6 +63,7 @@ fun main() {
 #### [ ] TC-2: Вызвать smart completion через Ctrl+Shift+Space
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -97,6 +103,7 @@ fun main() {
 #### [ ] TC-3: Повторное нажатие Ctrl+Space при открытом popup
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что повторное нажатие Ctrl+Space при открытом popup обновляет/расширяет список без визуальных артефактов.
@@ -130,6 +137,7 @@ fun main() {
 #### [ ] TC-4: Закрытие popup по Esc
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что нажатие Esc закрывает popup completion без изменения текста.
@@ -162,6 +170,7 @@ fun main() {
 #### [ ] TC-5: Закрытие popup кликом мыши вне popup
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что клик мышью вне popup completion закрывает его.
@@ -193,6 +202,7 @@ fun main() {
 #### [ ] TC-6: Фильтрация списка при продолжении ввода текста
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что при вводе текста во время отображения popup completion список фильтруется без зависаний.
@@ -221,11 +231,12 @@ fun main() {
 
 ---
 
-### Функциональность: Автоматическое появление (Auto-popup)
+#### Функциональность: Автоматическое появление (Auto-popup)
 
 #### [ ] TC-7: Auto-popup после точки (member completion)
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -260,6 +271,7 @@ fun main() {
 #### [ ] TC-8: Auto-popup после открывающей скобки (аргументы)
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -297,6 +309,7 @@ fun main() {
 #### [ ] TC-9: Auto-popup после запятой в списке аргументов
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -330,38 +343,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-10: Auto-popup при вводе @ (аннотация/декоратор)
-
-**Приоритет:** P1
-**Тестовые файлы:**
-- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
-- Java: `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
-- Python: `completion-test-projects/python/decorator_keyword.py`
-
-**Описание:** Проверить, что popup completion появляется при вводе символа `@` для аннотаций/декораторов.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-<caret>
-class A
-```
-
-**Шаги:**
-1. Поставить каретку перед `class A`.
-2. Ввести символ `@`.
-3. Убедиться, что popup completion появляется с предложениями аннотаций.
-
-**Ожидаемый результат:** Popup появляется с доступными аннотациями (`Deprecated`, `Suppress`, `JvmStatic` и т.д.).
-
----
-
-#### [ ] TC-11: Auto-popup при вводе пути в import
+#### [ ] TC-10: Auto-popup при вводе пути в import
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/typescript/src/importPath.ts`
 
 **Описание:** Проверить, что popup completion появляется при вводе пути в директиве import.
@@ -382,9 +367,10 @@ import x from "./<caret>"
 
 ---
 
-#### [ ] TC-12: Auto-popup при вводе пути в строке File/Path
+#### [ ] TC-11: Auto-popup при вводе пути в строке File/Path
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 - Python: `completion-test-projects/python/basic_combo.py`
@@ -413,11 +399,12 @@ fun main() {
 
 ---
 
-### Функциональность: Обновление/отмена запросов (race/cancel)
+#### Функциональность: Обновление/отмена запросов (race/cancel)
 
-#### [ ] TC-13: Быстрый ввод символов — актуальность списка
+#### [ ] TC-12: Быстрый ввод символов — актуальность списка
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что при быстром наборе 5–10 символов список completion отображает только актуальные результаты без «отката» к старым.
@@ -451,9 +438,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-14: Удаление префикса Backspace — возврат к полному списку
+#### [ ] TC-13: Удаление префикса Backspace — возврат к полному списку
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что после удаления введённого префикса клавишей Backspace список корректно возвращается к общему набору.
@@ -483,9 +471,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-15: Перемещение каретки стрелками при открытом popup
+#### [ ] TC-14: Перемещение каретки стрелками при открытом popup
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/trigger/Lifecycle.kt`
 
 **Описание:** Проверить, что перемещение каретки стрелками при открытом popup корректно закрывает или переоткрывает его.
@@ -515,13 +504,14 @@ fun main() {
 
 ---
 
-## Раздел 2: Basic completion — корректность списка и ранжирование
+### Источник: Раздел 2: Basic completion — корректность списка и ранжирование
 
-### Функциональность: Локальные символы / scope
+#### Функциональность: Локальные символы / scope
 
-#### [ ] TC-16: Completion для локальной переменной по префиксу
+#### [ ] TC-15: Completion для локальной переменной по префиксу
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 
 **Описание:** Проверить, что при вызове completion внутри функции по префиксу локальной переменной она присутствует в списке.
@@ -552,9 +542,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-17: Completion для параметра функции
+#### [ ] TC-16: Completion для параметра функции
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -582,9 +573,10 @@ fun greet(userName: String, userAge: Int) {
 
 ---
 
-#### [ ] TC-18: Completion показывает символы из внешнего scope
+#### [ ] TC-17: Completion показывает символы из внешнего scope
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 
 **Описание:** Проверить, что внутри вложенного scope (if/for) completion показывает символы из внешнего scope.
@@ -610,9 +602,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-19: Символы вне области видимости не предлагаются
+#### [ ] TC-18: Символы вне области видимости не предлагаются
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/Visibility.java`
 
 **Описание:** Проверить, что private-члены другого класса не предлагаются в completion, где они недоступны.
@@ -642,11 +635,12 @@ public class B {
 
 ---
 
-### Функциональность: Ключевые слова
+#### Функциональность: Ключевые слова
 
-#### [ ] TC-20: Completion для ключевого слова return
+#### [ ] TC-19: Completion для ключевого слова return
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -675,9 +669,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-21: Completion для ключевого слова class на top-level
+#### [ ] TC-20: Completion для ключевого слова class на top-level
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/TopLevelKeyword.java`
@@ -702,110 +697,12 @@ cla<caret>
 
 ---
 
-### Функциональность: Ранжирование (relevance)
+#### Функциональность: Негативные контексты (устойчивость)
 
-#### [ ] TC-22: Локальная переменная ранжируется выше глобальной
-
-**Приоритет:** P0
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
-
-**Описание:** Проверить, что при одинаковом префиксе локальная переменная ранжируется выше глобальной/импортированной.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-val globalUser = User("Global", 0)
-
-data class User(val name: String, val age: Int)
-
-fun main() {
-    val globalUserName = "LocalShadow"
-    glo<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `glo` внутри функции `main`.
-2. Нажать Ctrl+Space.
-3. Убедиться, что `globalUserName` (локальная) стоит выше `globalUser` (глобальная) в списке.
-
-**Ожидаемый результат:** Локальная переменная `globalUserName` ранжируется выше глобальной `globalUser`.
-
----
-
-#### [ ] TC-23: Точный префикс ранжируется выше fuzzy-совпадений
+#### [ ] TC-21: Completion в «сломанном» месте — устойчивость
 
 **Приоритет:** P0
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
-
-**Описание:** Проверить, что при вводе точного префикса элемент с точным совпадением отображается выше fuzzy-совпадений.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun main() {
-    val userName = "Ann"
-    val usernameLegacy = "legacy"
-    userN<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `userN`.
-2. Нажать Ctrl+Space.
-3. Убедиться, что `userName` стоит выше `usernameLegacy` и других fuzzy-совпадений.
-
-**Ожидаемый результат:** `userName` (точное совпадение по регистру) ранжируется выше `usernameLegacy` (fuzzy-совпадение).
-
----
-
-#### [ ] TC-24: MRU — ранее выбранный элемент поднимается, но не ломает релевантность
-
-**Приоритет:** P0
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
-
-**Описание:** Проверить поведение MRU (Most Recently Used): ранее выбранный элемент поднимается в списке, но не становится №1 в нерелевантном контексте.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-data class User(val name: String, val age: Int)
-
-fun main() {
-    val userName = "Ann"
-    val userAge = 21
-    val user = User(userName, userAge)
-
-    user.<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `user.`.
-2. Вызвать completion и выбрать `name`.
-3. Отменить действие (Ctrl+Z).
-4. Повторить выбор `name` из completion ещё 2 раза (всего 3 выбора).
-5. Снова вызвать completion после `user.`.
-6. Убедиться, что `name` поднимается в списке.
-7. Перейти в другой контекст (например, `user.toString()`) и вызвать completion.
-8. Убедиться, что MRU не ломает релевантность в новом контексте.
-
-**Ожидаемый результат:** Ранее выбранный элемент `name` поднимается в контексте `user.`, но не становится №1 в нерелевантном контексте.
-
----
-
-### Функциональность: Негативные контексты (устойчивость)
-
-#### [ ] TC-25: Completion в «сломанном» месте — устойчивость
-
-**Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 
 **Описание:** Проверить, что вызов completion в заведомо некорректном месте (например, посреди числа) не приводит к падению IDE.
@@ -829,13 +726,14 @@ fun main() {
 
 ---
 
-## Раздел 3: Member completion (после доступа к членам)
+### Источник: Раздел 3: Member completion (после доступа к членам)
 
-### Функциональность: Completion после точки
+#### Функциональность: Completion после точки
 
-#### [ ] TC-26: Member completion — свойства и методы типа
+#### [ ] TC-22: Member completion — свойства и методы типа
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -867,9 +765,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-27: Фильтрация member completion по префиксу
+#### [ ] TC-23: Фильтрация member completion по префиксу
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -899,9 +798,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-28: Выбор метода — вставка скобок ()
+#### [ ] TC-24: Выбор метода — вставка скобок ()
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
 - TypeScript: `completion-test-projects/typescript/src/basicCombo.ts`
@@ -938,9 +838,10 @@ public class Main {
 
 ---
 
-#### [ ] TC-29: Выбор поля/свойства — вставка без скобок
+#### [ ] TC-25: Выбор поля/свойства — вставка без скобок
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
 - TypeScript: `completion-test-projects/typescript/src/basicCombo.ts`
@@ -971,11 +872,12 @@ fun main() {
 
 ---
 
-### Функциональность: Статические/companion члены
+#### Функциональность: Статические/companion члены
 
-#### [ ] TC-30: Completion для статических/companion членов
+#### [ ] TC-26: Completion для статических/companion членов
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/StaticMembers.java`
@@ -1006,9 +908,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-31: Нестатические члены не отображаются в контексте ClassName.
+#### [ ] TC-27: Нестатические члены не отображаются в контексте ClassName.
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/StaticMembers.java`
 
 **Описание:** Проверить, что нестатические (instance) члены не появляются при обращении через имя класса.
@@ -1039,73 +942,14 @@ public class StaticTest {
 
 ---
 
-### Функциональность: Nullable / safe access (Kotlin)
+### Источник: Раздел 4: Smart completion (тип-ориентированная)
 
-#### [ ] TC-32: Safe-call completion для nullable типа
+#### Функциональность: Присваивание
 
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
-
-**Описание:** Проверить, что `?.` для nullable-типа показывает члены типа, применимые к safe-call.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-data class User(val name: String, val age: Int)
-
-fun main() {
-    val u: User? = null
-    u?.<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `u?.`.
-2. Нажать Ctrl+Space (или дождаться auto-popup).
-3. Убедиться, что в списке присутствуют `name`, `age` и другие члены типа `User`.
-
-**Ожидаемый результат:** Completion показывает члены типа `User` (`name`, `age`, `toString` и т.д.), применимые к safe-call.
-
----
-
-### Функциональность: Extension methods (Kotlin)
-
-#### [ ] TC-33: Extension function отображается в completion
-
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
-
-**Описание:** Проверить, что extension-функция отображается в completion для типа, к которому она определена.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun String.extHello(): String = "Hello, $this"
-
-fun main() {
-    val s = "Ann"
-    s.<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `s.`.
-2. Нажать Ctrl+Space.
-3. Убедиться, что `extHello()` присутствует в списке completion.
-
-**Ожидаемый результат:** Extension-функция `extHello()` отображается в списке completion для строковой переменной `s`.
-
----
-
-## Раздел 4: Smart completion (тип-ориентированная)
-
-### Функциональность: Присваивание
-
-#### [ ] TC-34: Smart completion при присваивании переменной с указанным типом
+#### [ ] TC-28: Smart completion при присваивании переменной с указанным типом
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/smart/SmartCompletion.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -1142,9 +986,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-35: Выбор функции из smart completion — вставка с кареткой в скобках
+#### [ ] TC-29: Выбор функции из smart completion — вставка с кареткой в скобках
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/smart/SmartCompletion.kt`
 
 **Описание:** Проверить, что выбор функции из smart completion вставляет вызов с кареткой внутри скобок.
@@ -1175,11 +1020,12 @@ fun main() {
 
 ---
 
-### Функциональность: Return
+#### Функциональность: Return
 
-#### [ ] TC-36: Smart completion для return с указанным возвращаемым типом
+#### [ ] TC-30: Smart completion для return с указанным возвращаемым типом
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/smart/SmartCompletion.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/SmartCompletion.java`
@@ -1209,11 +1055,12 @@ fun f(): User {
 
 ---
 
-### Функциональность: Аргументы функции (по ожидаемому типу)
+#### Функциональность: Аргументы функции (по ожидаемому типу)
 
-#### [ ] TC-37: Smart completion по ожидаемому типу аргумента
+#### [ ] TC-31: Smart completion по ожидаемому типу аргумента
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/smart/SmartCompletion.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/SmartCompletion.java`
@@ -1243,11 +1090,12 @@ fun main() {
 
 ---
 
-### Функциональность: Fallback при неизвестном типе
+#### Функциональность: Fallback при неизвестном типе
 
-#### [ ] TC-38: Smart completion при динамическом/неразрешимом типе
+#### [ ] TC-32: Smart completion при динамическом/неразрешимом типе
 
-**Приоритет:** P1
+**Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Python: `completion-test-projects/python/dynamic_named.py`
 - TypeScript: `completion-test-projects/typescript/src/unknownFallback.ts`
@@ -1272,13 +1120,14 @@ dyn.<caret>
 
 ---
 
-## Раздел 5: Completion в аргументах/параметрах и сигнатурах
+### Источник: Раздел 5: Completion в аргументах/параметрах и сигнатурах
 
-### Функциональность: Подстановка аргументов
+#### Функциональность: Подстановка аргументов
 
-#### [ ] TC-39: Completion аргументов по типу параметра
+#### [ ] TC-33: Completion аргументов по типу параметра
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
 
 **Описание:** Проверить, что completion внутри вызова функции предлагает переменные, соответствующие типу текущего параметра.
@@ -1309,9 +1158,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-40: Completion для второго аргумента после запятой
+#### [ ] TC-34: Completion для второго аргумента после запятой
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -1345,9 +1195,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-41: Completion сразу после открывающей скобки без ввода
+#### [ ] TC-35: Completion сразу после открывающей скобки без ввода
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
 
 **Описание:** Проверить, что вызов completion сразу после `(` без ввода текста показывает непустой список.
@@ -1379,138 +1230,14 @@ fun main() {
 
 ---
 
-### Функциональность: Интеграция с Parameter Info
+### Источник: Раздел 6: Accept/commit — вставка, замены, commit characters
 
-#### [ ] TC-42: Parameter info при выборе функции из completion
+#### Функциональность: Enter / Tab
 
-**Приоритет:** P1
-**Тестовые файлы:**
-- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
-- Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
-- TypeScript: `completion-test-projects/typescript/src/basicCombo.ts`
-
-**Описание:** Проверить, что при выборе функции из completion отображается parameter info с подсветкой текущего параметра.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-data class User(val name: String, val age: Int)
-
-fun buildUser(name: String, age: Int): User = User(name, age)
-
-fun main() {
-    build<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `build`.
-2. Нажать Ctrl+Space.
-3. Выбрать `buildUser` из списка и нажать Enter.
-4. Убедиться, что вставлен `buildUser()` с кареткой внутри скобок.
-5. Убедиться, что отображается parameter info (подсказка с параметрами).
-6. Начать ввод первого аргумента.
-7. Убедиться, что текущий параметр подсвечен в parameter info.
-
-**Ожидаемый результат:** Отображается parameter info с подсветкой текущего параметра `name: String`.
-
----
-
-### Функциональность: Именованные аргументы (Named arguments)
-
-#### [ ] TC-43: Kotlin — completion именованных аргументов
-
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
-
-**Описание:** Проверить, что completion внутри вызова функции в Kotlin предлагает именованные аргументы `name =` и `age =`.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-data class User(val name: String, val age: Int)
-fun buildUser(name: String, age: Int): User = User(name, age)
-
-fun main() {
-    buildUser(<caret>)
-}
-```
-
-**Шаги:**
-1. Поставить каретку внутри `buildUser()`.
-2. Нажать Ctrl+Space.
-3. Убедиться, что в списке есть варианты `name = ` и `age = `.
-
-**Ожидаемый результат:** Completion предлагает именованные аргументы `name = ` и `age = `.
-
----
-
-#### [ ] TC-44: Kotlin — уже использованный named argument не предлагается повторно
-
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
-
-**Описание:** Проверить, что после указания именованного аргумента он не предлагается повторно.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-data class User(val name: String, val age: Int)
-fun buildUser(name: String, age: Int): User = User(name, age)
-
-fun main() {
-    buildUser(name = "Ann", <caret>)
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `name = "Ann", `.
-2. Нажать Ctrl+Space.
-3. Убедиться, что `name = ` **не** предлагается повторно.
-4. Убедиться, что `age = ` предлагается.
-
-**Ожидаемый результат:** Уже использованный `name = ` не предлагается. Предлагается только `age = `.
-
----
-
-#### [ ] TC-45: Python — completion именованных параметров
-
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/python/dynamic_named.py`
-
-**Описание:** Проверить, что completion для функции с именованными параметрами в Python предлагает имена параметров.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```python
-def f(name: str, age: int) -> None:
-    pass
-
-f(<caret>)
-```
-
-**Шаги:**
-1. Поставить каретку внутри `f()`.
-2. Нажать Ctrl+Space.
-3. Убедиться, что предлагаются `name=` и `age=` (если IDE поддерживает).
-
-**Ожидаемый результат:** Completion предлагает именованные параметры `name=` и `age=`.
-
----
-
-## Раздел 6: Accept/commit — вставка, замены, commit characters
-
-### Функциональность: Enter / Tab
-
-#### [ ] TC-46: Принятие элемента из completion клавишей Enter
+#### [ ] TC-36: Принятие элемента из completion клавишей Enter
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
 
 **Описание:** Проверить, что выбор элемента из completion и нажатие Enter вставляет его в код.
@@ -1540,9 +1267,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-47: Принятие элемента из completion клавишей Tab
+#### [ ] TC-37: Принятие элемента из completion клавишей Tab
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
 
 **Описание:** Проверить, что выбор элемента клавишей Tab вставляет элемент (или выполняет замену — согласно настройкам IDE).
@@ -1572,9 +1300,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-48: Принятие completion при выделенном тексте — замена
+#### [ ] TC-38: Принятие completion при выделенном тексте — замена
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
 
 **Описание:** Проверить, что при наличии выделенного текста принятие элемента из completion заменяет выделение.
@@ -1600,11 +1329,12 @@ fun main() {
 
 ---
 
-### Функциональность: Commit characters
+#### Функциональность: Commit characters
 
-#### [ ] TC-49: Принятие completion нажатием точки (commit by `.`)
+#### [ ] TC-39: Принятие completion нажатием точки (commit by `.`)
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
 
 **Описание:** Проверить, что принятие completion нажатием `.` вставляет элемент и добавляет точку.
@@ -1631,9 +1361,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-50: Принятие completion нажатием открывающей скобки (commit by `(`)
+#### [ ] TC-40: Принятие completion нажатием открывающей скобки (commit by `(`)
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Java: `completion-test-projects/java/src/main/java/completion/AcceptCommit.java`
 - TypeScript: `completion-test-projects/typescript/src/commitByParen.ts`
@@ -1665,46 +1396,12 @@ public class Commit {
 
 ---
 
-#### [ ] TC-51: Принятие completion нажатием запятой в аргументах
+#### Функциональность: Позиция каретки (Caret placement)
 
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
-
-**Описание:** Проверить, что принятие completion нажатием `,` в списке аргументов вставляет элемент и запятую корректно.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-data class User(val name: String, val age: Int)
-
-fun buildUser(name: String, age: Int): User = User(name, age)
-
-fun main() {
-    val userName = "Ann"
-    val userAge = 21
-    buildUser(user<caret>)
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `user` внутри `buildUser()`.
-2. Нажать Ctrl+Space — `userName` появляется в popup.
-3. Нажать `,` для принятия completion.
-4. Убедиться, что вставлено `userName,` (с запятой и пробелом по code style).
-5. Убедиться, что запятая не дублируется.
-
-**Ожидаемый результат:** Вставлено `userName,` корректно. Запятая не дублируется, пробелы по code style.
-
----
-
-### Функциональность: Позиция каретки (Caret placement)
-
-#### [ ] TC-52: Каретка внутри скобок после выбора функции
+#### [ ] TC-41: Каретка внутри скобок после выбора функции
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -1738,9 +1435,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-53: Каретка в ожидаемом месте после выбора конструктора
+#### [ ] TC-42: Каретка в ожидаемом месте после выбора конструктора
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
@@ -1776,13 +1474,14 @@ public class Main {
 
 ---
 
-## Раздел 7: Auto-import и символы из зависимостей
+### Источник: Раздел 7: Auto-import и символы из зависимостей
 
-### Функциональность: Импорт при выборе из completion
+#### Функциональность: Импорт при выборе из completion
 
-#### [ ] TC-54: Java — auto-import ArrayList при принятии completion
+#### [ ] TC-43: Java — auto-import ArrayList при принятии completion
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
 
 **Описание:** Проверить, что принятие completion для неимпортированного класса добавляет соответствующий import.
@@ -1812,9 +1511,10 @@ public class Imports {
 
 ---
 
-#### [ ] TC-55: Kotlin — auto-import File при принятии completion
+#### [ ] TC-44: Kotlin — auto-import File при принятии completion
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/imports/AutoImportScenarios.kt`
 
 **Описание:** Проверить, что в Kotlin принятие completion для неимпортированного класса добавляет import.
@@ -1839,9 +1539,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-56: TypeScript — auto-import при принятии completion
+#### [ ] TC-45: TypeScript — auto-import при принятии completion
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/typescript/src/autoImport.ts`
 
 **Описание:** Проверить, что в TypeScript принятие completion по неимпортированному символу добавляет import.
@@ -1871,11 +1572,12 @@ utilF<caret>
 
 ---
 
-### Функциональность: Конфликт имён
+#### Функциональность: Конфликт имён
 
-#### [ ] TC-57: Completion при конфликте имён — два класса из разных пакетов
+#### [ ] TC-46: Completion при конфликте имён — два класса из разных пакетов
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовые файлы:**
 - Java: `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/imports/AutoImportScenarios.kt`
@@ -1906,76 +1608,14 @@ public class Conflict {
 
 ---
 
-#### [ ] TC-58: После выбора одного варианта второй не подмешивается
+### Источник: Раздел 8: Completion в строках (paths/resources)
 
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+#### Функциональность: File system paths
 
-**Описание:** Проверить, что после выбора одного класса из конфликтующих пакетов второй не добавляется в imports автоматически.
-
-**Предусловие:**
-- Файл с конфликтом имён открыт (см. TC-57).
-
-```java
-package demo;
-
-public class Conflict {
-  public static void main(String[] args) {
-    Date<caret> d;
-  }
-}
-```
-
-**Шаги:**
-1. Выбрать `java.util.Date` из completion (как в TC-57).
-2. Убедиться, что добавлен только `import java.util.Date;`.
-3. Убедиться, что `import java.sql.Date;` **не** добавлен.
-
-**Ожидаемый результат:** В файле только один import — `java.util.Date;`. Второй пакет не подмешивается.
-
----
-
-### Функциональность: Поведение в зависимости от настроек
-
-#### [ ] TC-59: Отключённый auto-import — поведение при completion
-
-**Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
-
-**Описание:** Проверить, что при выключенном auto-import принятие completion не добавляет import (или добавляет fully qualified name).
-
-**Предусловие:**
-- Auto-import отключён в настройках IDE.
-- Файл с кодом открыт в редакторе.
-
-```java
-package demo;
-
-public class Imports {
-  public static void main(String[] args) {
-    ArrayLis<caret> list;
-  }
-}
-```
-
-**Шаги:**
-1. Выключить auto-import в настройках (Settings → Editor → General → Auto Import).
-2. Поставить каретку после `ArrayLis`.
-3. Нажать Ctrl+Space.
-4. Выбрать `ArrayList` и нажать Enter.
-5. Убедиться, что import **не** добавлен (или добавлено fully qualified name `java.util.ArrayList`).
-
-**Ожидаемый результат:** Поведение соответствует настройке: import не добавлен или вставлен fully qualified name.
-
----
-
-## Раздел 8: Completion в строках (paths/resources)
-
-### Функциональность: File system paths
-
-#### [ ] TC-60: Path completion внутри File("...")
+#### [ ] TC-47: Path completion внутри File("...")
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
 
 **Описание:** Проверить, что в строке `File("...")` completion показывает папки и файлы проекта.
@@ -2002,9 +1642,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-61: Выбор файла из path completion — корректность строки
+#### [ ] TC-48: Выбор файла из path completion — корректность строки
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
 
 **Описание:** Проверить, что выбор файла из path completion корректно дополняет строку.
@@ -2034,9 +1675,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-62: Completion относительных путей `./` и `../`
+#### [ ] TC-49: Completion относительных путей `./` и `../`
 
 **Приоритет:** P0
+**План:** Acceptance
 **Тестовый файл:** `completion-test-projects/typescript/src/importPath.ts`
 
 **Описание:** Проверить, что completion относительных путей `./` и `../` работает корректно.
@@ -2059,11 +1701,682 @@ import x from "./<caret>"
 
 ---
 
-### Функциональность: Негатив — обычная строка
+### Источник: Раздел 17: Dumb mode / индексация / устойчивость
 
-#### [ ] TC-63: Completion в обычной строке — без навязывания path completion
+#### Функциональность: Dumb mode / индексация
+
+#### [ ] TC-50: Completion в Dumb mode — устойчивость
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
+
+**Описание:** Проверить, что вызов completion во время индексации (Dumb mode) не приводит к падению IDE.
+
+**Предусловие:**
+- IDE открыта, идёт индексация проекта (Dumb mode).
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val user = User("Ann", 21)
+    user.<caret>
+}
+```
+
+**Шаги:**
+1. Открыть крупный проект (или инвалидировать кэш) для запуска индексации.
+2. Во время индексации (видна полоса прогресса) поставить каретку после `user.`.
+3. Нажать Ctrl+Space.
+4. Убедиться, что IDE не падает.
+5. Убедиться, что показывается ограниченный список или информация об ограниченных результатах.
+
+**Ожидаемый результат:** IDE не падает. Показывается ограниченный список или уведомление об ограничениях.
+
+---
+
+#### [ ] TC-51: Множественный вызов completion в Dumb mode — нет зависаний
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
+
+**Описание:** Проверить, что 5-кратный вызов completion во время индексации не приводит к зависаниям UI.
+
+**Предусловие:**
+- IDE в Dumb mode (идёт индексация).
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val user = User("Ann", 21)
+    user.<caret>
+}
+```
+
+**Шаги:**
+1. Во время индексации поставить каретку после `user.`.
+2. Нажать Ctrl+Space 5 раз подряд.
+3. Убедиться, что нет зависаний UI.
+4. Убедиться, что нет очереди «старых» попапов (накладывающихся друг на друга).
+
+**Ожидаемый результат:** Нет зависаний UI. Нет очереди старых попапов. IDE остаётся отзывчивой.
+
+---
+
+#### [ ] TC-52: Completion после завершения индексации — полные результаты
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
+
+**Описание:** Проверить, что после завершения индексации completion возвращает полные и корректные результаты.
+
+**Предусловие:**
+- IDE только что завершила индексацию.
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val user = User("Ann", 21)
+    user.<caret>
+}
+```
+
+**Шаги:**
+1. Дождаться завершения индексации (полоса прогресса исчезла).
+2. Поставить каретку после `user.`.
+3. Нажать Ctrl+Space.
+4. Убедиться, что результаты полные и корректные (все свойства и методы `User` доступны).
+
+**Ожидаемый результат:** Completion возвращает полный набор членов типа `User`. Результаты корректные.
+
+---
+
+### Источник: Раздел 21: Completion внутри индексаторов `[]`
+
+#### Функциональность: Completion индексного выражения в списках/массивах
+
+#### [ ] TC-53: Kotlin — completion Int-индекса внутри `list[ ... ]`
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/brackets/BracketIndexAccess.kt`
+
+**Описание:** Проверить, что completion внутри `[]` для списка предлагает переменные подходящего типа индекса (`Int`).
+
+**Предусловие:**
+- Файл `BracketIndexAccess.kt` открыт в редакторе.
+
+```kotlin
+val users = listOf(User("Ann", 21), User("Bob", 22))
+val selectedIndex = 0
+val target = users[<caret>]
+```
+
+**Шаги:**
+1. Поставить каретку внутри `users[ ]`.
+2. Вызвать completion (Ctrl+Space).
+3. Проверить, что предлагается `selectedIndex`.
+4. Выбрать `selectedIndex` и убедиться, что выражение остаётся валидным.
+
+**Ожидаемый результат:** Внутри `[]` предлагаются релевантные Int-выражения для индексации. Синтаксис не ломается.
+
+---
+
+#### [ ] TC-54: Java — completion индекса в `array[ ... ]` и `matrix[ ... ][ ... ]`
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:**
+- Java: `completion-test-projects/java/src/main/java/completion/BracketIndexCompletion.java`
+
+**Описание:** Проверить completion внутри `[]` для одномерного и двумерного массива в Java.
+
+**Предусловие:**
+- Файл `BracketIndexCompletion.java` открыт в редакторе.
+
+```java
+int[] ages = {21, 22, 23};
+int position = 1;
+int a = ages[<caret>];
+
+int[][] matrix = {{1, 2}, {3, 4}};
+int row = 0;
+int col = 1;
+int b = matrix[<caret>][<caret>];
+```
+
+**Шаги:**
+1. Поставить каретку внутри `ages[ ]` и вызвать completion.
+2. Выбрать `position`.
+3. Повторить для `matrix[ ][ ]`: сначала выбрать `row`, затем `col`.
+4. Убедиться, что выражения компилируемы.
+
+**Ожидаемый результат:** Completion в Java корректно работает внутри `[]` и предлагает локальные переменные подходящего типа.
+
+---
+
+#### [ ] TC-55: TypeScript — completion в `obj["..."]` и `arr[ ... ]`
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:**
+- TypeScript: `completion-test-projects/typescript/src/bracketIndex.ts`
+
+**Описание:** Проверить completion внутри `[]` для строкового ключа объекта и числового индекса массива.
+
+**Предусловие:**
+- Файл `bracketIndex.ts` открыт в редакторе.
+
+```typescript
+type User = { name: string; age: number };
+const user: User = { name: "Ann", age: 21 };
+const a = user["<caret>"];
+
+const names = ["Ann", "Bob"];
+const idx = 0;
+const b = names[<caret>];
+```
+
+**Шаги:**
+1. Поставить каретку внутри `user[""]`, ввести `na`, вызвать completion.
+2. Убедиться, что предлагается ключ `name`.
+3. Поставить каретку внутри `names[ ]`, вызвать completion.
+4. Убедиться, что предлагается `idx`.
+
+**Ожидаемый результат:** Completion работает в обоих bracket-контекстах: ключи объекта и индекс массива.
+
+---
+
+### Источник: Раздел 22: Продвинутые контексты completion
+
+#### Функциональность: Type-flow, DSL, refactoring, устойчивость
+
+#### [ ] TC-56: Completion в синтаксически «битом» коде (resilience)
+
+**Приоритет:** P0  
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/AdvancedCompletionContracts.java`
+
+**Описание:** Проверить устойчивость completion при временно невалидном синтаксисе.
+
+**Шаги:**
+1. В `brokenCodeResilience` временно удалить закрывающую `)` у `println`.
+2. Поставить каретку после `user.` и вызвать completion.
+3. Проверить, что IDE не падает и показывает релевантные предложения.
+
+**Ожидаемый результат:** Completion остаётся работоспособным в broken-коде; ошибок в IDE log нет.
+
+---
+
+## План 2: Regression (P1)
+
+Тесты этого плана выполняются в порядке `TC-57` → `TC-113`.
+
+### Источник: Раздел 1: Триггеры и жизненный цикл completion popup
+
+#### Функциональность: Автоматическое появление (Auto-popup)
+
+#### [ ] TC-57: Auto-popup при вводе @ (аннотация/декоратор)
 
 **Приоритет:** P1
+**План:** Regression
+**Тестовые файлы:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
+- Java: `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
+- Python: `completion-test-projects/python/decorator_keyword.py`
+
+**Описание:** Проверить, что popup completion появляется при вводе символа `@` для аннотаций/декораторов.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+<caret>
+class A
+```
+
+**Шаги:**
+1. Поставить каретку перед `class A`.
+2. Ввести символ `@`.
+3. Убедиться, что popup completion появляется с предложениями аннотаций.
+
+**Ожидаемый результат:** Popup появляется с доступными аннотациями (`Deprecated`, `Suppress`, `JvmStatic` и т.д.).
+
+---
+
+### Источник: Раздел 2: Basic completion — корректность списка и ранжирование
+
+#### Функциональность: Ранжирование (relevance)
+
+#### [ ] TC-58: Локальная переменная ранжируется выше глобальной
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
+
+**Описание:** Проверить, что при одинаковом префиксе локальная переменная ранжируется выше глобальной/импортированной.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+val globalUser = User("Global", 0)
+
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val globalUserName = "LocalShadow"
+    glo<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `glo` внутри функции `main`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что `globalUserName` (локальная) стоит выше `globalUser` (глобальная) в списке.
+
+**Ожидаемый результат:** Локальная переменная `globalUserName` ранжируется выше глобальной `globalUser`.
+
+---
+
+#### [ ] TC-59: Точный префикс ранжируется выше fuzzy-совпадений
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
+
+**Описание:** Проверить, что при вводе точного префикса элемент с точным совпадением отображается выше fuzzy-совпадений.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun main() {
+    val userName = "Ann"
+    val usernameLegacy = "legacy"
+    userN<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `userN`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что `userName` стоит выше `usernameLegacy` и других fuzzy-совпадений.
+
+**Ожидаемый результат:** `userName` (точное совпадение по регистру) ранжируется выше `usernameLegacy` (fuzzy-совпадение).
+
+---
+
+#### [ ] TC-60: MRU — ранее выбранный элемент поднимается, но не ломает релевантность
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
+
+**Описание:** Проверить поведение MRU (Most Recently Used): ранее выбранный элемент поднимается в списке, но не становится №1 в нерелевантном контексте.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val userName = "Ann"
+    val userAge = 21
+    val user = User(userName, userAge)
+
+    user.<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `user.`.
+2. Вызвать completion и выбрать `name`.
+3. Отменить действие (Ctrl+Z).
+4. Повторить выбор `name` из completion ещё 2 раза (всего 3 выбора).
+5. Снова вызвать completion после `user.`.
+6. Убедиться, что `name` поднимается в списке.
+7. Перейти в другой контекст (например, `user.toString()`) и вызвать completion.
+8. Убедиться, что MRU не ломает релевантность в новом контексте.
+
+**Ожидаемый результат:** Ранее выбранный элемент `name` поднимается в контексте `user.`, но не становится №1 в нерелевантном контексте.
+
+---
+
+### Источник: Раздел 3: Member completion (после доступа к членам)
+
+#### Функциональность: Nullable / safe access (Kotlin)
+
+#### [ ] TC-61: Safe-call completion для nullable типа
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
+
+**Описание:** Проверить, что `?.` для nullable-типа показывает члены типа, применимые к safe-call.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+data class User(val name: String, val age: Int)
+
+fun main() {
+    val u: User? = null
+    u?.<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `u?.`.
+2. Нажать Ctrl+Space (или дождаться auto-popup).
+3. Убедиться, что в списке присутствуют `name`, `age` и другие члены типа `User`.
+
+**Ожидаемый результат:** Completion показывает члены типа `User` (`name`, `age`, `toString` и т.д.), применимые к safe-call.
+
+---
+
+#### Функциональность: Extension methods (Kotlin)
+
+#### [ ] TC-62: Extension function отображается в completion
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/member/MemberAccess.kt`
+
+**Описание:** Проверить, что extension-функция отображается в completion для типа, к которому она определена.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun String.extHello(): String = "Hello, $this"
+
+fun main() {
+    val s = "Ann"
+    s.<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `s.`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что `extHello()` присутствует в списке completion.
+
+**Ожидаемый результат:** Extension-функция `extHello()` отображается в списке completion для строковой переменной `s`.
+
+---
+
+### Источник: Раздел 5: Completion в аргументах/параметрах и сигнатурах
+
+#### Функциональность: Интеграция с Parameter Info
+
+#### [ ] TC-63: Parameter info при выборе функции из completion
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовые файлы:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
+- Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
+- TypeScript: `completion-test-projects/typescript/src/basicCombo.ts`
+
+**Описание:** Проверить, что при выборе функции из completion отображается parameter info с подсветкой текущего параметра.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+data class User(val name: String, val age: Int)
+
+fun buildUser(name: String, age: Int): User = User(name, age)
+
+fun main() {
+    build<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `build`.
+2. Нажать Ctrl+Space.
+3. Выбрать `buildUser` из списка и нажать Enter.
+4. Убедиться, что вставлен `buildUser()` с кареткой внутри скобок.
+5. Убедиться, что отображается parameter info (подсказка с параметрами).
+6. Начать ввод первого аргумента.
+7. Убедиться, что текущий параметр подсвечен в parameter info.
+
+**Ожидаемый результат:** Отображается parameter info с подсветкой текущего параметра `name: String`.
+
+---
+
+#### Функциональность: Именованные аргументы (Named arguments)
+
+#### [ ] TC-64: Kotlin — completion именованных аргументов
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
+
+**Описание:** Проверить, что completion внутри вызова функции в Kotlin предлагает именованные аргументы `name =` и `age =`.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+data class User(val name: String, val age: Int)
+fun buildUser(name: String, age: Int): User = User(name, age)
+
+fun main() {
+    buildUser(<caret>)
+}
+```
+
+**Шаги:**
+1. Поставить каретку внутри `buildUser()`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что в списке есть варианты `name = ` и `age = `.
+
+**Ожидаемый результат:** Completion предлагает именованные аргументы `name = ` и `age = `.
+
+---
+
+#### [ ] TC-65: Kotlin — уже использованный named argument не предлагается повторно
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/args/ArgsParams.kt`
+
+**Описание:** Проверить, что после указания именованного аргумента он не предлагается повторно.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+data class User(val name: String, val age: Int)
+fun buildUser(name: String, age: Int): User = User(name, age)
+
+fun main() {
+    buildUser(name = "Ann", <caret>)
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `name = "Ann", `.
+2. Нажать Ctrl+Space.
+3. Убедиться, что `name = ` **не** предлагается повторно.
+4. Убедиться, что `age = ` предлагается.
+
+**Ожидаемый результат:** Уже использованный `name = ` не предлагается. Предлагается только `age = `.
+
+---
+
+#### [ ] TC-66: Python — completion именованных параметров
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/python/dynamic_named.py`
+
+**Описание:** Проверить, что completion для функции с именованными параметрами в Python предлагает имена параметров.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```python
+def f(name: str, age: int) -> None:
+    pass
+
+f(<caret>)
+```
+
+**Шаги:**
+1. Поставить каретку внутри `f()`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что предлагаются `name=` и `age=` (если IDE поддерживает).
+
+**Ожидаемый результат:** Completion предлагает именованные параметры `name=` и `age=`.
+
+---
+
+### Источник: Раздел 6: Accept/commit — вставка, замены, commit characters
+
+#### Функциональность: Commit characters
+
+#### [ ] TC-67: Принятие completion нажатием запятой в аргументах
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/AcceptCommit.kt`
+
+**Описание:** Проверить, что принятие completion нажатием `,` в списке аргументов вставляет элемент и запятую корректно.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+package demo
+
+data class User(val name: String, val age: Int)
+
+fun buildUser(name: String, age: Int): User = User(name, age)
+
+fun main() {
+    val userName = "Ann"
+    val userAge = 21
+    buildUser(user<caret>)
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `user` внутри `buildUser()`.
+2. Нажать Ctrl+Space — `userName` появляется в popup.
+3. Нажать `,` для принятия completion.
+4. Убедиться, что вставлено `userName,` (с запятой и пробелом по code style).
+5. Убедиться, что запятая не дублируется.
+
+**Ожидаемый результат:** Вставлено `userName,` корректно. Запятая не дублируется, пробелы по code style.
+
+---
+
+### Источник: Раздел 7: Auto-import и символы из зависимостей
+
+#### Функциональность: Конфликт имён
+
+#### [ ] TC-68: После выбора одного варианта второй не подмешивается
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить, что после выбора одного класса из конфликтующих пакетов второй не добавляется в imports автоматически.
+
+**Предусловие:**
+- Файл с конфликтом имён открыт (см. TC-46).
+
+```java
+package demo;
+
+public class Conflict {
+  public static void main(String[] args) {
+    Date<caret> d;
+  }
+}
+```
+
+**Шаги:**
+1. Выбрать `java.util.Date` из completion (как в TC-46).
+2. Убедиться, что добавлен только `import java.util.Date;`.
+3. Убедиться, что `import java.sql.Date;` **не** добавлен.
+
+**Ожидаемый результат:** В файле только один import — `java.util.Date;`. Второй пакет не подмешивается.
+
+---
+
+#### Функциональность: Поведение в зависимости от настроек
+
+#### [ ] TC-69: Отключённый auto-import — поведение при completion
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить, что при выключенном auto-import принятие completion не добавляет import (или добавляет fully qualified name).
+
+**Предусловие:**
+- Auto-import отключён в настройках IDE.
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+public class Imports {
+  public static void main(String[] args) {
+    ArrayLis<caret> list;
+  }
+}
+```
+
+**Шаги:**
+1. Выключить auto-import в настройках (Settings → Editor → General → Auto Import).
+2. Поставить каретку после `ArrayLis`.
+3. Нажать Ctrl+Space.
+4. Выбрать `ArrayList` и нажать Enter.
+5. Убедиться, что import **не** добавлен (или добавлено fully qualified name `java.util.ArrayList`).
+
+**Ожидаемый результат:** Поведение соответствует настройке: import не добавлен или вставлен fully qualified name.
+
+---
+
+### Источник: Раздел 8: Completion в строках (paths/resources)
+
+#### Функциональность: Негатив — обычная строка
+
+#### [ ] TC-70: Completion в обычной строке — без навязывания path completion
+
+**Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
 
 **Описание:** Проверить, что в строковом литерале, не похожем на путь, completion не навязывает file path completion.
@@ -2087,13 +2400,14 @@ fun main() {
 
 ---
 
-## Раздел 9: Documentation popup / QuickDoc / детали элемента
+### Источник: Раздел 9: Documentation popup / QuickDoc / детали элемента
 
-### Функциональность: QuickDoc и детали элемента
+#### Функциональность: QuickDoc и детали элемента
 
-#### [ ] TC-64: QuickDoc для элемента из completion (Ctrl+Q)
+#### [ ] TC-71: QuickDoc для элемента из completion (Ctrl+Q)
 
-**Приоритет:** P0
+**Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/doc/DocInfo.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
@@ -2125,9 +2439,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-65: Отображение типа/сигнатуры в списке completion
+#### [ ] TC-72: Отображение типа/сигнатуры в списке completion
 
-**Приоритет:** P0
+**Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/doc/DocInfo.kt`
 
 **Описание:** Проверить, что в списке completion корректно отображается тип или сигнатура каждого элемента.
@@ -2158,9 +2473,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-66: Deprecated элементы помечены визуально
+#### [ ] TC-73: Deprecated элементы помечены визуально
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/doc/DocInfo.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
@@ -2189,13 +2505,14 @@ fun main() {
 
 ---
 
-## Раздел 10: Generics / type parameters
+### Источник: Раздел 10: Generics / type parameters
 
-### Функциональность: Generics / type parameters
+#### Функциональность: Generics / type parameters
 
-#### [ ] TC-67: Completion типов внутри generic-параметров
+#### [ ] TC-74: Completion типов внутри generic-параметров
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/GenericsAnnot.java`
@@ -2225,9 +2542,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-68: Completion второго type parameter в Map
+#### [ ] TC-75: Completion второго type parameter в Map
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/GenericsAnnot.java`
 
 **Описание:** Проверить, что completion второго type parameter в `Map<String, <caret>>` работает корректно.
@@ -2256,9 +2574,10 @@ public class G {
 
 ---
 
-#### [ ] TC-69: Auto-import при выборе типа в generic-параметре
+#### [ ] TC-76: Auto-import при выборе типа в generic-параметре
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/GenericsAnnot.java`
@@ -2289,13 +2608,14 @@ fun main() {
 
 ---
 
-## Раздел 11: Аннотации / атрибуты / декораторы
+### Источник: Раздел 11: Аннотации / атрибуты / декораторы
 
-### Функциональность: Аннотации / атрибуты / декораторы
+#### Функциональность: Аннотации / атрибуты / декораторы
 
-#### [ ] TC-70: Java — completion аннотации @Deprecated
+#### [ ] TC-77: Java — completion аннотации @Deprecated
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
 
 **Описание:** Проверить, что при наборе `@Depr` в Java completion предлагает `@Deprecated`.
@@ -2321,9 +2641,10 @@ class A {}
 
 ---
 
-#### [ ] TC-71: Kotlin — completion аннотации @Deprecated
+#### [ ] TC-78: Kotlin — completion аннотации @Deprecated
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
 
 **Описание:** Проверить, что при наборе `@Depre` в Kotlin completion предлагает `@Deprecated`.
@@ -2349,9 +2670,10 @@ class A
 
 ---
 
-#### [ ] TC-72: Python — completion декоратора @dataclass
+#### [ ] TC-79: Python — completion декоратора @dataclass
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/python/decorator_keyword.py`
 
 **Описание:** Проверить, что при наборе `@datac` в Python completion предлагает `@dataclass`.
@@ -2378,9 +2700,10 @@ class A:
 
 ---
 
-#### [ ] TC-73: Completion параметров аннотации
+#### [ ] TC-80: Completion параметров аннотации
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/generics/GenericsAnnotations.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/GenericsAnnot.java`
@@ -2406,13 +2729,14 @@ class A
 
 ---
 
-## Раздел 12: Doc/Comments completion
+### Источник: Раздел 12: Doc/Comments completion
 
-### Функциональность: Doc/Comments completion
+#### Функциональность: Doc/Comments completion
 
-#### [ ] TC-74: Javadoc — completion тегов @param, @return, @throws
+#### [ ] TC-81: Javadoc — completion тегов @param, @return, @throws
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
 
 **Описание:** Проверить, что в Javadoc-комментарии completion предлагает теги @param, @return, @throws.
@@ -2441,9 +2765,10 @@ public class Doc {
 
 ---
 
-#### [ ] TC-75: Javadoc — @param вставляется с именем параметра
+#### [ ] TC-82: Javadoc — @param вставляется с именем параметра
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
 
 **Описание:** Проверить, что выбор `@param` из completion вставляет шаблон с именем параметра.
@@ -2471,9 +2796,10 @@ public class Doc {
 
 ---
 
-#### [ ] TC-76: KDoc — completion тегов @param/@return
+#### [ ] TC-83: KDoc — completion тегов @param/@return
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/doc/DocInfo.kt`
 
 **Описание:** Проверить, что в KDoc completion предлагает теги @param/@return.
@@ -2498,9 +2824,10 @@ fun f(a: Int): Int = a
 
 ---
 
-#### [ ] TC-77: Python — completion секций в docstring
+#### [ ] TC-84: Python — completion секций в docstring
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/python/docstring.py`
 
 **Описание:** Проверить, что в Python docstring completion предлагает секции/параметры (если IDE поддерживает).
@@ -2525,13 +2852,14 @@ def f(a: int) -> int:
 
 ---
 
-## Раздел 13: Build/config completion (минимальный smoke)
+### Источник: Раздел 13: Build/config completion (минимальный smoke)
 
-### Функциональность: Build/config completion
+#### Функциональность: Build/config completion
 
-#### [ ] TC-78: package.json — completion по ключам
+#### [ ] TC-85: package.json — completion по ключам
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/typescript/package.json`
 
 **Описание:** Проверить, что в `package.json` completion предлагает ключи согласно JSON-схеме.
@@ -2554,9 +2882,10 @@ def f(a: int) -> int:
 
 ---
 
-#### [ ] TC-79: tsconfig.json — completion по ключам/значениям
+#### [ ] TC-86: tsconfig.json — completion по ключам/значениям
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/typescript/tsconfig.json`
 
 **Описание:** Проверить, что в `tsconfig.json` completion предлагает ключи и enum-значения.
@@ -2581,9 +2910,10 @@ def f(a: int) -> int:
 
 ---
 
-#### [ ] TC-80: build.gradle.kts — completion по DSL
+#### [ ] TC-87: build.gradle.kts — completion по DSL
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/build.gradle.kts`
 
 **Описание:** Проверить, что в `build.gradle.kts` completion предлагает DSL-элементы Gradle.
@@ -2613,187 +2943,14 @@ dependencies {
 
 ---
 
-## Раздел 14: Templates — postfix / live templates
+### Источник: Раздел 16: Refactoring-aware проверки
 
-### Функциональность: Postfix и Live templates
+#### Функциональность: Refactoring-aware проверки
 
-#### [ ] TC-81: Postfix completion `.if` → if (...) { }
+#### [ ] TC-88: Completion после Rename — предлагается новое имя
 
-**Приоритет:** P2
-**Тестовые файлы:**
-- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
-- Java: `completion-test-projects/java/src/main/java/completion/TemplatesRefactor.java`
-
-**Описание:** Проверить, что postfix completion `.if` превращает выражение в конструкцию `if (...) { }`.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun main() {
-    val ok = true
-    ok.if<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `ok.if`.
-2. Нажать Ctrl+Space или Tab (в зависимости от настроек).
-3. Принять postfix completion.
-4. Убедиться, что результат: `if (ok) { }`.
-
-**Ожидаемый результат:** Выражение `ok.if` превращается в `if (ok) { }`. Каретка — внутри фигурных скобок.
-
----
-
-#### [ ] TC-82: Конфликт basic completion и postfix — оба типа в списке
-
-**Приоритет:** P2
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
-
-**Описание:** Проверить, что при конфликте между basic completion и postfix completion оба типа присутствуют в списке с корректным приоритетом.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun main() {
-    val ok = true
-    ok.if<caret>
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `ok.if`.
-2. Нажать Ctrl+Space.
-3. Убедиться, что в списке есть и postfix `.if`, и обычные completion-элементы (если есть совпадения).
-4. Убедиться, что приоритет корректный (postfix `.if` — в ожидаемом месте списка).
-
-**Ожидаемый результат:** Оба типа предложений присутствуют в списке. Приоритет корректный.
-
----
-
-#### [ ] TC-83: Live template — sout + Tab → expand с плейсхолдерами
-
-**Приоритет:** P2
-**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/TemplatesRefactor.java`
-
-**Описание:** Проверить, что live template `sout` раскрывается по Tab с корректными плейсхолдерами.
-
-**Предусловие:**
-- Файл с кодом открыт в редакторе (Java).
-
-```java
-package demo;
-
-public class T {
-  public static void main(String[] args) {
-    sout<caret>
-  }
-}
-```
-
-**Шаги:**
-1. Набрать `sout` внутри метода.
-2. Нажать Tab.
-3. Убедиться, что `sout` раскрыт в `System.out.println()`.
-4. Убедиться, что каретка прыгает по плейсхолдерам (внутрь скобок).
-
-**Ожидаемый результат:** `sout` раскрыт в `System.out.println()`. Каретка — внутри скобок для ввода аргумента.
-
----
-
-## Раздел 15: Injected languages / SQL / regex
-
-### Функциональность: Injected languages
-
-#### [ ] TC-84: SQL completion в строке с инъекцией
-
-**Приоритет:** P2
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
-
-**Описание:** Проверить, что в строке с SQL-инъекцией (при включённой поддержке) completion предлагает SQL keywords.
-
-**Предусловие:**
-- IDE с включённой поддержкой language injection.
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun main() {
-    val q = "SELECT <caret> FROM users WHERE id = 1"
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `SELECT ` внутри строки.
-2. Нажать Ctrl+Space.
-3. Убедиться, что completion предлагает SQL keywords (`*`, имена столбцов, `DISTINCT` и т.д.).
-
-**Ожидаемый результат:** Completion предлагает SQL keywords и элементы.
-
----
-
-#### [ ] TC-85: Regex completion в строке
-
-**Приоритет:** P2
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
-
-**Описание:** Проверить, что в regex-строке completion предлагает классы символов и escape-последовательности (если поддерживается).
-
-**Предусловие:**
-- IDE с поддержкой regex completion.
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun main() {
-    val r = "\\d<caret>"
-}
-```
-
-**Шаги:**
-1. Поставить каретку после `\\d` внутри строки.
-2. Нажать Ctrl+Space.
-3. Убедиться, что completion предлагает regex-классы/escape-последовательности (если фича поддерживается).
-
-**Ожидаемый результат:** Completion предлагает regex-элементы (если поддерживается). IDE не падает.
-
----
-
-#### [ ] TC-86: Переход из injected в host — корректное закрытие popup
-
-**Приоритет:** P2
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
-
-**Описание:** Проверить, что при перемещении каретки из injected language в host popup корректно закрывается/обновляется.
-
-**Предусловие:**
-- IDE с включённой language injection.
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-fun main() {
-    val q = "SELECT <caret> FROM users WHERE id = 1"
-    val x = 42
-}
-```
-
-**Шаги:**
-1. Поставить каретку внутри SQL-строки.
-2. Нажать Ctrl+Space — появляется SQL completion.
-3. Переместить каретку за пределы строки (на строку `val x = 42`).
-4. Убедиться, что popup корректно закрывается или обновляется.
-
-**Ожидаемый результат:** Popup корректно закрывается при выходе из injected-контекста. Нет артефактов.
-
----
-
-## Раздел 16: Refactoring-aware проверки
-
-### Функциональность: Refactoring-aware проверки
-
-#### [ ] TC-87: Completion после Rename — предлагается новое имя
-
-**Приоритет:** P2
+**Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/refactoring/RefactoringAware.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/TemplatesRefactor.java`
@@ -2823,9 +2980,10 @@ fun main() {
 
 ---
 
-#### [ ] TC-88: Completion после Change Signature — корректные аргументы
+#### [ ] TC-89: Completion после Change Signature — корректные аргументы
 
-**Приоритет:** P2
+**Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/refactoring/RefactoringAware.kt`
 
 **Описание:** Проверить, что после Change Signature (добавление параметра) completion в аргументах вызова отражает новую сигнатуру.
@@ -2852,114 +3010,14 @@ fun main() {
 
 ---
 
-## Раздел 17: Dumb mode / индексация / устойчивость
+### Источник: Раздел 18: Производительность (smoke, без точных метрик)
 
-### Функциональность: Dumb mode / индексация
+#### Функциональность: Производительность
 
-#### [ ] TC-89: Completion в Dumb mode — устойчивость
-
-**Приоритет:** P0
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
-
-**Описание:** Проверить, что вызов completion во время индексации (Dumb mode) не приводит к падению IDE.
-
-**Предусловие:**
-- IDE открыта, идёт индексация проекта (Dumb mode).
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-data class User(val name: String, val age: Int)
-
-fun main() {
-    val user = User("Ann", 21)
-    user.<caret>
-}
-```
-
-**Шаги:**
-1. Открыть крупный проект (или инвалидировать кэш) для запуска индексации.
-2. Во время индексации (видна полоса прогресса) поставить каретку после `user.`.
-3. Нажать Ctrl+Space.
-4. Убедиться, что IDE не падает.
-5. Убедиться, что показывается ограниченный список или информация об ограниченных результатах.
-
-**Ожидаемый результат:** IDE не падает. Показывается ограниченный список или уведомление об ограничениях.
-
----
-
-#### [ ] TC-90: Множественный вызов completion в Dumb mode — нет зависаний
-
-**Приоритет:** P0
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
-
-**Описание:** Проверить, что 5-кратный вызов completion во время индексации не приводит к зависаниям UI.
-
-**Предусловие:**
-- IDE в Dumb mode (идёт индексация).
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-data class User(val name: String, val age: Int)
-
-fun main() {
-    val user = User("Ann", 21)
-    user.<caret>
-}
-```
-
-**Шаги:**
-1. Во время индексации поставить каретку после `user.`.
-2. Нажать Ctrl+Space 5 раз подряд.
-3. Убедиться, что нет зависаний UI.
-4. Убедиться, что нет очереди «старых» попапов (накладывающихся друг на друга).
-
-**Ожидаемый результат:** Нет зависаний UI. Нет очереди старых попапов. IDE остаётся отзывчивой.
-
----
-
-#### [ ] TC-91: Completion после завершения индексации — полные результаты
+#### [ ] TC-90: Completion в «горячей» точке — быстрое появление popup
 
 **Приоритет:** P1
-**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
-
-**Описание:** Проверить, что после завершения индексации completion возвращает полные и корректные результаты.
-
-**Предусловие:**
-- IDE только что завершила индексацию.
-- Файл с кодом открыт в редакторе.
-
-```kotlin
-package demo
-
-data class User(val name: String, val age: Int)
-
-fun main() {
-    val user = User("Ann", 21)
-    user.<caret>
-}
-```
-
-**Шаги:**
-1. Дождаться завершения индексации (полоса прогресса исчезла).
-2. Поставить каретку после `user.`.
-3. Нажать Ctrl+Space.
-4. Убедиться, что результаты полные и корректные (все свойства и методы `User` доступны).
-
-**Ожидаемый результат:** Completion возвращает полный набор членов типа `User`. Результаты корректные.
-
----
-
-## Раздел 18: Производительность (smoke, без точных метрик)
-
-### Функциональность: Производительность
-
-#### [ ] TC-92: Completion в «горячей» точке — быстрое появление popup
-
-**Приоритет:** P0
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/PerfMany.java`
 
 **Описание:** Проверить, что в среднем проекте в классе с 50+ символами в scope popup появляется быстро без фриза UI.
@@ -3040,9 +3098,10 @@ public class Many {
 
 ---
 
-#### [ ] TC-93: 30-кратное открытие/закрытие completion — нет прогрессирующего замедления
+#### [ ] TC-91: 30-кратное открытие/закрытие completion — нет прогрессирующего замедления
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
 
 **Описание:** Проверить, что многократное открытие и закрытие completion не приводит к прогрессирующему замедлению.
@@ -3071,13 +3130,14 @@ fun main() {
 
 ---
 
-## Раздел 19: Statement completion — if/else, switch/case/when
+### Источник: Раздел 19: Statement completion — if/else, switch/case/when
 
-### Функциональность: Completion конструкций if-else
+#### Функциональность: Completion конструкций if-else
 
-#### [ ] TC-94: Completion для if-else statement — предложение else / else if
+#### [ ] TC-92: Completion для if-else statement — предложение else / else if
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/statements/StatementCompletion.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/StatementCompletion.java`
@@ -3113,11 +3173,12 @@ fun checkAge(user: User) {
 
 ---
 
-### Функциональность: Completion конструкций switch/case/default и when
+#### Функциональность: Completion конструкций switch/case/default и when
 
-#### [ ] TC-95: Completion для switch/case/default (Java) и when (Kotlin) — предложение ветвей
+#### [ ] TC-93: Completion для switch/case/default (Java) и when (Kotlin) — предложение ветвей
 
 **Приоритет:** P1
+**План:** Regression
 **Тестовые файлы:**
 - Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/statements/StatementCompletion.kt`
 - Java: `completion-test-projects/java/src/main/java/completion/StatementCompletion.java`
@@ -3176,73 +3237,735 @@ fun describeStatus(status: Status): String {
 
 ---
 
+### Источник: Раздел 20: Сложные chained/DSL completion сценарии
+
+#### Функциональность: Fluent-chain completion после фабричного вызова
+
+#### [ ] TC-94: Completion в длинной цепочке после `initializeTestContext(...)`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/complex/ComplexDslCompletion.kt`
+
+**Описание:** Проверить, что completion корректно предлагает fluent-методы для продолжения цепочки сразу после результата фабричного вызова.
+
+**Предусловие:**
+- IDE открыта с проектом, содержащим файл `ComplexDslCompletion.kt`.
+- Файл открыт в редакторе.
+
+```kotlin
+val compA = initializeTestContext("testSyncOnNewMachine/compA", TestCases.IU.IntelliJHelloWorld)
+    <caret>
+```
+
+**Шаги:**
+1. В строке с `initializeTestContext(...)` поставить каретку сразу после точки на новой строке.
+2. Нажать Ctrl+Space.
+3. Убедиться, что completion предлагает методы `copySettingsToIde(...)` и `runIDE(...)`.
+4. Выбрать `copySettingsToIde(...)` и убедиться, что выражение собирается в корректную цепочку.
+
+**Ожидаемый результат:** Для типа результата `IdeContext` предлагаются релевантные fluent-методы, вставка выполняется корректно, без поломки синтаксиса.
+
+---
+
+#### Функциональность: Named-argument completion с enum-значениями
+
+#### [ ] TC-95: Completion enum-значений в именованном аргументе `action = ...`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/complex/ComplexDslCompletion.kt`
+
+**Описание:** Проверить type-aware completion в именованном аргументе, где ожидается enum.
+
+**Предусловие:**
+- Файл `ComplexDslCompletion.kt` открыт в редакторе.
+
+```kotlin
+commandChainSaveAll().enableSettingsSync(action = EnableSettingSyncOptions.<caret>).exitApp()
+```
+
+**Шаги:**
+1. Поставить каретку после `EnableSettingSyncOptions.`.
+2. Нажать Ctrl+Space.
+3. Проверить, что предложены `GET` и `PUSH`.
+4. Выбрать `GET` и убедиться, что выражение остаётся корректным.
+
+**Ожидаемый результат:** Completion предлагает только значения ожидаемого enum-типа (`GET`, `PUSH`) и корректно вставляет выбранный элемент.
+
+---
+
+#### Функциональность: Completion в nested object пути
+
+#### [ ] TC-96: Completion для констант в `TestCases.IU.*` и `TestCases.WS.*`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/complex/ComplexDslCompletion.kt`
+
+**Описание:** Проверить completion в многоуровневом пути через вложенные объекты.
+
+**Предусловие:**
+- Файл `ComplexDslCompletion.kt` открыт в редакторе.
+
+```kotlin
+val compA = initializeTestContext("...", TestCases.IU.<caret>)
+val compB = initializeTestContext("...", TestCases.WS.<caret>)
+```
+
+**Шаги:**
+1. Поставить каретку после `TestCases.IU.` и вызвать completion.
+2. Убедиться, что предлагается `IntelliJHelloWorld`.
+3. Поставить каретку после `TestCases.WS.` и вызвать completion.
+4. Убедиться, что предлагается `Empty`.
+
+**Ожидаемый результат:** Completion корректно разрешает nested object контекст и предлагает только релевантные константы текущего уровня.
+
+---
+
+#### Функциональность: Completion после результата chain-вызова
+
+#### [ ] TC-97: Completion методов результата после `runIDE(...)`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/complex/ComplexDslCompletion.kt`
+
+**Описание:** Проверить completion на следующем шаге цепочки, где тип контекста уже сменился (`IdeContext -> RunResult`).
+
+**Предусловие:**
+- Файл `ComplexDslCompletion.kt` открыт в редакторе.
+
+```kotlin
+compC.runIDE(commands = commandChainSaveAll().enableSettingsSync(action = EnableSettingSyncOptions.GET).exitApp())
+    .<caret>
+```
+
+**Шаги:**
+1. Поставить каретку после точки на следующей строке после `runIDE(...)`.
+2. Вызвать completion (Ctrl+Space).
+3. Проверить, что в списке есть `assertSettingsEqualTo(...)`.
+4. Выбрать `assertSettingsEqualTo(...)` и убедиться, что вызов вставляется корректно.
+
+**Ожидаемый результат:** Completion учитывает изменившийся тип (`RunResult`) и предлагает его API (`assertSettingsEqualTo(...)`) без нерелевантных методов предыдущего контекста.
+
+---
+
+#### Функциональность: Completion внутри промежуточного звена command-chain
+
+#### [ ] TC-98: Completion промежуточных шагов в `commandChainSaveAll().<...>`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/complex/ComplexDslCompletion.kt`
+
+**Описание:** Проверить completion методов в середине DSL-цепочки команд.
+
+**Предусловие:**
+- Файл `ComplexDslCompletion.kt` открыт в редакторе.
+
+```kotlin
+commandChainSaveAll().<caret>
+```
+
+**Шаги:**
+1. Поставить каретку после `commandChainSaveAll().`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что предлагаются `enableSettingsSync(...)` и `exitApp()`.
+4. Выбрать `enableSettingsSync(...)`, затем после него снова вызвать completion и выбрать `exitApp()`.
+
+**Ожидаемый результат:** Completion стабильно поддерживает построение многошаговой DSL-цепочки и предлагает валидные следующие шаги на каждом этапе.
+
+---
+
+### Источник: Раздел 21: Completion внутри индексаторов `[]`
+
+#### Функциональность: Completion индексного выражения в списках/массивах
+
+#### [ ] TC-99: Kotlin — completion в вложенной индексации `matrix[row][col]`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/brackets/BracketIndexAccess.kt`
+
+**Описание:** Проверить completion в двух независимых позициях внутри вложенных `[]`.
+
+**Предусловие:**
+- Файл `BracketIndexAccess.kt` открыт в редакторе.
+
+```kotlin
+val matrix = arrayOf(intArrayOf(1, 2), intArrayOf(3, 4))
+val row = 1
+val col = 0
+val x = matrix[<caret>][<caret>]
+```
+
+**Шаги:**
+1. Поставить каретку в первые `[]`, вызвать completion, выбрать `row`.
+2. Поставить каретку во вторые `[]`, вызвать completion, выбрать `col`.
+3. Убедиться, что итоговая конструкция валидна: `matrix[row][col]`.
+
+**Ожидаемый результат:** Completion корректно работает на каждом уровне вложенной индексации и предлагает локальные Int-переменные.
+
+---
+
+#### [ ] TC-100: Kotlin — completion ключа внутри `map[ ... ]`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/brackets/BracketIndexAccess.kt`
+
+**Описание:** Проверить completion выражения ключа внутри `[]` при доступе к `Map`.
+
+**Предусловие:**
+- Файл `BracketIndexAccess.kt` открыт в редакторе.
+
+```kotlin
+val userByKey = mapOf("name" to "Ann", "age" to "21")
+val nameKey = "name"
+val v = userByKey[<caret>]
+```
+
+**Шаги:**
+1. Поставить каретку внутри `userByKey[ ]`.
+2. Вызвать completion.
+3. Проверить, что предлагается `nameKey`.
+4. Выбрать `nameKey` и убедиться, что выражение валидно.
+
+**Ожидаемый результат:** Completion внутри `map[ ]` предлагает релевантные выражения ключа из текущего scope.
+
+---
+
+#### [ ] TC-101: Python — completion внутри `list[ ... ]` и `dict[ ... ]`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:**
+- Python: `completion-test-projects/python/bracket_index.py`
+
+**Описание:** Проверить устойчивость и релевантность completion внутри индексаторов `[]` в Python.
+
+**Предусловие:**
+- Файл `bracket_index.py` открыт в редакторе.
+
+```python
+users = [{"name": "Ann", "age": 21}, {"name": "Bob", "age": 22}]
+idx = 0
+a = users[<caret>]
+b = users[idx]["<caret>"]
+```
+
+**Шаги:**
+1. Поставить каретку внутри `users[ ]`, вызвать completion и выбрать `idx`.
+2. Поставить каретку внутри `users[idx][""]`, ввести `na`, вызвать completion.
+3. Проверить, что completion не приводит к ошибкам IDE и вставляет валидный синтаксис.
+
+**Ожидаемый результат:** Completion стабильно работает внутри `[]` в Python-контекстах списка и словаря.
+
+---
+
+### Источник: Раздел 22: Продвинутые контексты completion
+
+#### Функциональность: Type-flow, DSL, refactoring, устойчивость
+
+#### [ ] TC-102: Smart-cast completion после `is`-проверки
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что после `if (x is User)` completion предлагает члены `User` для `x.`.
+
+**Шаги:**
+1. В функции `smartCastAfterIs` поставить каретку после `x.`.
+2. Вызвать completion.
+3. Убедиться, что есть `name`, `age` и другие члены `User`.
+
+**Ожидаемый результат:** Completion учитывает smart-cast и предлагает API конкретного типа.
+
+---
+
+#### [ ] TC-103: Completion для implicit `it` в lambda
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что в `users.map { it.<caret> }` completion правильно типизирует `it`.
+
+**Шаги:**
+1. В `lambdaItTypedCompletion` поставить каретку после `it.`.
+2. Вызвать completion.
+3. Проверить, что предлагаются `name`, `age`.
+
+**Ожидаемый результат:** `it` определяется как `User`; список completion релевантен типу `User`.
+
+---
+
+#### [ ] TC-104: Completion внутри string template `${...}`
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить completion внутри интерполяции строки.
+
+**Шаги:**
+1. В `completionInsideStringTemplate` поставить каретку после `user.` в `"${user.<caret>}"`.
+2. Вызвать completion.
+3. Убедиться, что доступны члены `User`.
+
+**Ожидаемый результат:** Completion внутри `${...}` эквивалентен обычному expression-контексту.
+
+---
+
+#### [ ] TC-105: Override/implements completion (template methods)
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/AdvancedCompletionContracts.java`
+
+**Описание:** Проверить, что completion/template по `over` предлагает корректные `@Override`-заготовки.
+
+**Шаги:**
+1. В `LocalWorker` поставить каретку в теле класса.
+2. Набрать `over`, вызвать completion.
+3. Выбрать override для `runSync()` или `workerId()`.
+
+**Ожидаемый результат:** Генерируется корректный override-метод с валидной сигнатурой.
+
+---
+
+#### [ ] TC-106: Completion ветвей `when` для sealed-типа
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что `when (state)` предлагает/подсказывает все ветви sealed-иерархии.
+
+**Шаги:**
+1. В `sealedWhenBranches` удалить одну из ветвей.
+2. Внутри `when` вызвать completion/quick-fix для missing branches.
+3. Проверить, что предлагаются оставшиеся варианты `Idle`, `Running`, `Failed`.
+
+**Ожидаемый результат:** Completion/IDE action корректно подсказывает недостающие sealed-ветви.
+
+---
+
+#### [ ] TC-107: Auto-import extension function из другого package
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовые файлы:**
+- `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/ExtensionAutoImportScenario.kt`
+- `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/external/ExternalExtensions.kt`
+
+**Описание:** Проверить, что extension-функция предлагается после `.` и может быть auto-import'нута.
+
+**Шаги:**
+1. В `ExtensionAutoImportScenario.kt` удалить import `syncNow`.
+2. Поставить каретку после `settings.`.
+3. Набрать `sync`, вызвать completion и выбрать `syncNow`.
+
+**Ожидаемый результат:** Extension-функция доступна в списке; при выборе добавляется корректный import.
+
+---
+
+#### [ ] TC-108: Completion при перегрузках — релевантная сигнатура
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/AdvancedCompletionContracts.java`
+
+**Описание:** Проверить, что в вызовах перегруженной функции completion учитывает ожидаемую сигнатуру.
+
+**Шаги:**
+1. В `overloadResolution` поставить каретку внутри `pick(...)` для строкового вызова.
+2. Вызвать completion и выбрать `str`.
+3. Повторить для числового вызова и выбрать `num`.
+
+**Ожидаемый результат:** Для `pick(String)` ранжируются string-аргументы, для `pick(int)` — numeric.
+
+---
+
+#### [ ] TC-109: Completion в generic-bound контексте (`T : CharSequence`)
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что completion в `boundedEcho(...)` подсказывает значения, совместимые с bound.
+
+**Шаги:**
+1. В `genericBoundContext` поставить каретку внутри `boundedEcho(...)`.
+2. Вызвать completion.
+3. Проверить, что релевантно предлагается `text`, а не только `Int`-переменные.
+
+**Ожидаемый результат:** Completion учитывает ограничение `T : CharSequence`.
+
+---
+
+#### [ ] TC-110: Completion после safe-call + Elvis (`?:`)
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить expected-type completion после `?:`.
+
+**Шаги:**
+1. В `safeCallElvisExpectedType` поставить каретку после `?:`.
+2. Вызвать completion.
+3. Проверить, что предложены `String`-совместимые выражения (например, `fallback`).
+
+**Ожидаемый результат:** Completion корректно использует ожидаемый тип RHS выражения.
+
+---
+
+#### [ ] TC-111: Completion в DSL receiver (`configureSettings { ... }`)
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что внутри DSL-блока предлагаются члены receiver-объекта.
+
+**Шаги:**
+1. В `dslReceiverContext` поставить каретку внутри блока `configureSettings { }`.
+2. Вызвать completion.
+3. Убедиться, что предлагаются `enabled`, `profileName`, `save()`.
+
+**Ожидаемый результат:** Completion показывает API текущего DSL receiver.
+
+---
+
+#### [ ] TC-112: Межмодульный/межпакетный символ — completion и import
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что символы из внешнего пакета/модуля проекта корректно предлагаются и резолвятся.
+
+**Шаги:**
+1. В `crossPackageDependencyLikeModule` удалить использование `buildUser` и/или import.
+2. Начать набирать `buildUs...`, вызвать completion.
+3. Выбрать элемент и проверить добавление import/resolution.
+
+**Ожидаемый результат:** Символы из «внешней» части проекта корректно находятся и подключаются.
+
+---
+
+#### [ ] TC-113: Completion после Move/Rename между файлами
+
+**Приоритет:** P1  
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/advanced/AdvancedCompletionScenarios.kt`
+
+**Описание:** Проверить, что completion отражает новое имя после rename/move API.
+
+**Шаги:**
+1. Переименовать `renamedApiTarget` через Refactor > Rename.
+2. В `refactorMoveRenameFollowup` удалить вызов.
+3. Начать набирать новое имя и вызвать completion.
+
+**Ожидаемый результат:** Completion предлагает актуальное имя, старое не приоритизируется.
+
+---
+
+## План 3: Full (P2)
+
+Тесты этого плана выполняются в порядке `TC-114` → `TC-121`.
+
+### Источник: Раздел 14: Templates — postfix / live templates
+
+#### Функциональность: Postfix и Live templates
+
+#### [ ] TC-114: Postfix completion `.if` → if (...) { }
+
+**Приоритет:** P2
+**План:** Full
+**Тестовые файлы:**
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
+- Java: `completion-test-projects/java/src/main/java/completion/TemplatesRefactor.java`
+
+**Описание:** Проверить, что postfix completion `.if` превращает выражение в конструкцию `if (...) { }`.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun main() {
+    val ok = true
+    ok.if<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ok.if`.
+2. Нажать Ctrl+Space или Tab (в зависимости от настроек).
+3. Принять postfix completion.
+4. Убедиться, что результат: `if (ok) { }`.
+
+**Ожидаемый результат:** Выражение `ok.if` превращается в `if (ok) { }`. Каретка — внутри фигурных скобок.
+
+---
+
+#### [ ] TC-115: Конфликт basic completion и postfix — оба типа в списке
+
+**Приоритет:** P2
+**План:** Full
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
+
+**Описание:** Проверить, что при конфликте между basic completion и postfix completion оба типа присутствуют в списке с корректным приоритетом.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun main() {
+    val ok = true
+    ok.if<caret>
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ok.if`.
+2. Нажать Ctrl+Space.
+3. Убедиться, что в списке есть и postfix `.if`, и обычные completion-элементы (если есть совпадения).
+4. Убедиться, что приоритет корректный (postfix `.if` — в ожидаемом месте списка).
+
+**Ожидаемый результат:** Оба типа предложений присутствуют в списке. Приоритет корректный.
+
+---
+
+#### [ ] TC-116: Live template — sout + Tab → expand с плейсхолдерами
+
+**Приоритет:** P2
+**План:** Full
+**Тестовые файлы:**
+- Java: `completion-test-projects/java/src/main/java/completion/TemplatesRefactor.java`
+- Kotlin: `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
+
+**Описание:** Проверить, что live template `sout` раскрывается по Tab с корректными плейсхолдерами.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе (Java или Kotlin).
+
+```java
+package demo;
+
+public class T {
+  public static void main(String[] args) {
+    sout<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Набрать `sout` внутри метода/функции.
+2. Нажать Tab.
+3. Убедиться, что `sout` раскрыт в `System.out.println()` (Java) или `println()` (Kotlin).
+4. Убедиться, что каретка прыгает по плейсхолдерам (внутрь скобок).
+
+**Ожидаемый результат:** `sout` раскрывается в корректный print-вызов для языка файла. Каретка — внутри скобок для ввода аргумента.
+
+---
+
+### Источник: Раздел 15: Injected languages / SQL / regex
+
+#### Функциональность: Injected languages
+
+#### [ ] TC-117: SQL completion в строке с инъекцией
+
+**Приоритет:** P2
+**План:** Full
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
+
+**Описание:** Проверить, что в строке с SQL-инъекцией (при включённой поддержке) completion предлагает SQL keywords.
+
+**Предусловие:**
+- IDE с включённой поддержкой language injection.
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun main() {
+    val q = "SELECT <caret> FROM users WHERE id = 1"
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `SELECT ` внутри строки.
+2. Нажать Ctrl+Space.
+3. Убедиться, что completion предлагает SQL keywords (`*`, имена столбцов, `DISTINCT` и т.д.).
+
+**Ожидаемый результат:** Completion предлагает SQL keywords и элементы.
+
+---
+
+#### [ ] TC-118: Regex completion в строке
+
+**Приоритет:** P2
+**План:** Full
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
+
+**Описание:** Проверить, что в regex-строке completion предлагает классы символов и escape-последовательности (если поддерживается).
+
+**Предусловие:**
+- IDE с поддержкой regex completion.
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun main() {
+    val r = "\\d<caret>"
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `\\d` внутри строки.
+2. Нажать Ctrl+Space.
+3. Убедиться, что completion предлагает regex-классы/escape-последовательности (если фича поддерживается).
+
+**Ожидаемый результат:** Completion предлагает regex-элементы (если поддерживается). IDE не падает.
+
+---
+
+#### [ ] TC-119: Переход из injected в host — корректное закрытие popup
+
+**Приоритет:** P2
+**План:** Full
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/templates/TemplatesInject.kt`
+
+**Описание:** Проверить, что при перемещении каретки из injected language в host popup корректно закрывается/обновляется.
+
+**Предусловие:**
+- IDE с включённой language injection.
+- Файл с кодом открыт в редакторе.
+
+```kotlin
+fun main() {
+    val q = "SELECT <caret> FROM users WHERE id = 1"
+    val x = 42
+}
+```
+
+**Шаги:**
+1. Поставить каретку внутри SQL-строки.
+2. Нажать Ctrl+Space — появляется SQL completion.
+3. Переместить каретку за пределы строки (на строку `val x = 42`).
+4. Убедиться, что popup корректно закрывается или обновляется.
+
+**Ожидаемый результат:** Popup корректно закрывается при выходе из injected-контекста. Нет артефактов.
+
+---
+
+### Источник: Раздел 22: Продвинутые контексты completion
+
+#### Функциональность: Type-flow, DSL, refactoring, устойчивость
+
+#### [ ] TC-120: Completion в большом файле (1000+ строк) и local scope
+
+**Приоритет:** P2  
+**План:** Full
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/LargeFileScope.kt`
+
+**Описание:** Проверить latency и релевантность completion в очень большом локальном контексте.
+
+**Шаги:**
+1. Открыть `LargeFileScope.kt`.
+2. Поставить каретку на позицию `TC-120`, набрать `target`.
+3. Вызвать completion и выбрать `targetUserName`.
+
+**Ожидаемый результат:** Popup появляется без заметных лагов, локальная переменная ранжируется высоко.
+
+---
+
+#### [ ] TC-121: Commit behavior для дополнительных клавиш (`;`, `Space`)
+
+**Приоритет:** P2  
+**План:** Full
+**Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/accept/CommitVariants.kt`
+
+**Описание:** Проверить commit completion для менее типовых commit-символов.
+
+**Шаги:**
+1. В `commitBySemicolonAndSpace` в первом кейсе оставить `text.up`, вызвать completion.
+2. Нажать `;` и проверить, что элемент принят.
+3. Во втором кейсе оставить `num.toS`, вызвать completion.
+4. Нажать `Space` и проверить поведение (зависит от IDE-настроек commit on space).
+
+**Ожидаемый результат:** Для `;` commit работает предсказуемо; для `Space` поведение соответствует настройкам IDE и не ломает код.
+
+---
+
 ## Проверка полноты покрытия
 
 ### Сводная таблица покрытия
 
 | # Раздел чеклиста | Пункты в чеклисте | Тест-кейсы | Покрытие |
 |---|---|---|---|
-| 1.1 Ручной вызов (Manual trigger) | 6 | TC-1 — TC-6 | 6/6 ✅ |
-| 1.2 Auto-popup | 6 | TC-7 — TC-12 | 6/6 ✅ |
-| 1.3 Обновление/отмена (race/cancel) | 3 | TC-13 — TC-15 | 3/3 ✅ |
-| 2.1 Локальные символы / scope | 4 | TC-16 — TC-19 | 4/4 ✅ |
-| 2.2 Ключевые слова | 2 | TC-20 — TC-21 | 2/2 ✅ |
-| 2.3 Ранжирование (relevance) | 3 | TC-22 — TC-24 | 3/3 ✅ |
-| 2.4 Негативные контексты | 1 | TC-25 | 1/1 ✅ |
-| 3.1 После точки | 4 | TC-26 — TC-29 | 4/4 ✅ |
-| 3.2 Статические/companion | 2 | TC-30 — TC-31 | 2/2 ✅ |
-| 3.3 Nullable/safe access | 1 | TC-32 | 1/1 ✅ |
-| 3.4 Extension methods | 1 | TC-33 | 1/1 ✅ |
-| 4.1 Присваивание | 2 | TC-34 — TC-35 | 2/2 ✅ |
-| 4.2 Return | 1 | TC-36 | 1/1 ✅ |
-| 4.3 Аргументы функции | 1 | TC-37 | 1/1 ✅ |
-| 4.4 Fallback | 1 | TC-38 | 1/1 ✅ |
-| 5.1 Подстановка аргументов | 3 | TC-39 — TC-41 | 3/3 ✅ |
-| 5.2 Parameter info | 1 | TC-42 | 1/1 ✅ |
-| 5.3 Named arguments | 3 | TC-43 — TC-45 | 3/3 ✅ |
-| 6.1 Enter / Tab | 3 | TC-46 — TC-48 | 3/3 ✅ |
-| 6.2 Commit characters | 3 | TC-49 — TC-51 | 3/3 ✅ |
-| 6.3 Caret placement | 2 | TC-52 — TC-53 | 2/2 ✅ |
-| 7.1 Импорт при выборе | 3 | TC-54 — TC-56 | 3/3 ✅ |
-| 7.2 Конфликт имён | 2 | TC-57 — TC-58 | 2/2 ✅ |
-| 7.3 Настройки auto-import | 1 | TC-59 | 1/1 ✅ |
-| 8.1 File system paths | 3 | TC-60 — TC-62 | 3/3 ✅ |
-| 8.2 Обычная строка (негатив) | 1 | TC-63 | 1/1 ✅ |
-| 9 Documentation popup / QuickDoc | 3 | TC-64 — TC-66 | 3/3 ✅ |
-| 10 Generics / type parameters | 3 | TC-67 — TC-69 | 3/3 ✅ |
-| 11 Аннотации / декораторы | 4 | TC-70 — TC-73 | 4/4 ✅ |
-| 12 Doc/Comments completion | 4 | TC-74 — TC-77 | 4/4 ✅ |
-| 13 Build/config completion | 3 | TC-78 — TC-80 | 3/3 ✅ |
-| 14 Templates (postfix/live) | 3 | TC-81 — TC-83 | 3/3 ✅ |
-| 15 Injected languages / SQL / regex | 3 | TC-84 — TC-86 | 3/3 ✅ |
-| 16 Refactoring-aware | 2 | TC-87 — TC-88 | 2/2 ✅ |
-| 17 Dumb mode / индексация | 3 | TC-89 — TC-91 | 3/3 ✅ |
-| 18 Производительность | 2 | TC-92 — TC-93 | 2/2 ✅ |
-| 19 Statement completion (if/else, switch/when) | 2 | TC-94 — TC-95 | 2/2 ✅ |
-| **ИТОГО** | **95** | **TC-1 — TC-95** | **95/95 ✅ (100%)** |
+| 1 Триггеры и жизненный цикл completion popup | 15 | TC-1 — TC-14, TC-57 | 15/15 ✅ |
+| 2 Basic completion — корректность списка и ранжирование | 10 | TC-15 — TC-21, TC-58 — TC-60 | 10/10 ✅ |
+| 3 Member completion (после доступа к членам) | 8 | TC-22 — TC-27, TC-61 — TC-62 | 8/8 ✅ |
+| 4 Smart completion (тип-ориентированная) | 5 | TC-28 — TC-32 | 5/5 ✅ |
+| 5 Completion в аргументах/параметрах и сигнатурах | 7 | TC-33 — TC-35, TC-63 — TC-66 | 7/7 ✅ |
+| 6 Accept/commit — вставка, замены, commit characters | 8 | TC-36 — TC-42, TC-67 | 8/8 ✅ |
+| 7 Auto-import и символы из зависимостей | 6 | TC-43 — TC-46, TC-68 — TC-69 | 6/6 ✅ |
+| 8 Completion в строках (paths/resources) | 4 | TC-47 — TC-49, TC-70 | 4/4 ✅ |
+| 9 Documentation popup / QuickDoc / детали элемента | 3 | TC-71 — TC-73 | 3/3 ✅ |
+| 10 Generics / type parameters | 3 | TC-74 — TC-76 | 3/3 ✅ |
+| 11 Аннотации / атрибуты / декораторы | 4 | TC-77 — TC-80 | 4/4 ✅ |
+| 12 Doc/Comments completion | 4 | TC-81 — TC-84 | 4/4 ✅ |
+| 13 Build/config completion (минимальный smoke) | 3 | TC-85 — TC-87 | 3/3 ✅ |
+| 14 Templates — postfix / live templates | 3 | TC-114 — TC-116 | 3/3 ✅ |
+| 15 Injected languages / SQL / regex | 3 | TC-117 — TC-119 | 3/3 ✅ |
+| 16 Refactoring-aware проверки | 2 | TC-88 — TC-89 | 2/2 ✅ |
+| 17 Dumb mode / индексация / устойчивость | 3 | TC-50 — TC-52 | 3/3 ✅ |
+| 18 Производительность (smoke, без точных метрик) | 2 | TC-90 — TC-91 | 2/2 ✅ |
+| 19 Statement completion — if/else, switch/case/when | 2 | TC-92 — TC-93 | 2/2 ✅ |
+| 20 Сложные chained/DSL completion сценарии | 5 | TC-94 — TC-98 | 5/5 ✅ |
+| 21 Completion внутри индексаторов `[]` | 6 | TC-53 — TC-55, TC-99 — TC-101 | 6/6 ✅ |
+| 22 Продвинутые контексты completion | 15 | TC-56, TC-102 — TC-113, TC-120 — TC-121 | 15/15 ✅ |
+| **ИТОГО** | **121** | **TC-1 — TC-121** | **121/121 ✅ (100%)** |
 
 ### Дополнительная проверка полноты
 
 **Общая проверка (из чеклиста):**
 > «Во всех пунктах: дополнительно проверяем отсутствие ошибок в IDE log (exceptions/assertions) при открытии/обновлении completion.»
 
-Это сквозное требование учтено в ожидаемых результатах всех тест-кейсов, где оно применимо (особенно TC-25, TC-38, TC-89, TC-90).
+Это сквозное требование учтено в ожидаемых результатах всех тест-кейсов, где оно применимо (особенно TC-21, TC-32, TC-50, TC-51).
 
 **Распределение по приоритетам:**
 | Приоритет | Количество тест-кейсов |
 |---|---|
-| P0 | 54 |
-| P1 | 32 |
-| P2 | 9 |
-| **Итого** | **95** |
+| P0 | 56 |
+| P1 | 57 |
+| P2 | 8 |
+| **Итого** | **121** |
+
+**Распределение по планам выполнения:**
+| План | Количество тест-кейсов | Диапазон TC |
+|---|---|---|
+| Acceptance | 56 | TC-1 — TC-56 |
+| Regression | 57 | TC-57 — TC-113 |
+| Full | 8 | TC-114 — TC-121 |
+| **Итого** | **121** | **TC-1 — TC-121** |
 
 **Распределение по языкам (основной код примера):**
 | Язык | Тест-кейсы |
 |---|---|
-| Kotlin | 63 |
-| Java | 22 |
-| TypeScript | 5 |
-| Python | 4 |
+| Kotlin | 82 |
+| Java | 25 |
+| TypeScript | 6 |
+| Python | 5 |
 | JSON/Config | 3 |
 
 **Покрытие мультиязычности:**
