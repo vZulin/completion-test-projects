@@ -25,8 +25,9 @@ fun triggerScenarios() {
     // <caret> TC-1: Place caret after "user." and invoke basic completion; expect name, age, toString, etc.
     val tc1 = user.name
 
-    // <caret> TC-2: Place caret after "user.", type 'n' to filter; expect 'name' at top
-    val tc2 = user.name
+    // <caret> TC-2: Delete 'user' below after '=', place caret after "val u1: User =",
+    //   then invoke smart completion; expect user/User(...)/buildUser(...)
+    val u1: User = user
 
     // <caret> TC-3: Place caret after "user.", type 'na' then Backspace to 'n'; list should re-expand
     val tc3 = user.name

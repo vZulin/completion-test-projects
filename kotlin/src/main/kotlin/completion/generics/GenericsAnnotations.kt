@@ -1,13 +1,18 @@
 /**
  * Generics and annotation completion scenarios.
  *
- * Covers: TC-74, TC-76, TC-78, TC-80.
+ * Covers: TC-57, TC-74, TC-76, TC-78, TC-80.
  */
 package completion.generics
 
 import java.util.ArrayList
 
 annotation class TestAnnotation(val value: String, val enabled: Boolean = true)
+
+// <caret> TC-57: Place caret on empty line before declaration below, type '@',
+//   verify annotation auto-popup appears.
+@Suppress("unused")
+class AnnotationAutoPopupTarget
 
 /** TC-74: Generic type parameter completion inside angle brackets. */
 fun genericTypeParam() {

@@ -10,7 +10,9 @@ import static completion.model.User.consumeUser;
 
 /**
  * Basic combination of completion scenarios.
- * Covers: TC-24 (member completion), TC-42 (smart completion).
+ * Covers Java-side variants for:
+ * TC-1, TC-2, TC-7, TC-8, TC-9, TC-16, TC-19, TC-22, TC-23,
+ * TC-24, TC-28, TC-34, TC-41, TC-42, TC-63, TC-71.
  * Based on EX-JV-1.
  */
 public class BasicCombo {
@@ -20,25 +22,35 @@ public class BasicCombo {
         int userAge = 21;
         User user = new User(userName, userAge);
 
-        // <caret> TC-24: Delete 'getName()' below, place caret after "user." and invoke completion;
-        //   expect getName(), getAge(), toString(), etc.
+        // <caret> TC-1/TC-7/TC-22/TC-23/TC-71:
+        //   - place caret after "user." for basic/member completion
+        //   - type 'na' to validate prefix filtering to getName
+        //   - while popup is open, use Ctrl+Q for QuickDoc
         String tc28 = user.getName();
 
-        // <caret> TC-42: Delete 'user' below after '=', invoke smart completion;
-        //   expect user, new User(...), buildUser(...)
+        // <caret> TC-2/TC-28/TC-42: Delete 'user' below after '=',
+        //   invoke smart completion; expect user/new User(...)/buildUser(...)
         User u1 = user;
 
-        // <caret> TC-24: Delete args below inside buildUser(...), invoke completion;
-        //   expect String for first arg, Int for second arg
+        // <caret> TC-8/TC-9/TC-16/TC-24/TC-34/TC-63:
+        //   - after '(' and after ',' verify auto-popup/parameter completion
+        //   - verify second argument suggestions (Int), and parameter info hint
         User u2 = buildUser(userName, userAge);
 
-        // <caret> TC-42: Delete 'u2' below inside consumeUser(...), invoke completion;
-        //   expect user, u1, u2 by expected type User
+        // <caret> TC-41/TC-42: Delete 'u2' below inside consumeUser(...), invoke completion;
+        //   selecting consumeUser(...) should keep caret in function-call context
         consumeUser(u2);
 
         List<String> list = new ArrayList<>();
         // <caret> TC-24: Delete '\"Ann\"' below inside add(...), invoke completion;
         //   expect String variables/values
         list.add("Ann");
+
+        System.out.println(keywordReturnScenario());
+    }
+
+    static int keywordReturnScenario() {
+        // <caret> TC-19: In method body type 'ret' and invoke completion; expect 'return'.
+        return 1;
     }
 }

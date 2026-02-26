@@ -55,9 +55,9 @@ fun regexInjection() {
 fun injectedToHostTransition() {
     // language=SQL
     @Suppress("unused")
-    val q = "SELECT 1"
+    // <caret> TC-119: Place caret after "SELECT " inside SQL string, invoke completion,
+    //   then move caret to host Kotlin line below and verify popup closes/updates correctly.
+    val q = "SELECT id FROM users WHERE id = 1"
     val x = 42
-    // <caret> TC-119: After editing inside SQL string above, place caret after "x."
-    //   below; expect normal Kotlin Int members
     val tc86 = x.toLong()
 }

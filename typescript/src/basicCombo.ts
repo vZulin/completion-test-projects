@@ -1,4 +1,6 @@
-// Test cases covered: TC-7 (TS), TC-9 (TS), TC-22, TC-23, TC-24, TC-25 (TS variants)
+// Test cases covered:
+// TC-1, TC-2, TC-7, TC-8, TC-9, TC-16, TC-19, TC-22, TC-23,
+// TC-24, TC-25, TC-28, TC-34, TC-41, TC-63, TC-71 (TS variants)
 // Source: EX-TS-1
 
 import { User, buildUser, consumeUser } from "./model";
@@ -7,20 +9,29 @@ const userName = "Ann";
 const userAge = 21;
 const user: User = buildUser(userName, userAge);
 
-// <caret> TC-7/TC-22: Delete 'name' below, place caret after "user." and invoke completion;
-//   expect member suggestions and filtering by prefix (e.g. "na" -> "name")
+// <caret> TC-1/TC-7/TC-22/TC-23/TC-71:
+//   - place caret after "user." for basic/member completion
+//   - type 'na' to validate prefix filtering
+//   - with popup open, trigger QuickDoc for selected member
 const tc26 = user.name;
 
-// <caret> TC-23: Delete 'user' below after '=', invoke smart completion;
+// <caret> TC-2/TC-28: Delete 'user' below after '=', invoke smart completion;
 //   should suggest buildUser(...) and variables of type User
 const u1: User = user;
 
-// <caret> TC-24: Delete arguments below in buildUser(...), invoke completion;
-//   expect userName for first arg and userAge for second arg
+// <caret> TC-8/TC-9/TC-16/TC-24/TC-34/TC-63:
+//   - test popup after '(' and after ','
+//   - verify second argument suggestions and parameter info
 const u2: User = buildUser(userName, userAge);
 
-// <caret> TC-25: Delete 'u2' below inside consumeUser(...), invoke completion;
-//   should suggest user, u1, u2 by expected type
+// <caret> TC-25/TC-41: Delete 'u2' below inside consumeUser(...), invoke completion;
+//   function completion should keep caret in call context
 consumeUser(u2);
 
+function keywordReturnCompletion(value: number): number {
+  // <caret> TC-19: Inside function body type 'ret' and invoke completion; expect 'return'.
+  return value;
+}
+
 void tc26;
+void keywordReturnCompletion;

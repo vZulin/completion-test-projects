@@ -14,6 +14,12 @@ from dataclasses import dataclass
 class SampleDataclass:
     value: int
 
+# --- TC-57: auto-popup on '@' ---
+# <caret> TC-57: Place caret on empty line before class below, type '@',
+#   verify decorator/annotation completion popup appears.
+class DecoratorAutoPopupTarget:
+    pass
+
 
 # --- TC-20: keyword completion ---
 # <caret> TC-20: On a new top-level line, type 'cla' and invoke completion;

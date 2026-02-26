@@ -28,12 +28,12 @@ fun dotAccessProperties() {
     val tc26 = user.name
 }
 
-/** TC-23: Dot access — methods. */
+/** TC-23: Dot access — prefix filtering after dot. */
 fun dotAccessMethods() {
     val user = User("Ann", 21)
-    // <caret> TC-23: Delete 'toString()' below, place caret after "user." and invoke completion;
-    //   expect toString(), hashCode(), copy(), etc.
-    val tc27 = user.toString()
+    // <caret> TC-23: Delete 'name' below, type 'na' after "user.", invoke completion;
+    //   expect list filtered to 'name' (or language-specific getter variant)
+    val tc27 = user.name
 }
 
 /** TC-25: Field vs method — field selection. */

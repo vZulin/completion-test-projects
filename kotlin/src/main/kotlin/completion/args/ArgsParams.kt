@@ -10,7 +10,6 @@ package completion.args
 
 import completion.model.User
 import completion.model.buildUser
-import completion.model.consumeUser
 
 /** TC-33: Argument substitution — first parameter (String). */
 fun argSubstitutionFirst() {
@@ -32,12 +31,13 @@ fun argSubstitutionSecond() {
     buildUser("Ann", age)
 }
 
-/** TC-35: Argument by expected type for consumer function. */
+/** TC-35: Completion immediately after opening parenthesis. */
 fun argByExpectedType() {
-    val u = User("Ann", 21)
-    // <caret> TC-35: Delete 'u' below inside consumeUser(), invoke completion;
-    //   expect 'u' matching type User
-    consumeUser(u)
+    val userName = "Ann"
+    val userAge = 21
+    // <caret> TC-35: Delete both args below, place caret right after '(' in buildUser( ... );
+    //   invoke completion with empty prefix; expect non-empty context-aware suggestions
+    buildUser(userName, userAge)
 }
 
 /**

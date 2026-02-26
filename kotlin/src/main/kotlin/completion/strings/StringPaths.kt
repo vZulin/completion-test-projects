@@ -14,7 +14,7 @@ fun pathCompletionAbsolute() {
 
 /** TC-48: Path completion inside File("") — nested directory. */
 fun pathCompletionNested() {
-    val f = File("/tmp/") // <caret> TC-48: Place caret after '/tmp/'; invoke completion — expect contents of /tmp
+    val f = File("src/") // <caret> TC-48: Place caret after 'src/'; invoke completion — pick file from project tree
 }
 
 /**

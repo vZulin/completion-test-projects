@@ -17,8 +17,8 @@ public class DocDeprecated {
     static void newMethod() {
     }
 
-    // --- TC-77: annotation completion ---
-    // <caret> TC-77: In annotation below, delete 'ecated' so token becomes '@Depr',
+    // --- TC-57, TC-77: annotation completion ---
+    // <caret> TC-57/TC-77: In annotation below, delete 'ecated' so token becomes '@Depr',
     //   then invoke completion — expect @Deprecated
     @Deprecated
     static void annotatedMethod() {

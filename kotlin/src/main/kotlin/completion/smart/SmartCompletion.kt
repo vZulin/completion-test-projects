@@ -29,8 +29,8 @@ fun assignmentFactory() {
     val userAge = 21
 
     // <caret> TC-29: Delete expression below after '=', invoke smart completion;
-    //   expect buildUser(...), User(...) constructor
-    val u2: User = buildUser(userName, userAge)
+    //   select buildUser(...), ensure caret ends up inside inserted parentheses
+    val u1: User = buildUser(userName, userAge)
 }
 
 /** TC-30: Smart completion in return position. */

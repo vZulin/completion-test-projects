@@ -5,7 +5,7 @@ import java.util.Map;
 
 /**
  * Generics type-parameter completion and annotation attribute completion.
- * Covers: TC-75 (generics), TC-76 (Map generics), TC-80 (annotation params).
+ * Covers: TC-74 (generics), TC-75 (Map second type), TC-76 (auto-import in generics), TC-80.
  * Based on EX-JV-12.
  */
 public class GenericsAnnot {
@@ -21,15 +21,18 @@ public class GenericsAnnot {
     void annotated() {
     }
 
-    // TC-75/TC-76: generics type-parameter completion inside angle brackets
+    // TC-74/TC-75/TC-76: generics type-parameter completion inside angle brackets
     void generics(
-            // <caret> TC-75: Delete 'String' below inside List<>, invoke completion;
+            // <caret> TC-74: Delete 'String' below inside List<>, invoke completion;
             //   expect String, Integer, User, etc.
             List<String> a,
-            // <caret> TC-76: Delete 'Integer' below inside Map<String, ...>, invoke completion;
+            // <caret> TC-75: Delete 'Integer' below inside Map<String, ...>, invoke completion;
             //   expect type suggestions for second generic parameter
-            Map<String, Integer> b
+            Map<String, Integer> b,
+            // <caret> TC-76: Delete 'java.time.' below and invoke completion on LocalDate inside generic;
+            //   expect auto-import for java.time.LocalDate after accept
+            Map<String, java.time.LocalDate> c
     ) {
-        System.out.println(a.size() + b.size());
+        System.out.println(a.size() + b.size() + c.size());
     }
 }
