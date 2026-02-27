@@ -46,7 +46,7 @@ fun commitByDot() {
     val user = User("Ann", 21)
     // <caret> TC-39: Delete 'name.length' below, type 'na' after "user.", then press '.';
     //   expect 'name' accepted and new dot appended -> user.name.
-    val tc49 = user.name.length
+    val committedChain = user.name.length
 }
 
 /** TC-67: Commit by comma in function arguments. */
@@ -69,6 +69,6 @@ fun caretAfterFunctionSelect() {
 fun caretAfterNoArgFunction() {
     // <caret> TC-42: Delete constructor call below after '=';
     //   invoke completion, select User(...), verify caret lands in expected constructor position.
-    val tc53: User = User("Ann", 21)
-    println(tc53)
+    val createdUser: User = User("Ann", 21)
+    println(createdUser)
 }

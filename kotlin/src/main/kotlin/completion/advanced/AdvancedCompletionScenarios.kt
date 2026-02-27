@@ -30,8 +30,8 @@ fun smartCastAfterIs(x: Any) {
     if (x is User) {
         // <caret> TC-102: Delete 'name' below after "x.", invoke completion;
         //   expect User members because of smart-cast in is-check
-        val tc107 = x.name
-        println(tc107)
+        val smartCastName = x.name
+        println(smartCastName)
     }
 }
 
@@ -67,8 +67,8 @@ fun genericBoundContext() {
     val number = 42
     // <caret> TC-109: Delete 'text' below in boundedEcho(...), invoke completion;
     //   expect values compatible with T : CharSequence, and reject Int-only options
-    val tc114 = boundedEcho(text)
-    println(number + tc114)
+    val boundedLength = boundedEcho(text)
+    println(number + boundedLength)
 }
 
 fun safeCallElvisExpectedType(u: User?): String {
@@ -92,8 +92,8 @@ fun crossPackageDependencyLikeModule() {
     val fromDependency = buildUser("Ann", 21)
     // <caret> TC-112: Delete 'name' below after "fromDependency.", invoke completion;
     //   expect symbols resolved from dependency package/module-like boundary
-    val tc117 = fromDependency.name
-    println(tc117)
+    val dependencyName = fromDependency.name
+    println(dependencyName)
 }
 
 fun renamedApiTarget() = "newApi"
@@ -101,6 +101,6 @@ fun renamedApiTarget() = "newApi"
 fun refactorMoveRenameFollowup() {
     // <caret> TC-113: After Rename/Move of renamedApiTarget across files,
     //   delete call below and invoke completion; expect updated symbol only.
-    val tc118 = renamedApiTarget()
-    println(tc118)
+    val renamedCallResult = renamedApiTarget()
+    println(renamedCallResult)
 }

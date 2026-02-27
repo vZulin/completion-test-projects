@@ -22,7 +22,7 @@ public class StaticMembers {
         //   invoke completion — expect static members via class reference.
         // <caret> TC-27: In the same popup for 'StaticBox.', verify instance members
         //   (like instanceValue()) are not suggested in class-name context.
-        int tc31 = StaticBox.version();
-        System.out.println(tc31);
+        int staticVersion = StaticBox.version();
+        System.out.println(staticVersion);
     }
 }

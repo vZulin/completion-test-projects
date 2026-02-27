@@ -13,8 +13,8 @@ fun listIndexByInt() {
     val selectedIndex = 0
     // <caret> TC-53: Delete 'selectedIndex' below inside users[...], invoke completion;
     //   expect Int variables from scope (e.g., selectedIndex)
-    val tc101 = users[selectedIndex]
-    println(tc101.name)
+    val selectedUser = users[selectedIndex]
+    println(selectedUser.name)
 }
 
 /** TC-99: Completion in nested brackets matrix[row][col]. */
@@ -24,8 +24,8 @@ fun nestedBracketIndex() {
     val col = 0
     // <caret> TC-99: Delete 'row' in first [] and 'col' in second [] below;
     //   invoke completion in each bracket, expect Int variables row/col
-    val tc102 = matrix[row][col]
-    println(tc102)
+    val selectedValue = matrix[row][col]
+    println(selectedValue)
 }
 
 /** TC-100: Completion for map key expression inside brackets. */
@@ -34,6 +34,6 @@ fun mapKeyInsideBrackets() {
     val nameKey = "name"
     // <caret> TC-100: Delete 'nameKey' below inside userByKey[...], invoke completion;
     //   expect String key variables from scope (e.g., nameKey)
-    val tc103 = userByKey[nameKey]
-    println(tc103)
+    val selectedByKey = userByKey[nameKey]
+    println(selectedByKey)
 }

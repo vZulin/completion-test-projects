@@ -26,7 +26,7 @@ fun quickDocScenario() {
     val user = User("Ann", 21)
     // <caret> TC-71: Place caret after "user.", select 'name' from completion,
     //   press Ctrl+Q; expect KDoc/type info for 'name: String'
-    val tc64 = user.name
+    val quickDocName = user.name
 }
 
 /** TC-72: Type/signature display in completion popup. */
@@ -34,7 +34,7 @@ fun typeSignatureDisplay() {
     val user = User("Ann", 21)
     // <caret> TC-72: Place caret after "user." and invoke completion;
     //   verify each item shows return type (e.g., 'name: String', 'age: Int')
-    val tc65 = user.age
+    val typedAge = user.age
 }
 
 /** TC-73: Deprecated function marker in completion list. */
@@ -42,7 +42,7 @@ fun typeSignatureDisplay() {
 fun deprecatedMarker() {
     // <caret> TC-73: Delete 'oldFun()' below, type 'old'; expect 'oldFun' shown
     //   with strikethrough / deprecated styling
-    val tc66 = oldFun()
+    val deprecatedCall = oldFun()
 }
 
 /**

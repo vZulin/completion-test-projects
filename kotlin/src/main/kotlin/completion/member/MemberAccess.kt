@@ -25,7 +25,7 @@ fun dotAccessProperties() {
     val user = User("Ann", 21)
     // <caret> TC-22: Delete 'name' below, place caret after "user." and invoke completion;
     //   expect 'name', 'age' properties in list
-    val tc26 = user.name
+    val selectedName = user.name
 }
 
 /** TC-23: Dot access — prefix filtering after dot. */
@@ -33,7 +33,7 @@ fun dotAccessMethods() {
     val user = User("Ann", 21)
     // <caret> TC-23: Delete 'name' below, type 'na' after "user.", invoke completion;
     //   expect list filtered to 'name' (or language-specific getter variant)
-    val tc27 = user.name
+    val filteredName = user.name
 }
 
 /** TC-25: Field vs method — field selection. */
@@ -41,14 +41,14 @@ fun fieldSelection() {
     val user = User("Ann", 21)
     // <caret> TC-25: Delete 'name' below, type 'na' after "user.";
     //   expect 'name' (property) at top, not a method
-    val tc29 = user.name
+    val fieldName = user.name
 }
 
 /** TC-26: Companion object members via class name. */
 fun companionAccess() {
     // <caret> TC-26: Delete 'make()' below, place caret after "Util." and invoke completion;
     //   expect make(), VERSION from companion
-    val tc30 = Util.make()
+    val utilInstance = Util.make()
 }
 
 /** TC-61: Nullable safe-call completion. */
@@ -56,7 +56,7 @@ fun nullableSafeCall() {
     val u: User? = null
     // <caret> TC-61: Delete 'name' below, place caret after "u?." and invoke completion;
     //   expect name, age, toString(), etc.
-    val tc32 = u?.name
+    val safeName = u?.name
 }
 
 /** TC-62: Extension function visible through dot. */
@@ -64,5 +64,5 @@ fun extensionFunction() {
     val s = "Ann"
     // <caret> TC-62: Delete 'extHello()' below, place caret after "s." and invoke completion;
     //   expect extHello() alongside standard String members
-    val tc33 = s.extHello()
+    val extensionGreeting = s.extHello()
 }

@@ -8,5 +8,5 @@ import { utilFn } from "./utilModule";
 
 // <caret> TC-45: Delete import above, then delete 'n()' below so only 'utilF' remains;
 //   accept completion and verify import { utilFn } from "./utilModule" is added automatically.
-const tc56 = utilFn();
-void tc56;
+const importedUtilResult = utilFn();
+void importedUtilResult;

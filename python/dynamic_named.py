@@ -12,7 +12,7 @@ Source: EX-PY-4, EX-PY-5.
 dyn = object()
 # <caret> TC-32: Delete '__class__.__name__' below so caret is after 'dyn.',
 #   then invoke completion; should not crash, may show limited members.
-tc38 = dyn.__class__.__name__
+dynamic_class_name = dyn.__class__.__name__
 
 
 # --- TC-66: named argument completion ---
@@ -25,4 +25,4 @@ def greet(name: str, age: int) -> None:
 #   invoke completion; expect name=, age=.
 greet(name="Ann", age=21)
 
-_ = tc38
+_ = dynamic_class_name

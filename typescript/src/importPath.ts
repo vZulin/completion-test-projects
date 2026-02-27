@@ -8,5 +8,5 @@
 //   completion should list sibling modules and relative variants.
 import { buildUser } from "./model";
 
-const tc62 = buildUser("Ann", 21);
-void tc62;
+const importedPathUser = buildUser("Ann", 21);
+void importedPathUser;

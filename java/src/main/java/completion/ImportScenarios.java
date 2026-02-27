@@ -12,7 +12,7 @@ public class ImportScenarios {
     public static void main(String[] args) {
         // <caret> TC-43: Delete both 'java.util.' qualifiers below and leave 'ArrayList';
         //   then type 'ArrayLis' and accept completion — should add import java.util.ArrayList
-        java.util.ArrayList<String> tc54 = new java.util.ArrayList<>();
+        java.util.ArrayList<String> listForImport = new java.util.ArrayList<>();
 
         // <caret> TC-46: Delete package qualifiers below and type 'Date';
         //   completion should show java.util.Date and java.sql.Date with qualifiers
@@ -24,6 +24,6 @@ public class ImportScenarios {
         //   invoke completion and accept ArrayList — import should stay absent or FQN should be inserted.
         java.util.ArrayList<String> list = new java.util.ArrayList<>();
 
-        System.out.println(tc54.size() + utilDate.getTime() + sqlDate.getTime() + list.size());
+        System.out.println(listForImport.size() + utilDate.getTime() + sqlDate.getTime() + list.size());
     }
 }

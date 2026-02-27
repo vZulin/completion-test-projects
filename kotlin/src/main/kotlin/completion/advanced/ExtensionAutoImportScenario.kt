@@ -12,6 +12,6 @@ fun autoImportExtensionFunction() {
     val settings = RemoteSettings("machine-A")
     // <caret> TC-107: Delete import `syncNow` above and delete 'syncNow()' below;
     //   type 'sync' after settings., invoke completion; expect extension function with auto-import.
-    val tc112 = settings.syncNow()
-    println(tc112)
+    val syncResult = settings.syncNow()
+    println(syncResult)
 }

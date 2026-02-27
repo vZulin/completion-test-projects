@@ -60,5 +60,5 @@ fun injectedToHostTransition() {
     //   then move caret to host Kotlin line below and verify popup closes/updates correctly.
     val q = "SELECT id FROM users WHERE id = 1"
     val x = 42
-    val tc86 = x.toLong()
+    val hostLongValue = x.toLong()
 }

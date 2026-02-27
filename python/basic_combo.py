@@ -28,7 +28,7 @@ user = User(user_name, user_age)
 
 # <caret> TC-1/TC-7/TC-22: Delete 'name' below so caret is after 'user.',
 #   then invoke completion — expect name, age and other members.
-tc26 = user.name
+member_name = user.name
 
 # <caret> TC-2/TC-28: Delete expression below after '=', invoke smart-ish completion;
 #   expect build_user(...), User(...)
@@ -44,7 +44,7 @@ consume_user(user)
 
 # <caret> TC-11/TC-47: Place caret inside quotes below and invoke completion;
 #   expect filesystem path suggestions
-tc60 = Path("")
+path_value = Path("")
 
 
 def keyword_return_completion(value: int) -> int:
@@ -52,4 +52,4 @@ def keyword_return_completion(value: int) -> int:
     return value
 
 
-_ = (tc26, u1, tc_arg, tc60, keyword_return_completion(1))
+_ = (member_name, u1, tc_arg, path_value, keyword_return_completion(1))

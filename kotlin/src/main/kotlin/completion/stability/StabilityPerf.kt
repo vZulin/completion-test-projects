@@ -17,7 +17,7 @@ fun dumbModeBasic() {
     val user = User("Ann", 21)
     // <caret> TC-50: Place caret after "user." during indexing; invoke completion;
     //   expect graceful handling
-    val tc89 = user.name
+    val indexingMember = user.name
 }
 
 /**
@@ -28,8 +28,8 @@ fun dumbModeSmart() {
     val user = User("Ann", 21)
     // <caret> TC-51: Place caret after "user." during indexing and press Ctrl+Space repeatedly
     //   (e.g., 5 times); expect no UI freeze and no stacked stale popups.
-    val tc90 = user.name
-    println(tc90)
+    val repeatedIndexingMember = user.name
+    println(repeatedIndexingMember)
 }
 
 /**
@@ -40,7 +40,7 @@ fun dumbModeAutoPopup() {
     val user = User("Ann", 21)
     // <caret> TC-52: After indexing completes, place caret after "user." and invoke completion;
     //   verify full/correct members are shown.
-    val tc91 = user.name
+    val postIndexMember = user.name
 }
 
 /**
@@ -52,7 +52,7 @@ fun performanceRapidInvocation() {
     val user = User("Ann", 21)
     // <caret> TC-91: Place caret after "user." and invoke/dismiss completion 30 times
     //   rapidly (Ctrl+Space, Escape); verify IDE stability
-    val tc93 = user.name
+    val rapidInvocationMember = user.name
 }
 
 /**

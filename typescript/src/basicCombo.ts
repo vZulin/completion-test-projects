@@ -13,15 +13,15 @@ const user: User = buildUser(userName, userAge);
 //   - place caret after "user." for basic/member completion
 //   - type 'na' to validate prefix filtering
 //   - with popup open, trigger QuickDoc for selected member
-const tc26 = user.name;
+const memberName = user.name;
 
 // <caret> TC-24: Delete 'toString()' below after "user.", invoke completion and choose method;
 //   verify method call inserted with parentheses.
-const tc24 = user.toString();
+const methodCallResult = user.toString();
 
 // <caret> TC-25: Delete 'name' below after "user.", type 'na', invoke completion;
 //   verify property insertion without adding "()".
-const tc25 = user.name;
+const propertyName = user.name;
 
 // <caret> TC-2/TC-28: Delete 'user' below after '=', invoke smart completion;
 //   should suggest buildUser(...) and variables of type User
@@ -41,7 +41,7 @@ function keywordReturnCompletion(value: number): number {
   return value;
 }
 
-void tc26;
-void tc24;
-void tc25;
+void memberName;
+void methodCallResult;
+void propertyName;
 void keywordReturnCompletion;

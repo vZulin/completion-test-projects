@@ -13,7 +13,7 @@ function f(): User {
   return buildUser();
 }
 
-const tc36 = f();
-void tc36;
+const returnedUser = f();
+void returnedUser;
 
 export {};

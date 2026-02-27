@@ -27,7 +27,7 @@ public class BasicCombo {
         //   - type 'na' to validate prefix filtering to getName
         //   - choose getName from completion and verify method parentheses insertion
         //   - while popup is open, use Ctrl+Q for QuickDoc
-        String tc28 = user.getName();
+        String memberName = user.getName();
 
         // <caret> TC-2/TC-28: Delete 'user' below after '=',
         //   invoke smart completion; expect user/new User(...)/buildUser(...)
