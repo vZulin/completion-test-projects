@@ -101,7 +101,7 @@ fun rankingMRU() {
     val userEmail = "ann@test.com"
     // <caret> TC-60: Delete 'userName' below, type 'user', select userName, then
     //   re-invoke completion — previously selected item should rank higher
-    println(userName)
+    println(userAge)
 }
 
 /** TC-21: Negative context — caret inside number literal. */

@@ -16,16 +16,15 @@ class Util {
     }
 }
 
-
-
 fun String.extHello(): String = "Hello, $this"
 
 /** TC-22: Dot access — properties. */
 fun dotAccessProperties() {
     val user = User("Ann", 21)
     // <caret> TC-22: Delete 'name' below, place caret after "user." and invoke completion;
-    //   expect 'name', 'age' properties in list
+    //   expect 'name', 'age' and standard methods in the list
     val selectedName = user.name
+    val selectedToString = user.toString()
 }
 
 /** TC-23: Dot access — prefix filtering after dot. */
@@ -49,6 +48,7 @@ fun companionAccess() {
     // <caret> TC-26: Delete 'make()' below, place caret after "Util." and invoke completion;
     //   expect make(), VERSION from companion
     val utilInstance = Util.make()
+    val utilVersion = Util.VERSION
 }
 
 /** TC-61: Nullable safe-call completion. */

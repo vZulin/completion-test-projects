@@ -25,7 +25,7 @@ fun processUser(user: User, verbose: Boolean): String = user.name
 fun quickDocScenario() {
     val user = User("Ann", 21)
     // <caret> TC-71: Place caret after "user.", select 'name' from completion,
-    //   press Ctrl+Q; expect KDoc/type info for 'name: String'
+    //   press Ctrl+Q|^+J; expect KDoc/type info for 'name: String'
     val quickDocName = user.name
 }
 

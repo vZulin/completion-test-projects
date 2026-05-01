@@ -16,7 +16,7 @@
 
 #### Функциональность: Ручной вызов (Manual trigger)
 
-#### [ ] TC-1: Вызвать basic completion через Ctrl+Space
+#### [Х] TC-1: Вызвать basic completion через Ctrl+Space
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -60,7 +60,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-2: Вызвать smart completion через Ctrl+Shift+Space
+#### [X] TC-2: Вызвать smart completion через Ctrl+Shift+Space
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -100,7 +100,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-3: Повторное нажатие Ctrl+Space при открытом popup
+#### [X] TC-3: Повторное нажатие Ctrl+Space при открытом popup
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -134,7 +134,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-4: Закрытие popup по Esc
+#### [X] TC-4: Закрытие popup по Esc
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -167,7 +167,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-5: Закрытие popup кликом мыши вне popup
+#### [X] TC-5: Закрытие popup кликом мыши вне popup
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -199,7 +199,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-6: Фильтрация списка при продолжении ввода текста
+#### [X] TC-6: Фильтрация списка при продолжении ввода текста
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -233,7 +233,7 @@ fun main() {
 
 #### Функциональность: Автоматическое появление (Auto-popup)
 
-#### [ ] TC-7: Auto-popup после точки (member completion)
+#### [X] TC-7: Auto-popup после точки (member completion)
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -268,7 +268,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-8: Auto-popup после открывающей скобки (аргументы)
+#### [X] TC-8: Auto-popup после открывающей скобки (аргументы)
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -306,7 +306,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-9: Auto-popup после запятой в списке аргументов
+#### [X] TC-9: Auto-popup после запятой в списке аргументов
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -343,7 +343,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-10: Auto-popup при вводе пути в import
+#### [X] TC-10: Auto-popup при вводе пути в import
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -367,8 +367,8 @@ import x from "./<caret>"
 
 ---
 
-#### [ ] TC-11: Auto-popup при вводе пути в строке File/Path
-
+#### [-] TC-11: Auto-popup при вводе пути в строке File/Path
+!OutOfScoupe - fullline completion 
 **Приоритет:** P0
 **План:** Acceptance
 **Тестовые файлы:**
@@ -401,7 +401,7 @@ fun main() {
 
 #### Функциональность: Обновление/отмена запросов (race/cancel)
 
-#### [ ] TC-12: Быстрый ввод символов — актуальность списка
+#### [X] TC-12: Быстрый ввод символов — актуальность списка
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -438,7 +438,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-13: Удаление префикса Backspace — возврат к полному списку
+#### [X] TC-13: Удаление префикса Backspace — возврат к полному списку
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -471,7 +471,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-14: Перемещение каретки стрелками при открытом popup
+#### [X] TC-14: Перемещение каретки стрелками при открытом popup
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -495,7 +495,7 @@ fun main() {
 ```
 
 **Шаги:**
-1. Поставить каретку после `user.`.
+1. Поставить каретку после `user.na`.
 2. Нажать Ctrl+Space — popup появляется.
 3. Нажать стрелку «вверх» или «влево» для перемещения каретки в другое место (без выбора элемента из списка).
 4. Убедиться, что popup закрывается или корректно переоткрывается по новому месту.
@@ -508,7 +508,7 @@ fun main() {
 
 #### Функциональность: Локальные символы / scope
 
-#### [ ] TC-15: Completion для локальной переменной по префиксу
+#### [X] TC-15: Completion для локальной переменной по префиксу
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -542,7 +542,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-16: Completion для параметра функции
+#### [X] TC-16: Completion для параметра функции
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -573,7 +573,7 @@ fun greet(userName: String, userAge: Int) {
 
 ---
 
-#### [ ] TC-17: Completion показывает символы из внешнего scope
+#### [X] TC-17: Completion показывает символы из внешнего scope
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -602,8 +602,8 @@ fun main() {
 
 ---
 
-#### [ ] TC-18: Символы вне области видимости не предлагаются
-
+#### [-] TC-18: Символы вне области видимости не предлагаются
+!WrongTC - wrong expected result
 **Приоритет:** P0
 **План:** Acceptance
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/Visibility.java`
@@ -637,7 +637,7 @@ public class B {
 
 #### Функциональность: Ключевые слова
 
-#### [ ] TC-19: Completion для ключевого слова return
+#### [X] TC-19: Completion для ключевого слова return
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -669,7 +669,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-20: Completion для ключевого слова class на top-level
+#### [X] TC-20: Completion для ключевого слова class на top-level
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -699,13 +699,13 @@ cla<caret>
 
 #### Функциональность: Негативные контексты (устойчивость)
 
-#### [ ] TC-21: Completion в «сломанном» месте — устойчивость
+#### [X] TC-21: Completion в «сломанном» месте — устойчивость
 
 **Приоритет:** P0
 **План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/basic/BasicScope.kt`
 
-**Описание:** Проверить, что вызов completion в заведомо некорректном месте (например, посреди числа) не приводит к падению IDE.
+**Описание:** Проверить, что вызов completion в заведомо некорректном месте (например, посреди числа) обрабатывается корректно.
 
 **Предусловие:**
 - Файл с кодом открыт в редакторе.
@@ -720,9 +720,9 @@ fun main() {
 **Шаги:**
 1. Поставить каретку между `12` и `34` в числовом литерале.
 2. Нажать Ctrl+Space.
-3. Убедиться, что IDE не падает и нет исключений в логе.
+3. Убедиться, что нет исключений в логе.
 
-**Ожидаемый результат:** IDE не падает. Popup либо не показывается, либо показывает предсказуемый минимум. Нет исключений в IDE log.
+**Ожидаемый результат:** показывается сообщение "No suggestions" IDE не падает. Нет исключений в IDE log.
 
 ---
 
@@ -730,7 +730,7 @@ fun main() {
 
 #### Функциональность: Completion после точки
 
-#### [ ] TC-22: Member completion — свойства и методы типа
+#### [X] TC-22: Member completion — свойства и методы типа
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -765,7 +765,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-23: Фильтрация member completion по префиксу
+#### [X] TC-23: Фильтрация member completion по префиксу
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -798,47 +798,47 @@ fun main() {
 
 ---
 
-#### [ ] TC-24: Выбор метода — вставка скобок ()
+#### [X] TC-24: Method selection — insert parentheses ()
 
-**Приоритет:** P0
-**План:** Acceptance
-**Тестовые файлы:**
+**Priority:** P0
+**Plan:** Acceptance
+**Test files:**
 - Java: `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
-- TypeScript: `completion-test-projects/typescript/src/basicCombo.ts`
 
-**Описание:** Проверить, что при выборе метода из completion вставляются скобки `()` и каретка оказывается внутри.
+**Description:** Verify that selecting a method with parameters from completion inserts `()` and places the caret inside for argument input.
 
-**Предусловие:**
-- Файл с кодом открыт в редакторе.
+**Precondition:**
+- The file with the code sample is open in the editor.
 
 ```java
-package demo;
+package completion;
 
-public class Main {
-  static class User {
-    String name;
-    String getName() { return name; }
-  }
+import completion.model.User;
 
-  public static void main(String[] args) {
-    User user = new User();
-    user.<caret>
-  }
+import static completion.model.User.buildUser;
+
+public class BasicCombo {
+    public static void main(String[] args) {
+        String userName = "Ann";
+        int userAge = 21;
+
+        User u2 = buildU<caret>
+    }
 }
 ```
 
-**Шаги:**
-1. Поставить каретку после `user.`.
-2. Вызвать completion.
-3. Выбрать метод `getName` из списка и нажать Enter.
-4. Убедиться, что вставлено `getName()`.
-5. Убедиться, что каретка стоит внутри `()`.
+**Steps:**
+1. Place the caret right after `buildU`.
+2. Invoke completion.
+3. Select `buildUser` from the list and press Enter.
+4. Verify that `buildUser()` is inserted.
+5. Verify that the caret is inside `()`.
 
-**Ожидаемый результат:** Вставлено `getName()`, каретка — внутри скобок.
+**Expected result:** `buildUser()` is inserted, and the caret is inside parentheses ready for argument input.
 
 ---
 
-#### [ ] TC-25: Выбор поля/свойства — вставка без скобок
+#### [X] TC-25: Выбор поля/свойства — вставка без скобок
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -874,7 +874,7 @@ fun main() {
 
 #### Функциональность: Статические/companion члены
 
-#### [ ] TC-26: Completion для статических/companion членов
+#### [X] TC-26: Completion для статических/companion членов
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -908,7 +908,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-27: Нестатические члены не отображаются в контексте ClassName.
+#### [X] TC-27: Нестатические члены не отображаются в контексте ClassName.
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -946,8 +946,8 @@ public class StaticTest {
 
 #### Функциональность: Присваивание
 
-#### [ ] TC-28: Smart completion при присваивании переменной с указанным типом
-
+#### [-] TC-28: Smart completion при присваивании переменной с указанным типом
+!!! IJPL-236953 The completion popup shows fewer suggestions
 **Приоритет:** P0
 **План:** Acceptance
 **Тестовые файлы:**
@@ -986,7 +986,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-29: Выбор функции из smart completion — вставка с кареткой в скобках
+#### [X] TC-29: Выбор функции из smart completion — вставка с кареткой в скобках
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1022,7 +1022,7 @@ fun main() {
 
 #### Функциональность: Return
 
-#### [ ] TC-30: Smart completion для return с указанным возвращаемым типом
+#### [X] TC-30: Smart completion для return с указанным возвращаемым типом
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1057,7 +1057,7 @@ fun f(): User {
 
 #### Функциональность: Аргументы функции (по ожидаемому типу)
 
-#### [ ] TC-31: Smart completion по ожидаемому типу аргумента
+#### [X] TC-31: Smart completion по ожидаемому типу аргумента
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1124,7 +1124,7 @@ dyn.<caret>
 
 #### Функциональность: Подстановка аргументов
 
-#### [ ] TC-33: Completion аргументов по типу параметра
+#### [X] TC-33: Completion аргументов по типу параметра
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1158,7 +1158,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-34: Completion для второго аргумента после запятой
+#### [X] TC-34: Completion для второго аргумента после запятой
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1195,7 +1195,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-35: Completion сразу после открывающей скобки без ввода
+#### [X] TC-35: Completion сразу после открывающей скобки без ввода
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1234,7 +1234,7 @@ fun main() {
 
 #### Функциональность: Enter / Tab
 
-#### [ ] TC-36: Принятие элемента из completion клавишей Enter
+#### [X] TC-36: Принятие элемента из completion клавишей Enter
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1267,7 +1267,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-37: Принятие элемента из completion клавишей Tab
+#### [X] TC-37: Принятие элемента из completion клавишей Tab
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1300,7 +1300,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-38: Принятие completion при выделенном тексте — замена
+#### [X] TC-38: Принятие completion при выделенном тексте — замена
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1331,7 +1331,7 @@ fun main() {
 
 #### Функциональность: Commit characters
 
-#### [ ] TC-39: Принятие completion нажатием точки (commit by `.`)
+#### [X] TC-39: Принятие completion нажатием точки (commit by `.`)
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1361,7 +1361,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-40: Принятие completion нажатием открывающей скобки (commit by `(`)
+#### [X] TC-40: Принятие completion нажатием открывающей скобки (commit by `(`)
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1398,7 +1398,7 @@ public class Commit {
 
 #### Функциональность: Позиция каретки (Caret placement)
 
-#### [ ] TC-41: Каретка внутри скобок после выбора функции
+#### [X] TC-41: Каретка внутри скобок после выбора функции
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1435,7 +1435,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-42: Каретка в ожидаемом месте после выбора конструктора
+#### [X] TC-42: Каретка в ожидаемом месте после выбора конструктора
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1478,7 +1478,7 @@ public class Main {
 
 #### Функциональность: Импорт при выборе из completion
 
-#### [ ] TC-43: Java — auto-import ArrayList при принятии completion
+#### [X] TC-43: Java — auto-import ArrayList при принятии completion
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1511,7 +1511,7 @@ public class Imports {
 
 ---
 
-#### [ ] TC-44: Kotlin — auto-import File при принятии completion
+#### [X] TC-44: Kotlin — auto-import File при принятии completion
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1539,7 +1539,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-45: TypeScript — auto-import при принятии completion
+#### [X] TC-45: TypeScript — auto-import при принятии completion
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1574,7 +1574,7 @@ utilF<caret>
 
 #### Функциональность: Конфликт имён
 
-#### [ ] TC-46: Completion при конфликте имён — два класса из разных пакетов
+#### [X] TC-46: Completion при конфликте имён — два класса из разных пакетов
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1612,8 +1612,8 @@ public class Conflict {
 
 #### Функциональность: File system paths
 
-#### [ ] TC-47: Path completion внутри File("...")
-
+#### [-] TC-47: Path completion внутри File("...")
+!не верное ожидаемое поведение, это функциональность fullline completion
 **Приоритет:** P0
 **План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
@@ -1642,8 +1642,8 @@ fun main() {
 
 ---
 
-#### [ ] TC-48: Выбор файла из path completion — корректность строки
-
+#### [-] TC-48: Выбор файла из path completion — корректность строки
+!не верное ожидаемое поведение, это функциональность fullline completion
 **Приоритет:** P0
 **План:** Acceptance
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/strings/StringPaths.kt`
@@ -1675,7 +1675,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-49: Completion относительных путей `./` и `../`
+#### [X] TC-49: Completion относительных путей `./` и `../`
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1705,7 +1705,7 @@ import x from "./<caret>"
 
 #### Функциональность: Dumb mode / индексация
 
-#### [ ] TC-50: Completion в Dumb mode — устойчивость
+#### [X] TC-50: Completion в Dumb mode — устойчивость
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1739,7 +1739,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-51: Множественный вызов completion в Dumb mode — нет зависаний
+#### [X] TC-51: Множественный вызов completion в Dumb mode — нет зависаний
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1772,7 +1772,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-52: Completion после завершения индексации — полные результаты
+#### [X] TC-52: Completion после завершения индексации — полные результаты
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1809,7 +1809,7 @@ fun main() {
 
 #### Функциональность: Completion индексного выражения в списках/массивах
 
-#### [ ] TC-53: Kotlin — completion Int-индекса внутри `list[ ... ]`
+#### [X] TC-53: Kotlin — completion Int-индекса внутри `list[ ... ]`
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1837,7 +1837,7 @@ val target = users[<caret>]
 
 ---
 
-#### [ ] TC-54: Java — completion индекса в `array[ ... ]` и `matrix[ ... ][ ... ]`
+#### [X] TC-54: Java — completion индекса в `array[ ... ]` и `matrix[ ... ][ ... ]`
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1870,7 +1870,7 @@ int b = matrix[<caret>][<caret>];
 
 ---
 
-#### [ ] TC-55: TypeScript — completion в `obj["..."]` и `arr[ ... ]`
+#### [X TC-55: TypeScript — completion в `obj["..."]` и `arr[ ... ]`
 
 **Приоритет:** P0
 **План:** Acceptance
@@ -1906,7 +1906,7 @@ const b = names[<caret>];
 
 #### Функциональность: Type-flow, DSL, refactoring, устойчивость
 
-#### [ ] TC-56: Completion в синтаксически «битом» коде (resilience)
+#### [X] TC-56: Completion в синтаксически «битом» коде (resilience)
 
 **Приоритет:** P0  
 **План:** Acceptance
@@ -1931,7 +1931,7 @@ const b = names[<caret>];
 
 #### Функциональность: Автоматическое появление (Auto-popup)
 
-#### [ ] TC-57: Auto-popup при вводе @ (аннотация/декоратор)
+#### [X] TC-57: Auto-popup при вводе @ (аннотация/декоратор)
 
 **Приоритет:** P1
 **План:** Regression
@@ -1965,7 +1965,7 @@ class A
 
 #### Функциональность: Ранжирование (relevance)
 
-#### [ ] TC-58: Локальная переменная ранжируется выше глобальной
+#### [X] TC-58: Локальная переменная ранжируется выше глобальной
 
 **Приоритет:** P1
 **План:** Regression
@@ -1998,7 +1998,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-59: Точный префикс ранжируется выше fuzzy-совпадений
+#### [X] TC-59: Точный префикс ранжируется выше fuzzy-совпадений
 
 **Приоритет:** P1
 **План:** Regression
@@ -2026,7 +2026,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-60: MRU — ранее выбранный элемент поднимается, но не ломает релевантность
+#### [X] TC-60: MRU — ранее выбранный элемент поднимается, но не ломает релевантность
 
 **Приоритет:** P1
 **План:** Regression
@@ -2069,7 +2069,7 @@ fun main() {
 
 #### Функциональность: Nullable / safe access (Kotlin)
 
-#### [ ] TC-61: Safe-call completion для nullable типа
+#### [X] TC-61: Safe-call completion для nullable типа
 
 **Приоритет:** P1
 **План:** Regression
@@ -2100,7 +2100,7 @@ fun main() {
 
 #### Функциональность: Extension methods (Kotlin)
 
-#### [ ] TC-62: Extension function отображается в completion
+#### [X] TC-62: Extension function отображается в completion
 
 **Приоритет:** P1
 **План:** Regression
@@ -2133,7 +2133,7 @@ fun main() {
 
 #### Функциональность: Интеграция с Parameter Info
 
-#### [ ] TC-63: Parameter info при выборе функции из completion
+#### [X] TC-63: Parameter info при выборе функции из completion
 
 **Приоритет:** P1
 **План:** Regression
@@ -2174,7 +2174,7 @@ fun main() {
 
 #### Функциональность: Именованные аргументы (Named arguments)
 
-#### [ ] TC-64: Kotlin — completion именованных аргументов
+#### [X] TC-64: Kotlin — completion именованных аргументов
 
 **Приоритет:** P1
 **План:** Regression
@@ -2203,7 +2203,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-65: Kotlin — уже использованный named argument не предлагается повторно
+#### [X] TC-65: Kotlin — уже использованный named argument не предлагается повторно
 
 **Приоритет:** P1
 **План:** Regression
@@ -2264,7 +2264,7 @@ f(<caret>)
 
 #### Функциональность: Commit characters
 
-#### [ ] TC-67: Принятие completion нажатием запятой в аргументах
+#### [X] TC-67: Принятие completion нажатием запятой в аргументах
 
 **Приоритет:** P1
 **План:** Regression
@@ -2304,7 +2304,7 @@ fun main() {
 
 #### Функциональность: Конфликт имён
 
-#### [ ] TC-68: После выбора одного варианта второй не подмешивается
+#### [X] TC-68: После выбора одного варианта второй не подмешивается
 
 **Приоритет:** P1
 **План:** Regression
@@ -2336,8 +2336,8 @@ public class Conflict {
 
 #### Функциональность: Поведение в зависимости от настроек
 
-#### [ ] TC-69: Отключённый auto-import — поведение при completion
-
+#### [-] TC-69: Отключённый auto-import — поведение при completion
+!не верное ожидаймый результат, нет такой настройки
 **Приоритет:** P1
 **План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
@@ -2373,7 +2373,7 @@ public class Imports {
 
 #### Функциональность: Негатив — обычная строка
 
-#### [ ] TC-70: Completion в обычной строке — без навязывания path completion
+#### [X] TC-70: Completion в обычной строке — без навязывания path completion
 
 **Приоритет:** P1
 **План:** Regression
@@ -2404,7 +2404,7 @@ fun main() {
 
 #### Функциональность: QuickDoc и детали элемента
 
-#### [ ] TC-71: QuickDoc для элемента из completion (Ctrl+Q)
+#### [X] TC-71: QuickDoc для элемента из completion (Ctrl+Q)
 
 **Приоритет:** P1
 **План:** Regression
@@ -2432,14 +2432,14 @@ fun main() {
 1. Поставить каретку после `user.`.
 2. Нажать Ctrl+Space — popup completion появляется.
 3. Выбрать `name` стрелками.
-4. Нажать Ctrl+Q.
+4. Нажать Ctrl+Q|^+J.
 5. Убедиться, что показывается QuickDoc для свойства `name`.
 
 **Ожидаемый результат:** Отображается QuickDoc с информацией о свойстве `name` (тип, описание).
 
 ---
 
-#### [ ] TC-72: Отображение типа/сигнатуры в списке completion
+#### [X] TC-72: Отображение типа/сигнатуры в списке completion
 
 **Приоритет:** P1
 **План:** Regression
@@ -2473,7 +2473,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-73: Deprecated элементы помечены визуально
+#### [X] TC-73: Deprecated элементы помечены визуально
 
 **Приоритет:** P1
 **План:** Regression
@@ -2509,8 +2509,8 @@ fun main() {
 
 #### Функциональность: Generics / type parameters
 
-#### [ ] TC-74: Completion типов внутри generic-параметров
-
+#### [-] TC-74: Completion типов внутри generic-параметров
+!IJPL-240725 The completion of types inside generic parameters has the wrong order.
 **Приоритет:** P1
 **План:** Regression
 **Тестовые файлы:**
@@ -2542,8 +2542,8 @@ fun main() {
 
 ---
 
-#### [ ] TC-75: Completion второго type parameter в Map
-
+#### [-] TC-75: Completion второго type parameter в Map
+!IJPL-240725 The completion of types inside generic parameters has the wrong order.
 **Приоритет:** P1
 **План:** Regression
 **Тестовый файл:** `completion-test-projects/java/src/main/java/completion/GenericsAnnot.java`
@@ -2574,7 +2574,7 @@ public class G {
 
 ---
 
-#### [ ] TC-76: Auto-import при выборе типа в generic-параметре
+#### [X] TC-76: Auto-import при выборе типа в generic-параметре
 
 **Приоритет:** P1
 **План:** Regression
@@ -2612,7 +2612,7 @@ fun main() {
 
 #### Функциональность: Аннотации / атрибуты / декораторы
 
-#### [ ] TC-77: Java — completion аннотации @Deprecated
+#### [X] TC-77: Java — completion аннотации @Deprecated
 
 **Приоритет:** P1
 **План:** Regression
@@ -2641,7 +2641,7 @@ class A {}
 
 ---
 
-#### [ ] TC-78: Kotlin — completion аннотации @Deprecated
+#### [X] TC-78: Kotlin — completion аннотации @Deprecated
 
 **Приоритет:** P1
 **План:** Regression
@@ -2700,7 +2700,7 @@ class A:
 
 ---
 
-#### [ ] TC-80: Completion параметров аннотации
+#### [X] TC-80: Completion параметров аннотации
 
 **Приоритет:** P1
 **План:** Regression
@@ -2733,7 +2733,7 @@ class A
 
 #### Функциональность: Doc/Comments completion
 
-#### [ ] TC-81: Javadoc — completion тегов @param, @return, @throws
+#### [X] TC-81: Javadoc — completion тегов @param, @return, @throws
 
 **Приоритет:** P1
 **План:** Regression
@@ -2765,7 +2765,7 @@ public class Doc {
 
 ---
 
-#### [ ] TC-82: Javadoc — @param вставляется с именем параметра
+#### [X] TC-82: Javadoc — @param вставляется с именем параметра
 
 **Приоритет:** P1
 **План:** Regression
@@ -2796,7 +2796,7 @@ public class Doc {
 
 ---
 
-#### [ ] TC-83: KDoc — completion тегов @param/@return
+#### [X] TC-83: KDoc — completion тегов @param/@return
 
 **Приоритет:** P1
 **План:** Regression
@@ -2856,7 +2856,7 @@ def f(a: int) -> int:
 
 #### Функциональность: Build/config completion
 
-#### [ ] TC-85: package.json — completion по ключам
+#### [X] TC-85: package.json — completion по ключам
 
 **Приоритет:** P1
 **План:** Regression
@@ -2876,13 +2876,13 @@ def f(a: int) -> int:
 **Шаги:**
 1. Поставить каретку внутри кавычек первого ключа.
 2. Нажать Ctrl+Space.
-3. Убедиться, что предлагаются ключи: `name`, `version`, `dependencies`, `devDependencies` и т.д.
+3. Убедиться, что предлагаются ключи: `name`, `module`, `author`, `bin` и т.д.
 
 **Ожидаемый результат:** Completion предлагает ключи `package.json` согласно JSON-схеме.
 
 ---
 
-#### [ ] TC-86: tsconfig.json — completion по ключам/значениям
+#### [X] TC-86: tsconfig.json — completion по ключам/значениям
 
 **Приоритет:** P1
 **План:** Regression
@@ -2904,13 +2904,13 @@ def f(a: int) -> int:
 **Шаги:**
 1. Поставить каретку внутри кавычек ключа в `compilerOptions`.
 2. Нажать Ctrl+Space.
-3. Убедиться, что предлагаются ключи: `target`, `module`, `strict`, `outDir` и т.д.
+3. Убедиться, что предлагаются ключи: `target`, `module`, `strict`, `outFile` и т.д.
 
 **Ожидаемый результат:** Completion предлагает ключи `compilerOptions` согласно JSON-схеме TypeScript.
 
 ---
 
-#### [ ] TC-87: build.gradle.kts — completion по DSL
+#### [X] TC-87: build.gradle.kts — completion по DSL
 
 **Приоритет:** P1
 **План:** Regression
@@ -2947,7 +2947,7 @@ dependencies {
 
 #### Функциональность: Refactoring-aware проверки
 
-#### [ ] TC-88: Completion после Rename — предлагается новое имя
+#### [X] TC-88: Completion после Rename — предлагается новое имя
 
 **Приоритет:** P1
 **План:** Regression
@@ -2980,7 +2980,7 @@ fun main() {
 
 ---
 
-#### [ ] TC-89: Completion после Change Signature — корректные аргументы
+#### [X] TC-89: Completion после Change Signature — корректные аргументы
 
 **Приоритет:** P1
 **План:** Regression
@@ -3014,7 +3014,7 @@ fun main() {
 
 #### Функциональность: Производительность
 
-#### [ ] TC-90: Completion в «горячей» точке — быстрое появление popup
+#### [X] TC-90: Completion в «горячей» точке — быстрое появление popup
 
 **Приоритет:** P1
 **План:** Regression
@@ -3098,10 +3098,10 @@ public class Many {
 
 ---
 
-#### [ ] TC-91: 30-кратное открытие/закрытие completion — нет прогрессирующего замедления
+#### [X] TC-91: 30-кратное открытие/закрытие completion — нет прогрессирующего замедления
 
-**Приоритет:** P1
-**План:** Regression
+**Приоритет:** P2
+**План:** Full
 **Тестовый файл:** `completion-test-projects/kotlin/src/main/kotlin/completion/stability/StabilityPerf.kt`
 
 **Описание:** Проверить, что многократное открытие и закрытие completion не приводит к прогрессирующему замедлению.
@@ -3134,8 +3134,8 @@ fun main() {
 
 #### Функциональность: Completion конструкций if-else
 
-#### [ ] TC-92: Completion для if-else statement — предложение else / else if
-
+#### [+] TC-92: Completion для if-else statement — предложение else / else if
+! else if suggestion работает только для java (не для котлина)
 **Приоритет:** P1
 **План:** Regression
 **Тестовые файлы:**
@@ -3148,16 +3148,19 @@ fun main() {
 - IDE открыта с проектом, содержащим файл с приведённым кодом.
 - Файл открыт в редакторе.
 
-```kotlin
-package completion.statements
+```java
+package completion;
 
-import completion.model.User
+public class StatementCompletion {
 
-fun checkAge(user: User) {
-    if (user.age > 18) {
-        println("adult")
+  static String checkAge(int age) {
+    if (age > 18) {
+      return "adult";
+    } 
+    else {
+      return "minor";
     }
-    <caret>
+  }
 }
 ```
 
@@ -3175,7 +3178,7 @@ fun checkAge(user: User) {
 
 #### Функциональность: Completion конструкций switch/case/default и when
 
-#### [ ] TC-93: Completion для switch/case/default (Java) и when (Kotlin) — предложение ветвей
+#### [X] TC-93: Completion для switch/case/default (Java) и when (Kotlin) — предложение ветвей
 
 **Приоритет:** P1
 **План:** Regression
@@ -3241,8 +3244,8 @@ fun describeStatus(status: Status): String {
 
 #### Функциональность: Fluent-chain completion после фабричного вызова
 
-#### [ ] TC-94: Completion в длинной цепочке после `initializeTestContext(...)`
-
+#### [-] TC-94: Completion в длинной цепочке после `initializeTestContext(...)`
+!IJPL-240917 Each input extends the Code Completion window waiting time
 **Приоритет:** P1
 **План:** Regression
 **Тестовый файл:**
@@ -3906,6 +3909,232 @@ fun main() {
 
 ---
 
+## Дополнительные targeted-сценарии для IJPL-238008
+
+#### [ ] TC-122: Java — class completion после `new` вставляет `()` и diamond `<>`
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить, что выбор generic-класса после `new` вставляет имя класса, `()`, diamond `<>` и добавляет import.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе. Импорт `java.util.ArrayList` отсутствует.
+
+```java
+package demo;
+
+public class Imports {
+  void f() {
+    java.util.List<String> list = new ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ArrayLis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Убедиться, что вставлено `new ArrayList<>()`.
+5. Убедиться, что добавлен `import java.util.ArrayList;`.
+
+**Ожидаемый результат:** Код становится `java.util.List<String> list = new ArrayList<>()`, import добавлен, каретка стоит в ожидаемом месте.
+
+---
+
+#### [ ] TC-123: Java — completion внутри static import добавляет точку
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить вставку class name completion внутри `import static`.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+import static java.lang.Mat<caret>
+
+public class Imports {}
+```
+
+**Шаги:**
+1. Поставить каретку после `Mat`.
+2. Нажать Ctrl+Space.
+3. Выбрать `Math`.
+4. Нажать Enter.
+
+**Ожидаемый результат:** Вставлено `import static java.lang.Math.`; точка не дублируется, completion для static members может продолжиться.
+
+---
+
+#### [ ] TC-124: Java — Javadoc class reference вставляется как FQN
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
+
+**Описание:** Проверить class name completion внутри Javadoc `@see`.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- В настройках Java Code Style для Javadoc включены fully qualified class names.
+
+```java
+package demo;
+
+public class Doc {
+  /**
+   * @see Lis<caret>
+   */
+  void f() {}
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `Lis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `List`.
+4. Убедиться, что Javadoc reference заменён на fully qualified name.
+
+**Ожидаемый результат:** В Javadoc вставлено `@see java.util.List`, обычный Java import не добавляется.
+
+---
+
+#### [ ] TC-125: Java — Javadoc `@throws` class reference вставляется корректно
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
+
+**Описание:** Проверить class name completion в Javadoc `@throws`.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+public class Doc {
+  /**
+   * @throws IOExcepti<caret>
+   */
+  void f() throws java.io.IOException {}
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `IOExcepti`.
+2. Нажать Ctrl+Space.
+3. Выбрать `IOException`.
+4. Убедиться, что Javadoc tag остался корректным.
+
+**Ожидаемый результат:** Вставлено `@throws java.io.IOException`; Javadoc не ломается, лишний import не появляется.
+
+---
+
+#### [ ] TC-126: Java — annotation completion с обязательным параметром вставляет `()`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/DocDeprecated.java`
+
+**Описание:** Проверить, что completion аннотации с обязательным параметром добавляет скобки.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+public class A {
+  @SuppressWarnin<caret>
+  void f() {}
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `@SuppressWarnin`.
+2. Нажать Ctrl+Space.
+3. Выбрать `SuppressWarnings`.
+4. Убедиться, что вставлены скобки.
+
+**Ожидаемый результат:** Вставлено `@SuppressWarnings()`, каретка находится внутри скобок.
+
+---
+
+#### [ ] TC-127: Java — class completion, принятое точкой, запускает member completion
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
+
+**Описание:** Проверить commit by `.` для Java class name completion.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+import completion.model.User;
+
+public class Main {
+  void f() {
+    Use<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `Use`.
+2. Нажать Ctrl+Space.
+3. Выбрать `User`.
+4. Нажать `.` для принятия completion.
+
+**Ожидаемый результат:** Вставлено `User.`, точка не дублируется, автоматически открыт completion со static members класса.
+
+---
+
+#### [ ] TC-128: Remote Dev — frontend class completion синхронизируется с backend import
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить Java class name completion в Remote Dev с frontend insertion.
+
+**Предусловие:**
+- IDE запущена в Remote Development.
+- Включён `remdev.completion.on.frontend=true`.
+- Импорт `java.util.ArrayList` отсутствует.
+
+```java
+package demo;
+
+public class Imports {
+  void f() {
+    ArrayLis<caret> list;
+  }
+}
+```
+
+**Шаги:**
+1. Открыть файл в JetBrains Client.
+2. Поставить каретку после `ArrayLis`.
+3. Нажать Ctrl+Space.
+4. Выбрать `ArrayList` и нажать Enter.
+5. Проверить состояние сразу после frontend insertion.
+6. Дождаться backend synchronization или переподключиться к сессии.
+
+**Ожидаемый результат:** На frontend вставлен `ArrayList`; после синхронизации добавлен `import java.util.ArrayList;`, документ на frontend и backend совпадает.
+
+---
+
 ## Проверка полноты покрытия
 
 ### Сводная таблица покрытия
@@ -3917,13 +4146,13 @@ fun main() {
 | 3 Member completion (после доступа к членам) | 8 | TC-22 — TC-27, TC-61 — TC-62 | 8/8 ✅ |
 | 4 Smart completion (тип-ориентированная) | 5 | TC-28 — TC-32 | 5/5 ✅ |
 | 5 Completion в аргументах/параметрах и сигнатурах | 7 | TC-33 — TC-35, TC-63 — TC-66 | 7/7 ✅ |
-| 6 Accept/commit — вставка, замены, commit characters | 8 | TC-36 — TC-42, TC-67 | 8/8 ✅ |
-| 7 Auto-import и символы из зависимостей | 6 | TC-43 — TC-46, TC-68 — TC-69 | 6/6 ✅ |
+| 6 Accept/commit — вставка, замены, commit characters | 10 | TC-36 — TC-42, TC-67, TC-122, TC-127 | 10/10 ✅ |
+| 7 Auto-import и символы из зависимостей | 9 | TC-43 — TC-46, TC-68 — TC-69, TC-123, TC-128 | 9/9 ✅ |
 | 8 Completion в строках (paths/resources) | 4 | TC-47 — TC-49, TC-70 | 4/4 ✅ |
 | 9 Documentation popup / QuickDoc / детали элемента | 3 | TC-71 — TC-73 | 3/3 ✅ |
 | 10 Generics / type parameters | 3 | TC-74 — TC-76 | 3/3 ✅ |
-| 11 Аннотации / атрибуты / декораторы | 4 | TC-77 — TC-80 | 4/4 ✅ |
-| 12 Doc/Comments completion | 4 | TC-81 — TC-84 | 4/4 ✅ |
+| 11 Аннотации / атрибуты / декораторы | 5 | TC-77 — TC-80, TC-126 | 5/5 ✅ |
+| 12 Doc/Comments completion | 6 | TC-81 — TC-84, TC-124 — TC-125 | 6/6 ✅ |
 | 13 Build/config completion (минимальный smoke) | 3 | TC-85 — TC-87 | 3/3 ✅ |
 | 14 Templates — postfix / live templates | 3 | TC-114 — TC-116 | 3/3 ✅ |
 | 15 Injected languages / SQL / regex | 3 | TC-117 — TC-119 | 3/3 ✅ |
@@ -3934,7 +4163,7 @@ fun main() {
 | 20 Сложные chained/DSL completion сценарии | 5 | TC-94 — TC-98 | 5/5 ✅ |
 | 21 Completion внутри индексаторов `[]` | 6 | TC-53 — TC-55, TC-99 — TC-101 | 6/6 ✅ |
 | 22 Продвинутые контексты completion | 15 | TC-56, TC-102 — TC-113, TC-120 — TC-121 | 15/15 ✅ |
-| **ИТОГО** | **121** | **TC-1 — TC-121** | **121/121 ✅ (100%)** |
+| **ИТОГО** | **128** | **TC-1 — TC-128** | **128/128 ✅ (100%)** |
 
 ### Дополнительная проверка полноты
 
@@ -3946,24 +4175,24 @@ fun main() {
 **Распределение по приоритетам:**
 | Приоритет | Количество тест-кейсов |
 |---|---|
-| P0 | 56 |
-| P1 | 57 |
+| P0 | 59 |
+| P1 | 61 |
 | P2 | 8 |
-| **Итого** | **121** |
+| **Итого** | **128** |
 
 **Распределение по планам выполнения:**
 | План | Количество тест-кейсов | Диапазон TC |
 |---|---|---|
-| Acceptance | 56 | TC-1 — TC-56 |
-| Regression | 57 | TC-57 — TC-113 |
+| Acceptance | 59 | TC-1 — TC-56, TC-122, TC-123, TC-128 |
+| Regression | 61 | TC-57 — TC-113, TC-124 — TC-127 |
 | Full | 8 | TC-114 — TC-121 |
-| **Итого** | **121** | **TC-1 — TC-121** |
+| **Итого** | **128** | **TC-1 — TC-128** |
 
 **Распределение по языкам (основной код примера):**
 | Язык | Тест-кейсы |
 |---|---|
 | Kotlin | 82 |
-| Java | 25 |
+| Java | 32 |
 | TypeScript | 6 |
 | Python | 5 |
 | JSON/Config | 3 |

@@ -51,11 +51,11 @@ fun commitByDot() {
 
 /** TC-67: Commit by comma in function arguments. */
 fun commitByComma() {
-    val name = "Ann"
-    val age = 21
-    // <caret> TC-67: Delete 'name' below (first arg), type 'na', press ',';
-    //   expect 'name' accepted and comma inserted
-    buildUser(name, age)
+    val userName = "Ann"
+    val userAge = 21
+    // <caret> TC-67: Delete 'userName' below (first arg), type 'user', press ',';
+    //   expect 'userName' accepted and comma inserted without duplicating ','
+    buildUser(userName, userAge)
 }
 
 /** TC-41: Caret placement after selecting a function — caret inside parentheses. */

@@ -12,7 +12,7 @@ import static completion.model.User.consumeUser;
  * Basic combination of completion scenarios.
  * Covers Java-side variants for:
  * TC-1, TC-2, TC-7, TC-8, TC-9, TC-16, TC-19, TC-22, TC-23,
- * TC-24, TC-28, TC-34, TC-41, TC-42, TC-63, TC-71.
+ * TC-24, TC-28, TC-34, TC-41, TC-42, TC-63, TC-71, TC-127.
  * Based on EX-JV-1.
  */
 public class BasicCombo {
@@ -22,7 +22,7 @@ public class BasicCombo {
         int userAge = 21;
         User user = new User(userName, userAge);
 
-        // <caret> TC-1/TC-7/TC-22/TC-23/TC-24/TC-71:
+        // <caret> TC-1/TC-7/TC-22/TC-23/TC-71:
         //   - place caret after "user." for basic/member completion
         //   - type 'na' to validate prefix filtering to getName
         //   - choose getName from completion and verify method parentheses insertion
@@ -33,7 +33,7 @@ public class BasicCombo {
         //   invoke smart completion; expect user/new User(...)/buildUser(...)
         User u1 = user;
 
-        // <caret> TC-8/TC-9/TC-16/TC-34/TC-63:
+        // <caret> TC-8/TC-9/TC-16/TC-24/TC-34/TC-63:
         //   - after '(' and after ',' verify auto-popup/parameter completion
         //   - verify second argument suggestions (Int), and parameter info hint
         User u2 = buildUser(userName, userAge);
@@ -52,6 +52,14 @@ public class BasicCombo {
         list.add("Ann");
 
         System.out.println(keywordReturnScenario() + created.getAge());
+    }
+
+    static void classNameCommitByDotScenario() {
+        // <caret> TC-127: Delete 'r.class' below so the expression token is 'Use'.
+        //   Invoke completion, select User, then press '.' to accept it and open static member completion.
+        Class<User> userClass = User.class;
+
+        System.out.println(userClass.getName());
     }
 
     static int keywordReturnScenario() {

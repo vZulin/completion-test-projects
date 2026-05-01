@@ -59,12 +59,12 @@ fun triggerScenarios() {
     // --- Path completion ---
 
     // <caret> TC-11: Place caret inside quotes in File(""); invoke completion for file paths
-    val filePathCandidate = File("")
+    val filePathCandidate = File("src/")
 
     // --- Race / cancel / fast-typing scenarios (manual steps) ---
 
-    // <caret> TC-12: Fast typing — type "user." quickly followed by "na" before popup renders.
-    //        Verify: popup appears with filtered results containing "name".
+    // <caret> TC-12: Fast typing — type "user." quickly followed by "tostri" before popup renders.
+    //        Verify: popup appears with filtered results containing "toString()".
     val fastTypingCandidate = user.name
 
     // <caret> TC-13: Backspace behavior — invoke completion on "user.n", then press Backspace.
