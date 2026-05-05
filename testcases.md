@@ -3939,7 +3939,8 @@ public class Imports {
 4. Убедиться, что вставлено `new ArrayList<>()`.
 5. Убедиться, что добавлен `import java.util.ArrayList;`.
 
-**Ожидаемый результат:** Код становится `java.util.List<String> list = new ArrayList<>()`, import добавлен, каретка стоит в ожидаемом месте.
+**Ожидаемый результат:** В локальной IDE код становится `java.util.List<String> list = new ArrayList<>()`, import добавлен, каретка стоит в ожидаемом месте. В Remote Dev этот сценарий может выполняться backend-side через constructor insert handler; frontend не должен оставлять полувставленное состояние, после backend synchronization документ должен совпадать с локальным результатом.
+
 
 ---
 
@@ -4135,6 +4136,312 @@ public class Imports {
 
 ---
 
+## Дополнительные targeted-сценарии для ConstructorInsertHandler
+
+#### [ ] TC-129: Java — known target type и fully qualified constructor completion
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить constructor-aware completion, когда ожидаемый тип известен из левой части, а справа набирается fully qualified class name.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+public class Imports {
+  void f() {
+    java.util.List<String> names = new java.util.ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `java.util.ArrayLis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Убедиться, что qualifier не дублируется.
+5. Убедиться, что constructor insertion завершилась корректно.
+
+**Ожидаемый результат:** Вставлено `new java.util.ArrayList<>()` или эквивалентное корректно сокращённое выражение по правилам IDE; нет дублирования `java.util`, diamond и скобки не ломаются. В Remote Dev итог после backend synchronization совпадает с локальным результатом.
+
+---
+
+#### [ ] TC-130: Java — `var` и short class name используют frontend-friendly class insert handler
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить сценарий без known target type, где class name completion должен выполняться frontend-friendly handler'ом.
+
+**Предусловие:**
+- IDE запущена в Remote Development.
+- Включён `remdev.completion.on.frontend=true`.
+- Импорт `java.util.ArrayList` отсутствует.
+
+```java
+package demo;
+
+public class Imports {
+  void f() {
+    var names = new ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Открыть файл в JetBrains Client.
+2. Поставить каретку после `ArrayLis`.
+3. Нажать Ctrl+Space.
+4. Выбрать `ArrayList` и нажать Enter.
+5. Проверить результат сразу после frontend insertion.
+6. Дождаться backend synchronization.
+
+**Ожидаемый результат:** Frontend сразу вставляет `new ArrayList<>()`; после backend synchronization добавлен `import java.util.ArrayList;`, документ не расходится между frontend и backend.
+
+---
+
+#### [ ] TC-131: Java — `var` и fully qualified class name после `new`
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить completion fully qualified class name после `new` без known target type.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+
+```java
+package demo;
+
+public class Imports {
+  void f() {
+    var names = new java.util.ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `java.util.ArrayLis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Убедиться, что FQN завершён корректно.
+
+**Ожидаемый результат:** Вставлено `new java.util.ArrayList<>()`; qualifier не дублируется, лишний import не добавляется, caret находится в ожидаемом месте.
+
+---
+
+#### [ ] TC-132: Java — expected type из аргумента метода использует constructor insertion
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
+
+**Описание:** Проверить constructor completion, когда expected type приходит из параметра метода.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- Импорт `java.util.ArrayList` отсутствует или удалён перед проверкой.
+
+```java
+package demo;
+
+import java.util.List;
+
+public class Main {
+  void consume(List<String> value) {}
+
+  void f() {
+    consume(new ArrayLis<caret>)
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ArrayLis` внутри вызова `consume(...)`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Проверить вставку constructor call и import.
+5. В Remote Dev дождаться backend synchronization.
+
+**Ожидаемый результат:** Вставлено `consume(new ArrayList<>())`, добавлен `import java.util.ArrayList;`. В Remote Dev backend-side insertion не оставляет временно повреждённый документ.
+
+---
+
+#### [ ] TC-133: Java — expected type из `return` использует constructor insertion
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/SmartCompletion.java`
+
+**Описание:** Проверить completion constructor call в `return`, где expected type определяется возвращаемым типом метода.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- Импорт `java.util.ArrayList` отсутствует или удалён перед проверкой.
+
+```java
+package demo;
+
+import java.util.List;
+
+public class Main {
+  List<String> create() {
+    return new ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ArrayLis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Убедиться, что constructor call завершён корректно.
+
+**Ожидаемый результат:** Вставлено `return new ArrayList<>()`, добавлен `import java.util.ArrayList;`, caret и форматирование корректны.
+
+---
+
+#### [ ] TC-134: Java — assignment к уже типизированной переменной использует constructor insertion
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить completion constructor call при присваивании переменной с известным типом.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- Импорт `java.util.ArrayList` отсутствует или удалён перед проверкой.
+
+```java
+package demo;
+
+import java.util.List;
+
+public class Imports {
+  void f() {
+    List<String> names;
+    names = new ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ArrayLis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Проверить итоговый код.
+
+**Ожидаемый результат:** Вставлено `names = new ArrayList<>()`, добавлен `import java.util.ArrayList;`, known-type assignment не ломает frontend/backend synchronization.
+
+---
+
+#### [ ] TC-135: Java — raw expected type не вставляет некорректный diamond
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/ImportScenarios.java`
+
+**Описание:** Проверить constructor completion, когда expected type является raw type.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- Импорт `java.util.ArrayList` отсутствует или удалён перед проверкой.
+
+```java
+package demo;
+
+import java.util.List;
+
+public class Imports {
+  void f() {
+    List names = new ArrayLis<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `ArrayLis`.
+2. Нажать Ctrl+Space.
+3. Выбрать `ArrayList` и нажать Enter.
+4. Проверить, вставлен ли diamond.
+5. Убедиться, что код не содержит некорректных type arguments.
+
+**Ожидаемый результат:** Поведение соответствует Java completion для raw expected type: diamond не вставляется, если IDE считает raw type expected; код остаётся синтаксически корректным, import добавляется при необходимости.
+
+---
+
+#### [ ] TC-136: Java — constructor с параметрами запускает parameter template/info
+
+**Приоритет:** P1
+**План:** Regression
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
+
+**Описание:** Проверить constructor completion для класса с параметрами конструктора.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- Импорт `java.io.File` отсутствует или удалён перед проверкой.
+
+```java
+package demo;
+
+public class Main {
+  void f() {
+    File file = new Fil<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `Fil`.
+2. Нажать Ctrl+Space.
+3. Выбрать `File` и нажать Enter.
+4. Проверить вставку скобок и parameter info/template.
+
+**Ожидаемый результат:** Вставлено `new File(...)` в соответствии с обычным constructor completion, добавлен `import java.io.File;`; parameter info/template доступен, Remote Dev выполняет сценарий backend-side без рассинхронизации документа.
+
+---
+
+#### [ ] TC-137: Java — anonymous class constructor completion выполняется backend-side
+
+**Приоритет:** P0
+**План:** Acceptance
+**Тестовый файл:** `completion-test-projects/java/src/main/java/completion/BasicCombo.java`
+
+**Описание:** Проверить constructor completion для anonymous class, где insert handler генерирует тело anonymous class.
+
+**Предусловие:**
+- Файл с кодом открыт в редакторе.
+- Импорт `java.util.Comparator` отсутствует или удалён перед проверкой.
+
+```java
+package demo;
+
+public class Main {
+  void f() {
+    Comparator<Integer> comparator = new Compa<caret>
+  }
+}
+```
+
+**Шаги:**
+1. Поставить каретку после `Compa`.
+2. Нажать Ctrl+Space.
+3. Выбрать `Comparator<Integer>` и нажать Enter.
+4. Проверить generated anonymous class body.
+5. В Remote Dev дождаться backend synchronization.
+
+**Ожидаемый результат:** Вставлено `new Comparator<Integer>() { ... }`, добавлен `import java.util.Comparator;`, required methods generated/предложены как в локальной IDE. В Remote Dev сценарий завершается backend-side, frontend не остаётся в промежуточном состоянии.
+
+---
+
 ## Проверка полноты покрытия
 
 ### Сводная таблица покрытия
@@ -4163,7 +4470,8 @@ public class Imports {
 | 20 Сложные chained/DSL completion сценарии | 5 | TC-94 — TC-98 | 5/5 ✅ |
 | 21 Completion внутри индексаторов `[]` | 6 | TC-53 — TC-55, TC-99 — TC-101 | 6/6 ✅ |
 | 22 Продвинутые контексты completion | 15 | TC-56, TC-102 — TC-113, TC-120 — TC-121 | 15/15 ✅ |
-| **ИТОГО** | **128** | **TC-1 — TC-128** | **128/128 ✅ (100%)** |
+| 23 Java ConstructorInsertHandler / expected type | 9 | TC-129 — TC-137 | 9/9 ✅ |
+| **ИТОГО** | **137** | **TC-1 — TC-137** | **137/137 ✅ (100%)** |
 
 ### Дополнительная проверка полноты
 
@@ -4175,24 +4483,24 @@ public class Imports {
 **Распределение по приоритетам:**
 | Приоритет | Количество тест-кейсов |
 |---|---|
-| P0 | 59 |
-| P1 | 61 |
+| P0 | 63 |
+| P1 | 66 |
 | P2 | 8 |
-| **Итого** | **128** |
+| **Итого** | **137** |
 
 **Распределение по планам выполнения:**
 | План | Количество тест-кейсов | Диапазон TC |
 |---|---|---|
-| Acceptance | 59 | TC-1 — TC-56, TC-122, TC-123, TC-128 |
-| Regression | 61 | TC-57 — TC-113, TC-124 — TC-127 |
+| Acceptance | 63 | TC-1 — TC-56, TC-122, TC-123, TC-128 — TC-130, TC-132, TC-137 |
+| Regression | 66 | TC-57 — TC-113, TC-124 — TC-127, TC-131, TC-133 — TC-136 |
 | Full | 8 | TC-114 — TC-121 |
-| **Итого** | **128** | **TC-1 — TC-128** |
+| **Итого** | **137** | **TC-1 — TC-137** |
 
 **Распределение по языкам (основной код примера):**
 | Язык | Тест-кейсы |
 |---|---|
 | Kotlin | 82 |
-| Java | 32 |
+| Java | 41 |
 | TypeScript | 6 |
 | Python | 5 |
 | JSON/Config | 3 |

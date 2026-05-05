@@ -2,7 +2,6 @@ package completion;
 
 import completion.model.User;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static completion.model.User.buildUser;
@@ -12,7 +11,8 @@ import static completion.model.User.consumeUser;
  * Basic combination of completion scenarios.
  * Covers Java-side variants for:
  * TC-1, TC-2, TC-7, TC-8, TC-9, TC-16, TC-19, TC-22, TC-23,
- * TC-24, TC-28, TC-34, TC-41, TC-42, TC-63, TC-71, TC-127.
+ * TC-24, TC-28, TC-34, TC-41, TC-42, TC-63, TC-71, TC-127,
+ * TC-132, TC-136, TC-137.
  * Based on EX-JV-1.
  */
 public class BasicCombo {
@@ -46,7 +46,7 @@ public class BasicCombo {
         //   invoke completion, choose User(...), verify caret lands in expected constructor position.
         User created = new User(userName, userAge);
 
-        List<String> list = new ArrayList<>();
+        List<String> list = new java.util.ArrayList<>();
         // <caret> TC-24: Delete '\"Ann\"' below inside add(...), invoke completion;
         //   expect String variables/values
         list.add("Ann");
@@ -60,6 +60,39 @@ public class BasicCombo {
         Class<User> userClass = User.class;
 
         System.out.println(userClass.getName());
+    }
+
+    static void consume(List<String> value) {
+    }
+
+    static void expectedTypeArgumentConstructorCompletion() {
+        // <caret> TC-132: Remove 'java.util.' from the constructor call below and delete 't<>())'
+        //   so the argument ends with 'new ArrayLis'. Accept ArrayList and verify constructor insertion
+        //   plus import java.util.ArrayList.
+        consume(new java.util.ArrayList<>());
+    }
+
+    static void fileConstructorParameterTemplateCompletion() {
+        // <caret> TC-136: Remove 'java.io.' from the constructor call below and delete 'e(".");'
+        //   so the expression ends with 'new Fil'. Accept File and verify constructor parentheses
+        //   plus parameter info/template.
+        java.io.File file = new java.io.File(".");
+
+        System.out.println(file.getPath());
+    }
+
+    static void anonymousClassConstructorCompletion() {
+        // <caret> TC-137: Remove 'java.util.' from the constructor call below, then delete from
+        //   'rator<>() {' through the matching '};' so the right-hand side is 'new Compa'.
+        //   Accept Comparator<Integer> and verify the anonymous class body is generated.
+        java.util.Comparator<Integer> comparator = new java.util.Comparator<>() {
+            @Override
+            public int compare(Integer left, Integer right) {
+                return Integer.compare(left, right);
+            }
+        };
+
+        System.out.println(comparator.compare(1, 2));
     }
 
     static int keywordReturnScenario() {
