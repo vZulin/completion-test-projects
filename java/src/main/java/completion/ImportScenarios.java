@@ -1,5 +1,6 @@
 package completion;
 
+
 import static java.lang.Math.max;
 
 // NOTE: No regular class imports here; qualified names are intentional for auto-import testing.
@@ -34,6 +35,24 @@ public class ImportScenarios {
 
         System.out.println(listForImport.size() + utilDate.getTime() + sqlDate.getTime() + list.size());
     }
+
+
+
+    void varShortClass() {
+        var names = new ArrayList<>();
+        //System.out.println(names.size());
+
+    }
+
+    void varFullyQualified() {
+        var names = new java.util.ArrayList<>();
+        //System.out.println(names.size());
+    }
+
+    void constructorCompletion() {
+        java.util.List<String> names = new ArrayList<>();
+    }
+
 
     void constructorDiamondCompletion() {
         // <caret> TC-122: Remove 'java.util.' from the constructor call below and delete 't<>();'
