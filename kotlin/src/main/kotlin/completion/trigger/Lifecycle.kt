@@ -59,7 +59,7 @@ fun triggerScenarios() {
     // --- Path completion ---
 
     // <caret> TC-11: Place caret inside quotes in File(""); invoke completion for file paths
-    val filePathCandidate = File("src/")
+    val filePathCandidate = File("/java")
 
     // --- Race / cancel / fast-typing scenarios (manual steps) ---
 

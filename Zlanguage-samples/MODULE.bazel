@@ -1,0 +1,234 @@
+bazel_dep(name = "bazel_lib", version = "3.2.2")
+bazel_dep(name = "rules_kotlin", version = "2.2.2")
+bazel_dep(name = "rules_pkg", version = "1.2.0")
+bazel_dep(name = "rules_java", version = "9.6.1")
+bazel_dep(name = "rules_jvm", version = "0.0.1")
+bazel_dep(name = "rules_jvm_external", version = "6.10")
+bazel_dep(name = "rules_nodejs", version = "6.7.4")
+bazel_dep(name = "bazel_skylib", version = "1.9.0")
+bazel_dep(name = "platforms", version = "1.1.0")
+bazel_dep(name = "llvm", version = "0.8.9")
+bazel_dep(name = "protobuf", version = "33.4")
+bazel_dep(name = "community")
+bazel_dep(name = "jps_to_bazel")
+bazel_dep(name = "lib")
+bazel_dep(name = "ultimate_lib")
+bazel_dep(name = "rules_python", version = "1.7.0")
+bazel_dep(name = "rules_rs", version = "0.0.93")
+bazel_dep(name = "rules_cc", version = "0.2.19")
+bazel_dep(name = "libx11", version = "1.8.12.bcr.5")
+bazel_dep(name = "libxcb", version = "1.17.0.bcr.2")
+bazel_dep(name = "libxcb-keysyms", version = "0.4.1.bcr.1")
+bazel_dep(name = "windows_support", version = "0.2.0")
+bazel_dep(name = "rules_multirun", version = "0.13.0")
+bazel_dep(name = "rules_go", version = "0.59.0")
+bazel_dep(name = "gazelle", version = "0.47.0")
+
+bazel_dep(name = "buildozer", version = "8.5.1", dev_dependency = True)
+
+local_path_override(
+    module_name = "community",
+    path = "community",
+)
+
+local_path_override(
+    module_name = "jps_to_bazel",
+    path = "community/platform/build-scripts/bazel",
+)
+
+local_path_override(
+    module_name = "lib",
+    path = "community/lib",
+)
+
+local_path_override(
+    module_name = "ultimate_lib",
+    path = "lib",
+)
+
+local_path_override(
+    module_name = "rules_jvm",
+    path = "community/build/jvm-rules",
+)
+
+archive_override(
+    module_name = "rules_kotlin",
+    sha256 = "cd26fd62ec0d026ad4d143dedfef3e6ca858a2d0be483f57109897b27069b2c3",
+    strip_prefix = "rules_kotlin-4db4cd06b0ca11742f7dccec5e19fd642c5c2cb1",
+    url = "https://github.com/JetBrains/rules_kotlin/archive/4db4cd06b0ca11742f7dccec5e19fd642c5c2cb1.zip",
+)
+
+single_version_override(
+    module_name = "llvm",
+    patch_strip = 1,
+    patches = [
+        "//:community/build/llvm_msvc.patch",  # TODO: remove that once merged to upstream
+    ],
+)
+
+# Pin protobuf version to match rules_kotlin and enable precompiled protos
+single_version_override(
+    module_name = "protobuf",
+    patch_strip = 1,
+    patches = ["//:community/build/jvm-rules/protobuf-33.4-reuse-win64-for-arm.patch"],
+    version = "33.4",
+)
+
+msvc_runtime = use_extension("@windows_support//windows:extensions.bzl", "msvc_runtime")
+msvc_runtime.configure(
+    msvc_version = "14.50.35717",
+    visual_studio_installer_manifest_integrity = "sha256-qOhU+p8/uurCfXME4pfxZg1xN0ATid61fPeYPzPBb+8=",
+    visual_studio_installer_manifest_url = "https://download.visualstudio.microsoft.com/download/pr/fdc37f6e-59f6-4054-838a-b476eeaa6ec3/1d82370739911457e0a2f6be15d8b5f569531b352b2eabb961429eea1e99e356/VisualStudio.vsman",
+)
+use_repo(msvc_runtime, "msvc_runtime")
+# TODO: should we `override_repo` too?
+
+windows_sdk = use_extension("@windows_support//windows:extensions.bzl", "windows_sdk")
+windows_sdk.configure(
+    transformations = {
+        # TODO: change using vfs instead!
+        "base/c/Include/10.0.26100.0/shared/driverspecs.h": "base/c/Include/10.0.26100.0/shared/DriverSpecs.h",
+        "base/c/Include/10.0.26100.0/shared/specstrings.h": "base/c/Include/10.0.26100.0/shared/SpecStrings.h",
+        "base/c/Include/10.0.26100.0/um/ole2.h": "base/c/Include/10.0.26100.0/um/Ole2.h",
+        "base/c/Include/10.0.26100.0/um/olectl.h": "base/c/Include/10.0.26100.0/um/OleCtl.h",
+        "**/*.h": "lowercase",
+        "**/*.lib": "lowercase",
+        "**/*.Lib": "lowercase",
+    },
+    windows_sdk_integrity = {
+        "Microsoft.Windows.SDK.CPP": "sha256-/0VWYL7gcadEcVqWZWZvopwHaBV509gVlZqe7FpVZCQ=",
+        "Microsoft.Windows.SDK.CPP.x64": "sha256-rWzpD/lAEGmdKVSLPCseUsieuBFD4hmRVdmlw4ABtSs=",
+        "Microsoft.Windows.SDK.CPP.arm64": "sha256-A7wMA9Q5zvhQdLvNQl+dXTptO0Z5Z6zSHaO6bf7q+mc=",
+    },
+    windows_sdk_version = "10.0.26100.7705",
+)
+use_repo(windows_sdk, "windows_sdk")
+# TODO: should we `override_repo` too?
+
+osx = use_extension("@llvm//extensions:osx.bzl", "osx")
+osx.libraries(names = ["libz"])  # needed by GraalVM native-image link //toolbox/daemon/distribution/graalvm:native_image
+osx.from_archive(
+    # TODO: remove once `llvm` is upgraded, there will be no need to add that override anymore as we will be using the mirror anyway which will guarantee it will work
+    sha256 = "edc7ce9b8f09e0c7a39aaa714f941b4c2597f333ec1ffe59a14d67eb36cdb7e7",
+    strip_prefix = "Payload/Library/Developer/CommandLineTools/SDKs/MacOSX26.4.sdk",
+    type = "pkg",
+    urls = [
+        "https://swcdn.apple.com/content/downloads/60/13/122-35686-A_30JUXWIJFR/ck0gzuw5qccefzm3ptlwou3pu6a55d0o02/CLTools_macOSNMOS_SDK.pkg",
+    ],
+)
+osx.frameworks(
+    names = [
+        "ApplicationServices",
+        "FontServices",
+        "PrintCore",
+        "AppKit",
+        "ColorSync",
+        "CoreData",
+        "CoreFoundation",
+        "CoreGraphics",
+        "CoreImage",
+        "CoreServices",
+        "CoreText",
+        "CoreVideo",
+        "DiskArbitration",
+        "Foundation",
+        "ImageIO",
+        "IOSurface",
+        "Kernel",
+        "Metal",
+        "OpenGL",
+        "OSLog",
+        "QuartzCore",
+        "Security",
+        "Symbols",
+        "SystemConfiguration",
+        "UIFoundation",
+        "CFNetwork",
+        "IOKit",
+        "Cocoa",
+        "Carbon",
+        "UserNotifications",
+    ],
+)
+use_repo(osx, "macos_sdk")
+
+register_toolchains("@llvm//toolchain:all")
+
+include("//:private.MODULE.bazel")
+include("//fleet:fleet.MODULE.bazel")
+
+http_jar = use_repo_rule("@bazel_tools//tools/build_defs/repo:http.bzl", "http_jar")
+
+http_jar(
+    name = "bazel-diff",
+    sha256 = "e0724edee9e421e027d34e9057b9fee723d4d5bed6c38d2c5010cb10263d6e69",
+    url = "https://github.com/Tinder/bazel-diff/releases/download/13.0.0/bazel-diff_deploy.jar",
+)
+
+single_version_override(
+    module_name = "rules_jvm_external",
+    patches = [
+        "//:community/platform/build-scripts/bazel/rules-jvm-external-6.10-make-coursier-repo-targets-shell-free-and-hermetic.patch",
+        "//:community/platform/build-scripts/bazel/rules-jvm-external-6.10-default-to-maven-resolver.patch",
+        "//:community/platform/build-scripts/bazel/rules-jvm-external-6.10-optional-source-jars.patch",
+        "//:community/platform/build-scripts/bazel/rules-jvm-external-6.10-coursier-optional-file-field.patch",
+        "//:community/platform/build-scripts/bazel/rules-jvm-external-6.10-fix-multi-repo-hash.patch",
+    ],
+    version = "6.10",
+)
+
+single_version_override(
+    module_name = "rules_android",
+    patches = [
+        "//:community/platform/build-scripts/bazel/rules-android-0.7.1-pin-maven-installs.patch",
+    ],
+    version = "0.7.1",
+)
+
+single_version_override(
+    module_name = "bazel_worker_java",
+    patches = [
+        "//:community/platform/build-scripts/bazel/worker-java-0.0.9-pin-bazel-worker-maven.patch",
+    ],
+    version = "0.0.10",
+)
+
+# Register the extension that runs jps-to-bazel converter and provides target lists for dev-build.
+use_repo(
+    use_extension("//build:jps_dynamic_deps_ultimate.bzl", "jps_dynamic_deps_ultimate_extension"),
+    "jps_dynamic_deps_ultimate",
+)
+
+# Register kotlin_test_deps in ultimate context
+kotlin_test_deps = use_repo_rule("@community//plugins/kotlin:kotlin_test_dependencies.bzl", "kotlin_test_deps")
+
+kotlin_test_deps(name = "kotlin_test_deps")
+
+include("//:community/debugger_test_deps.MODULE.bazel")
+
+go_sdk = use_extension("@rules_go//go:extensions.bzl", "go_sdk")
+go_sdk.download(
+    name = "go_sdk",
+    version = "1.25.0",
+)
+use_repo(go_sdk, "go_sdk")
+
+single_version_override(
+    module_name = "rules_rs",
+    patch_strip = 1,
+    patches = [
+        "//:build/native/patches/rules-rs-build-script-metadata.patch",  # TODO: remove https://github.com/hermeticbuild/rules_rs/issues/161 is fixed
+    ],
+)
+
+rules_rust = use_extension("@rules_rs//rs:rules_rust.bzl", "rules_rust")
+use_repo(rules_rust, "rules_rust")
+
+rust_toolchains = use_extension("@rules_rs//rs/toolchains:module_extension.bzl", "toolchains")
+rust_toolchains.toolchain(
+    edition = "2021",
+    version = "1.93.1",
+)
+use_repo(rust_toolchains, "default_rust_toolchains")
+
+register_toolchains("@default_rust_toolchains//:all")

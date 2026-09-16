@@ -1,0 +1,4 @@
+desc "Run the RubyMine smoke fixture"
+task :greeting do
+  puts "Hello, RubyMine!"
+end

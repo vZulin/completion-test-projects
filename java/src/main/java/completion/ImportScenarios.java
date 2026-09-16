@@ -1,6 +1,8 @@
 package completion;
 
 
+import java.util.ArrayList;
+
 import static java.lang.Math.max;
 
 // NOTE: No regular class imports here; qualified names are intentional for auto-import testing.
@@ -54,13 +56,14 @@ public class ImportScenarios {
     }
 
 
+    enum Foo { foo, bar, baz}
     void constructorDiamondCompletion() {
         // <caret> TC-122: Remove 'java.util.' from the constructor call below and delete 't<>();'
         //   so the expression ends with 'new ArrayLis'. Accept ArrayList and verify 'new ArrayList<>()'
         //   plus import java.util.ArrayList.
         java.util.List<String> names = new java.util.ArrayList<>();
 
-        System.out.println(names.size());
+        System.out.println(Foo.foo);
     }
 
     void remoteFrontendImportCompletion() {

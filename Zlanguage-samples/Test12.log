@@ -1,0 +1,5 @@
+============= 2026-09-16 12:21:41.280108 UTC
+    0 [info ] args: ["/Users/Vladimir.Zulin/Applications/IntelliJ IDEA 2026.3 Nightly.app/Contents/bin/restarter", "99557", "1", "/Users/Vladimir.Zulin/Applications/IntelliJ IDEA 2026.3 Nightly.app/Contents/MacOS/idea"]
+    0 [info ] CWD: Ok("/Users/Vladimir.Zulin")
+    0 [info ] waiting for 99557
+  421 [info ] exec-ing: ["/Users/Vladimir.Zulin/Applications/IntelliJ IDEA 2026.3 Nightly.app/Contents/MacOS/idea"]

@@ -1,0 +1,3 @@
+application:
+  name: language-plugin-smoke-test
+  enabled: true

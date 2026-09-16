@@ -1,0 +1,8 @@
+{
+  "name": "webstorm-smoke",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node test51.js"
+  }
+}
